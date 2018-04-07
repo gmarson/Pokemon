@@ -16,5 +16,14 @@ struct Pokemon : Codable {
     var is_default: Bool?
     var order: Int?
     var weight: Int?
+    var sprites: Sprites?
+    var species: NameAndUrl?
+    var game_indices: [GameIndice]?
+    var stats: [Stat]?
     var abilities: [Ability]?
+    var forms: [NameAndUrl]?
+    var types: [Type]?
+    var moves: [Move]?
+    var held_itens: [HeldItem]?
+    var location_area_encounters: [LocationAreaEncounter]?
 }
