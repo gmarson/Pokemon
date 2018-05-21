@@ -39,17 +39,47 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
     }
     
     // MARK: - Responses
-    func request<T>(of Type: T.Type, method: HTTPMethod, headers: HTTPHeaders, payload: Data?, onSuccess: ((T) -> ()), onFailure: ((NetworkError) -> ()), onCompletion: (() -> ())) where T : Decodable, T : Encodable {
+    func request<T>(of Type: T.Type, method: HTTPMethod, headers: HTTPHeaders, payload: Data?, onSuccess: ((T) -> ()), onFailure: ((NetworkError) -> ()), onCompletion: (() -> ())) where T : Codable {
         
+        guard let url = self.baseUrl else {
+            onFailure(NetworkError(code: .invalidURL, response: nil, request: nil) )
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            //encode here
+        }
+        
+        
+        task.resume()
     }
     
-    func request<T>(of Type: T.Type, method: HTTPMethod, headers: HTTPHeaders, payload: Data?, onSuccess: (([T]) -> ()), onFailure: ((NetworkError) -> ()), onCompletion: (() -> ())) where T : Decodable, T : Encodable {
+    func request<T>(of Type: T.Type, method: HTTPMethod, headers: HTTPHeaders, payload: Data?, onSuccess: (([T]) -> ()), onFailure: ((NetworkError) -> ()), onCompletion: (() -> ())) where T : Codable {
+        guard let url = self.baseUrl else {
+            onFailure(NetworkError(code: .invalidURL, response: nil, request: nil) )
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            //encode here
+        }
+        
+        task.resume()
         
     }
     
     func request(method: HTTPMethod, headers: HTTPHeaders, payload: Data?, onSuccess: (() -> ()), onFailure: ((NetworkError) -> ()), onCompletion: (() -> ())) {
+        guard let url = self.baseUrl else {
+            onFailure(NetworkError(code: .invalidURL, response: nil, request: nil) )
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            //encode here
+        }
+        
+        task.resume()
         
     }
-    
     
 }
