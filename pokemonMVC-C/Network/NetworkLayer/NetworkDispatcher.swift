@@ -19,28 +19,37 @@ public enum HTTPMethod: String {
 public typealias HTTPHeaders = [String:String]
 
 protocol NetworkDispatcherProtocol {
-    var baseUrl: URL { get }
-    init(baseUrl: URL)
-    func request<T: Codable>(of Type: T.Type, method: HTTPMethod, headers: HTTPHeaders, onSuccess success: ((T) -> ()), onFailure failure: (() -> ()), onCompletion completion: (() -> ()))
-    
+    var baseUrl: URL? { get }
+    init(path: String)
+    func request<T: Codable>(of Type: T.Type, method: HTTPMethod, headers: HTTPHeaders, payload: Data?, onSuccess: ((T) -> ()), onFailure: ((NetworkError) -> ()), onCompletion: (() -> ()))
+    func request<T: Codable>(of Type: T.Type, method: HTTPMethod, headers: HTTPHeaders, payload: Data?, onSuccess: (([T]) -> ()), onFailure: ((NetworkError) -> ()), onCompletion: (() -> ()))
+    func request(method: HTTPMethod, headers: HTTPHeaders, payload: Data?, onSuccess: (() -> ()), onFailure: ((NetworkError) -> ()), onCompletion: (() -> ()))
 }
 
-class NetworkDispatcher  {
+class NetworkDispatcher: NetworkDispatcherProtocol {
     
     // MARK: - Properties
-    
-    private(set) var baseUrl: URL
+    private(set) var baseUrl: URL?
     
     // MARK: - Lifecycle
-    
-    required init(baseUrl: URL) {
-        self.baseUrl = baseUrl
+    required init(path: String) {
+        if let url = URL(string: Environment.shared.baseURL + path) {
+            self.baseUrl = url
+        }
     }
     
     // MARK: - Responses
+    func request<T>(of Type: T.Type, method: HTTPMethod, headers: HTTPHeaders, payload: Data?, onSuccess: ((T) -> ()), onFailure: ((NetworkError) -> ()), onCompletion: (() -> ())) where T : Decodable, T : Encodable {
+        
+    }
     
+    func request<T>(of Type: T.Type, method: HTTPMethod, headers: HTTPHeaders, payload: Data?, onSuccess: (([T]) -> ()), onFailure: ((NetworkError) -> ()), onCompletion: (() -> ())) where T : Decodable, T : Encodable {
+        
+    }
     
-    
+    func request(method: HTTPMethod, headers: HTTPHeaders, payload: Data?, onSuccess: (() -> ()), onFailure: ((NetworkError) -> ()), onCompletion: (() -> ())) {
+        
+    }
     
     
 }

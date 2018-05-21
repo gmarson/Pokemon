@@ -11,10 +11,7 @@ import Foundation
 
 class PokemonServices {
     
-    //MARK: Properties
-    private var url : String {
-        return Environment.shared.baseURL + "pokemon"
-    }
+    
     
     
     //MARK: Service Calls
