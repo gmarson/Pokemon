@@ -9,7 +9,7 @@
 import Foundation
 
 enum ErrorCode : String {
-    case jsonParse = "Parse error"
+    case serializationError = "Serialization Error"
     case invalidURL = "Invalid URL"
     case parametersNil = "Parameters are null"
 }

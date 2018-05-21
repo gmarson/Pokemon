@@ -35,6 +35,9 @@
 		A0ACE3D5206EAC650048B936 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ACE3D4206EAC650048B936 /* Pokemon.swift */; };
 		A0ACE3D8206EADCB0048B936 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ACE3D7206EADCB0048B936 /* Ability.swift */; };
 		A73E8FF520B3032E00427E94 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73E8FF420B3032E00427E94 /* NetworkError.swift */; };
+		A780ECFA20B342A300D8DC40 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A780ECF920B342A300D8DC40 /* Decoder.swift */; };
+		A780ECFE20B34F6A00D8DC40 /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A780ECFD20B34F6A00D8DC40 /* Encoder.swift */; };
+		A780ED0020B35B1A00D8DC40 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A780ECFF20B35B1A00D8DC40 /* NetworkResponse.swift */; };
 		A794287220AB71D800C49A84 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A794287120AB71D800C49A84 /* Coordinator.swift */; };
 		A794287420AB729600C49A84 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A794287320AB729600C49A84 /* ApplicationCoordinator.swift */; };
 		A794287820AC601000C49A84 /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A794287720AC601000C49A84 /* NetworkDispatcher.swift */; };
@@ -92,6 +95,9 @@
 		A0ACE3D4206EAC650048B936 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		A0ACE3D7206EADCB0048B936 /* Ability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
 		A73E8FF420B3032E00427E94 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		A780ECF920B342A300D8DC40 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		A780ECFD20B34F6A00D8DC40 /* Encoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encoder.swift; sourceTree = "<group>"; };
+		A780ECFF20B35B1A00D8DC40 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		A794287120AB71D800C49A84 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A794287320AB729600C49A84 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		A794287720AC601000C49A84 /* NetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
@@ -131,12 +137,12 @@
 			path = Moveset;
 			sourceTree = "<group>";
 		};
-		A07FC27B20793D1400B1B6A1 /* GameIndices */ = {
+		A07FC27B20793D1400B1B6A1 /* GameIndice */ = {
 			isa = PBXGroup;
 			children = (
 				A07FC27C20793D2A00B1B6A1 /* GameIndice.swift */,
 			);
-			path = GameIndices;
+			path = GameIndice;
 			sourceTree = "<group>";
 		};
 		A07FC28020793D7300B1B6A1 /* HeldItem */ = {
@@ -213,7 +219,6 @@
 		A0ACE3C1206E992F0048B936 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				A794287920AC7C7200C49A84 /* Response */,
 				A794287620AC5FEB00C49A84 /* NetworkLayer */,
 				A794287520AC5FE000C49A84 /* Services */,
 			);
@@ -272,7 +277,7 @@
 			children = (
 				A07FC28320793E5A00B1B6A1 /* Location */,
 				A07FC28020793D7300B1B6A1 /* HeldItem */,
-				A07FC27B20793D1400B1B6A1 /* GameIndices */,
+				A07FC27B20793D1400B1B6A1 /* GameIndice */,
 				A07FC27620793C5800B1B6A1 /* Moveset */,
 				A0ACE3D6206EADB20048B936 /* Attributes */,
 				A0ACE3D3206EAC590048B936 /* Pokemon */,
@@ -300,6 +305,15 @@
 			path = Attributes;
 			sourceTree = "<group>";
 		};
+		A780ECF820B341A600D8DC40 /* Encoder-Decoder */ = {
+			isa = PBXGroup;
+			children = (
+				A780ECF920B342A300D8DC40 /* Decoder.swift */,
+				A780ECFD20B34F6A00D8DC40 /* Encoder.swift */,
+			);
+			path = "Encoder-Decoder";
+			sourceTree = "<group>";
+		};
 		A794287020AB71BF00C49A84 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,17 +334,20 @@
 		A794287620AC5FEB00C49A84 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				A780ECF820B341A600D8DC40 /* Encoder-Decoder */,
+				A794287920AC7C7200C49A84 /*  ResponseModels */,
 				A794287720AC601000C49A84 /* NetworkDispatcher.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
-		A794287920AC7C7200C49A84 /* Response */ = {
+		A794287920AC7C7200C49A84 /*  ResponseModels */ = {
 			isa = PBXGroup;
 			children = (
 				A73E8FF420B3032E00427E94 /* NetworkError.swift */,
+				A780ECFF20B35B1A00D8DC40 /* NetworkResponse.swift */,
 			);
-			path = Response;
+			path = " ResponseModels";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,13 +498,16 @@
 				A07FC26F2079396F00B1B6A1 /* Type.swift in Sources */,
 				A07FC28520793E7500B1B6A1 /* LocationAreaEncounter.swift in Sources */,
 				A07FC27520793C2200B1B6A1 /* Move.swift in Sources */,
+				A780ED0020B35B1A00D8DC40 /* NetworkResponse.swift in Sources */,
 				A07FC27F20793D6300B1B6A1 /* HeldItem.swift in Sources */,
 				A0ACE3D5206EAC650048B936 /* Pokemon.swift in Sources */,
+				A780ECFE20B34F6A00D8DC40 /* Encoder.swift in Sources */,
 				A0ACE3CE206EA86F0048B936 /* UITableViewCellExtension.swift in Sources */,
 				A794287220AB71D800C49A84 /* Coordinator.swift in Sources */,
 				A794287820AC601000C49A84 /* NetworkDispatcher.swift in Sources */,
 				A07FC28220793DA000B1B6A1 /* VersionItemDetail.swift in Sources */,
 				A07FC27820793C7000B1B6A1 /* VersionGroupDetail.swift in Sources */,
+				A780ECFA20B342A300D8DC40 /* Decoder.swift in Sources */,
 				A0ACE391206E99050048B936 /* AppDelegate.swift in Sources */,
 				A0ACE399206E99050048B936 /* pokemonMVC_C.xcdatamodeld in Sources */,
 				A73E8FF520B3032E00427E94 /* NetworkError.swift in Sources */,
