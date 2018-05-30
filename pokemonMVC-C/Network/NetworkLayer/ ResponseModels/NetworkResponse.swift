@@ -12,10 +12,6 @@ class NetworkResponse {
     var response: URLResponse?
     var request: URLRequest?
     var rawResponseObject: String?
-    
-    required init(response: URLResponse) {
-        self.response = response
-    }
-    
+    var error: NetworkError?
     
 }

@@ -9,20 +9,28 @@
 import Foundation
 
 protocol DecoderProtocol {
-    func decode<T: Decodable>(response: Data?, type: T.Type) -> T?
+    func decode<T: Decodable>(data: Data?, type: T.Type) -> T?
+    func decodeArray<T: Decodable>(data: Data?, type: T.Type) -> [T]?
 }
 
 class Decoder: DecoderProtocol {
     
-    func decode<T: Decodable>(response: Data?, type: T.Type) -> T? {
+    func decode<T: Decodable>(data: Data?, type: T.Type) -> T? {
         
-        if let data = response {
+        if let data = data {
             let decodedData = try? JSONDecoder().decode(T.self, from: data)
             return decodedData
         }
         return nil
     }
     
-    
+    func decodeArray<T: Decodable>(data: Data?, type: T.Type) -> [T]? {
+        
+        if let data = data {
+            let decodedData = try? JSONDecoder().decode([T].self, from: data)
+            return decodedData
+        }
+        return nil
+    }
     
 }

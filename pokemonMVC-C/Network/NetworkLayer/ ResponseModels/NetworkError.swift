@@ -8,15 +8,16 @@
 
 import Foundation
 
-enum ErrorCode : String {
-    case serializationError = "Serialization Error"
-    case invalidURL = "Invalid URL"
-    case parametersNil = "Parameters are null"
-}
-
-struct NetworkError: Error {
+struct NetworkError {
+    var code: Int?
+    var message: String?
+    var error: Error?
     
-    var code: ErrorCode
-    var response: HTTPURLResponse?
-    var request: URLRequest?
+    init(code: Int? = nil, message: String, error: Error? = nil) {
+        if let error = error {
+            self.error = error
+        }
+        self.message = message
+        //what to do with message and code attributes
+    }
 }

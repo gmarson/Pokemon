@@ -41,6 +41,7 @@
 		A794287220AB71D800C49A84 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A794287120AB71D800C49A84 /* Coordinator.swift */; };
 		A794287420AB729600C49A84 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A794287320AB729600C49A84 /* ApplicationCoordinator.swift */; };
 		A794287820AC601000C49A84 /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A794287720AC601000C49A84 /* NetworkDispatcher.swift */; };
+		A7B87C5D20B87DCB00D1173B /* ErrorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B87C5C20B87DCB00D1173B /* ErrorFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		A794287120AB71D800C49A84 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A794287320AB729600C49A84 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		A794287720AC601000C49A84 /* NetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
+		A7B87C5C20B87DCB00D1173B /* ErrorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +348,7 @@
 			children = (
 				A73E8FF420B3032E00427E94 /* NetworkError.swift */,
 				A780ECFF20B35B1A00D8DC40 /* NetworkResponse.swift */,
+				A7B87C5C20B87DCB00D1173B /* ErrorFactory.swift */,
 			);
 			path = " ResponseModels";
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				A780ED0020B35B1A00D8DC40 /* NetworkResponse.swift in Sources */,
 				A07FC27F20793D6300B1B6A1 /* HeldItem.swift in Sources */,
 				A0ACE3D5206EAC650048B936 /* Pokemon.swift in Sources */,
+				A7B87C5D20B87DCB00D1173B /* ErrorFactory.swift in Sources */,
 				A780ECFE20B34F6A00D8DC40 /* Encoder.swift in Sources */,
 				A0ACE3CE206EA86F0048B936 /* UITableViewCellExtension.swift in Sources */,
 				A794287220AB71D800C49A84 /* Coordinator.swift in Sources */,
