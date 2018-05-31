@@ -19,8 +19,8 @@ public enum HTTPMethod: String {
 public typealias Headers = [String:String]
 
 protocol NetworkDispatcherProtocol {
-    var baseUrl: URL? { get }
-    init(path: String)
+    var baseUrl: URL { get }
+    init(baseUrl: String)
     var errorFactory: ErrorFactory { get set }
     func request<T: Codable>(of Type: T.Type, method: HTTPMethod, headers: Headers, payload: Data?, onSuccess: @escaping ((NetworkResponse, T?) -> ()), onFailure: @escaping ((NetworkResponse) -> ()), onCompletion: (() -> ()))
     func request<T: Codable>(of Type: T.Type, method: HTTPMethod, headers: Headers, payload: Data?, onSuccess: @escaping ((NetworkResponse, [T]?) -> ()), onFailure: @escaping ((NetworkResponse) -> ()), onCompletion: (() -> ()))
@@ -29,18 +29,18 @@ protocol NetworkDispatcherProtocol {
 
 class NetworkDispatcher: NetworkDispatcherProtocol {
     
+    
     // MARK: - Properties
-    private(set) var baseUrl: URL?
+    private(set) var baseUrl: URL
     private var encoder: EncoderProtocol = Encoder()
     private var decoder: DecoderProtocol = Decoder()
     let session = URLSession.shared
     internal var errorFactory = ErrorFactory()
+    private var defaultHeaders = ["Content-Type":"application/json"]
     
     // MARK: - Lifecycle
-    required init(path: String) {
-        if let url = URL(string: Environment.shared.baseURL + path) {
-            self.baseUrl = url
-        }
+    required init(baseUrl: String) {
+        self.baseUrl = URL(string:Environment.shared.baseURL + baseUrl)!
     }
     
     // MARK: - Responses
@@ -54,16 +54,33 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
     {
         
         let networkResponse = NetworkResponse()
-        guard let url = self.baseUrl else {
-            networkResponse.error = self.errorFactory.getError(type: .serializationError)
+       
+        guard let urlRequest = self.buildRequest(url: self.baseUrl, httpMethod: method) else {
+            networkResponse.error = self.errorFactory.getError(type: .invalidURL)
             onFailure(networkResponse)
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+        let task = URLSession.shared.dataTask(with: urlRequest) {(data, response, error) in
+            networkResponse.request = urlRequest
+            networkResponse.response = response as? HTTPURLResponse
+            guard let decodedObject = self.decoder.decode(data: data, type: T.self) else {
+                networkResponse.error = self.errorFactory.getError(type: .serializationError)
+                onFailure(networkResponse)
+                return
+            }
+            
             if let data = data {
                 networkResponse.rawResponseObject = String(data: data, encoding: .utf8)
             }
+            
+            if let error = error {
+                networkResponse.error = self.errorFactory.getError(type: .other, error: error)
+                onFailure(networkResponse)
+                return
+            }
+            
+            onSuccess(networkResponse, decodedObject)
         }
         
         task.resume()
@@ -79,13 +96,15 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
                     onCompletion: (() -> ())) where T : Codable
     {
         let networkResponse = NetworkResponse()
-        guard let url = self.baseUrl else {
-            networkResponse.error = self.errorFactory.getError(type: .serializationError)
+        guard let urlRequest = self.buildRequest(url: self.baseUrl, httpMethod: method) else {
+            networkResponse.error = self.errorFactory.getError(type: .invalidURL)
             onFailure(networkResponse)
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+        let task = URLSession.shared.dataTask(with: urlRequest) {(data, response, error) in
+            networkResponse.request = urlRequest
+            networkResponse.response = response as? HTTPURLResponse
             guard let decodedObject = self.decoder.decodeArray(data: data, type: T.self) else {
                 networkResponse.error = self.errorFactory.getError(type: .serializationError)
                 onFailure(networkResponse)
@@ -97,8 +116,9 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
             }
             
             if let error = error {
-                networkResponse.error = NetworkError(message: "", error: error)
+                networkResponse.error = self.errorFactory.getError(type: .other, error: error)
                 onFailure(networkResponse)
+                return
             }
             
             onSuccess(networkResponse, decodedObject)
@@ -115,30 +135,44 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
                  onCompletion: (() -> ()))
     {
         let networkResponse = NetworkResponse()
-        guard let url = self.baseUrl else {
-            networkResponse.error = self.errorFactory.getError(type: .serializationError)
+        guard let urlRequest = self.buildRequest(url: self.baseUrl, httpMethod: method) else {
+            networkResponse.error = self.errorFactory.getError(type: .invalidURL)
             onFailure(networkResponse)
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-            if let response = response {
-                networkResponse.response = response
-            }
-    
+        let task = URLSession.shared.dataTask(with: urlRequest) {(data, response, error) in
+            networkResponse.request = urlRequest
+            networkResponse.response = response as? HTTPURLResponse
             if let data = data {
                 networkResponse.rawResponseObject = String(data: data, encoding: .utf8)
                 onSuccess(networkResponse)
+                return
             }
             
             if let error = error {
-                networkResponse.error = NetworkError(message: "", error: error)
+                networkResponse.error = self.errorFactory.getError(type: .other, error: error)
                 onFailure(networkResponse)
+                return
             }
-            
         }
         
         task.resume()
+    }
+    
+    func buildRequest(url: URL, httpMethod: HTTPMethod , httpBody: Data? = nil, headers: Headers? = nil) -> URLRequest? {
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpBody = httpBody
+        urlRequest.allHTTPHeaderFields = self.defaultHeaders
+        urlRequest.httpMethod = httpMethod.rawValue
+        
+        if let headers = headers {
+            for header in headers {
+                urlRequest.setValue(header.key, forHTTPHeaderField: header.value)
+            }
+        }
+        
+        return urlRequest
     }
     
 }

@@ -9,15 +9,13 @@
 import Foundation
 
 struct NetworkError {
-    var code: Int?
     var message: String?
     var error: Error?
     
-    init(code: Int? = nil, message: String, error: Error? = nil) {
+    init(message: String? = nil, error: Error? = nil) {
         if let error = error {
             self.error = error
+            self.message = (message == nil) ? error.localizedDescription : message
         }
-        self.message = message
-        //what to do with message and code attributes
     }
 }

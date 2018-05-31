@@ -12,19 +12,23 @@ public enum ErrorType : String {
     case serializationError = "Serialization Error"
     case invalidURL = "Invalid URL"
     case parametersNil = "Parameters are null"
+    case other = ""
 }
 
 class ErrorFactory {
     
-    func getError(type: ErrorType) -> NetworkError {
+    func getError(type: ErrorType, error: Error? = nil) -> NetworkError {
+        
         
         switch type {
         case .serializationError:
-            return NetworkError(code: 410, message: type.rawValue)
+            return NetworkError(message: type.rawValue)
         case .invalidURL:
-            return NetworkError(code: 411, message: type.rawValue)
+            return NetworkError(message: type.rawValue)
         case .parametersNil:
-            return NetworkError(code: 412, message: type.rawValue)
+            return NetworkError(message: type.rawValue)
+        case .other:
+            return NetworkError(error: error)
         }
     }
 }

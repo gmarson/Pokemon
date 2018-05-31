@@ -9,7 +9,7 @@
 import Foundation
 
 class NetworkResponse {
-    var response: URLResponse?
+    var response: HTTPURLResponse?
     var request: URLRequest?
     var rawResponseObject: String?
     var error: NetworkError?
