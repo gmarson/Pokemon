@@ -23,6 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         self.applicationCoordinator = applicationCoordinator
         
+        let pokemonServices = PokemonServices()
+        pokemonServices.getPokemon(identifier: "1", onSuccess: { (response, pokemon) in
+            print("success")
+        }, onFailure: { (response) in
+            print("failure")
+        }) {
+            print("completion")
+        }
+        
+        
+        
         applicationCoordinator.start()
         
         return true

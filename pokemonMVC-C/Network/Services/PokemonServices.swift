@@ -11,12 +11,23 @@ import Foundation
 
 class PokemonServices {
     
+    private let baseUrl = "pokemon/"
     
     
-    
-    //MARK: Service Calls
-//    func getPokemon(byName name : String) -> Pokemon {
-//
-//    }
+    func getPokemon(identifier : String,
+                    onSuccess: @escaping ((NetworkResponse, Pokemon?) -> ()),
+                    onFailure: @escaping ((NetworkResponse) -> ()),
+                    onCompletion: (() -> ())) {
+        
+        let dispatcher = NetworkDispatcher(baseUrl: baseUrl + identifier)
+        dispatcher.request(type: Pokemon.self, method: .get, onSuccess: { (response, pokemon) in
+            onSuccess(response,pokemon)
+        }, onFailure: { (response) in
+            onFailure(response)
+        }, onCompletion: {
+            onCompletion()
+        })
+       
+    }
     
 }

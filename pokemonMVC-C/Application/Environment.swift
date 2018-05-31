@@ -15,6 +15,6 @@ class Environment {
     
     // MARK: - Properties
     var baseURL: String! {
-        return "http://pokeapi.co/api/v2/"
+        return "https://pokeapi.co/api/v2/"
     }
 }

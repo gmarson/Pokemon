@@ -19,10 +19,9 @@ class ErrorFactory {
     
     func getError(type: ErrorType, error: Error? = nil) -> NetworkError {
         
-        
         switch type {
         case .serializationError:
-            return NetworkError(message: type.rawValue)
+            return NetworkError(message: type.rawValue, error: error)
         case .invalidURL:
             return NetworkError(message: type.rawValue)
         case .parametersNil:
