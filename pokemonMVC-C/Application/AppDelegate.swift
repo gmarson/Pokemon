@@ -24,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.applicationCoordinator = applicationCoordinator
         
         let pokemonServices = PokemonServices()
-        pokemonServices.getPokemon(identifier: "1", onSuccess: { (response, pokemon) in
+        pokemonServices.getPokemon(identifier: "34", onSuccess: { (response, pokemon) in
+            
             print("success")
         }, onFailure: { (response) in
             print("failure")

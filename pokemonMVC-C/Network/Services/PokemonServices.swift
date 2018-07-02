@@ -27,7 +27,6 @@ class PokemonServices {
         }, onCompletion: {
             onCompletion()
         })
-       
     }
     
 }

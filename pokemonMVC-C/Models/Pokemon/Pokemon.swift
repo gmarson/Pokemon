@@ -25,5 +25,5 @@ struct Pokemon : Codable {
     var types: [Type]?
     var moves: [Move]?
     var held_itens: [HeldItem]?
-    var location_area_encounters: [LocationAreaEncounter]?
+    var location_area_encounters: URL?
 }
