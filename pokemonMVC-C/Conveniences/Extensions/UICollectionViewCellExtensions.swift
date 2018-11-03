@@ -1,9 +1,9 @@
 //
 //  UICollectionViewCellExtensions.swift
-//  WhiteLabel
+//  pokemonMVC-C
 //
-//  Created by João Paulo dos Anjos on 06/11/17.
-//  Copyright © 2017 Zup IT. All rights reserved.
+//  Created by Gabriel M on 3/30/18.
+//  Copyright © 2018 Gabriel M. All rights reserved.
 //
 
 import UIKit

@@ -1,9 +1,9 @@
 //
-//  StringExtension.swift
-//  WhiteLabel
+//  StringExtension
+//  pokemonMVC-C
 //
-//  Created by João Paulo dos Anjos on 06/11/17.
-//  Copyright © 2017 Zup IT. All rights reserved.
+//  Created by Gabriel M on 3/30/18.
+//  Copyright © 2018 Gabriel M. All rights reserved.
 //
 
 import Foundation
@@ -11,9 +11,9 @@ import Foundation
 extension String {
     
     // MARK: - Localization
-  var localize: String {
-    return NSLocalizedString(self, comment: "")
-  }
-  
+    var localize: String {
+        return NSLocalizedString(self, comment: "")
+    }
+    
 }
 

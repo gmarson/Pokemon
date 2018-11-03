@@ -16,7 +16,7 @@ class PokemonServices {
     func getPokemon(identifier : String,
                     onSuccess: @escaping ((NetworkResponse, Pokemon?) -> ()),
                     onFailure: @escaping ((NetworkResponse) -> ()),
-                    onCompletion: (() -> ())) {
+                    onCompletion: (() -> ())? = nil) {
         
         let dispatcher = NetworkDispatcher(baseUrl: baseUrl + identifier)
         dispatcher.request(type: Pokemon.self, method: .get, onSuccess: { (response, pokemon) in
@@ -24,7 +24,7 @@ class PokemonServices {
         }, onFailure: { (response) in
             onFailure(response)
         }, onCompletion: {
-            onCompletion()
+            onCompletion?()
         })
     }
     

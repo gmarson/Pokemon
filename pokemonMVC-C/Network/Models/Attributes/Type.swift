@@ -7,8 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 struct Type: Codable {
     var slot: Int?
     var type: NameAndUrl?
+    
+    lazy var associatedColor: UIColor? = {
+        guard let typeName = self.type?.name else { return UIColor.white }
+        return UIColor(named: typeName)
+    }()
 }
