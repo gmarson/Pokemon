@@ -13,18 +13,19 @@ class ApplicationCoordinator: Coordinator {
     
     let window: UIWindow
     let rootViewController: UINavigationController
+    let pokemonSearchCoordinator: PokemonSearchCoordinator
+
     
     init(window : UIWindow) {
         self.window = window
         rootViewController = UINavigationController()
         
-        let emptyViewController = UIViewController()
-        emptyViewController.view.backgroundColor = .cyan
-        rootViewController.pushViewController(emptyViewController, animated: false)
+        pokemonSearchCoordinator = PokemonSearchCoordinator(navigationController: rootViewController)
     }
     
     func start() {
         window.rootViewController = rootViewController
+        pokemonSearchCoordinator.start()
         window.makeKeyAndVisible()
     }
 }
