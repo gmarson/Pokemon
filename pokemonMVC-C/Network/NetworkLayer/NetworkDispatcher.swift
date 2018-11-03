@@ -2,7 +2,7 @@
 //  NetworkDispatcher.swift
 //  pokemonMVC-C
 //
-//  Created by Zup on 16/05/18.
+//  Created by Gabriel Marson on 16/05/18.
 //  Copyright © 2018 Gabriel M. All rights reserved.
 //
 
@@ -85,7 +85,6 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
         
         task.resume()
     }
-    
     
     func requestArray<T>(type: T.Type,
                     method: HTTPMethod,
