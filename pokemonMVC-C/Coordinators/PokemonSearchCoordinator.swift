@@ -19,10 +19,10 @@ class PokemonSearchCoordinator: Coordinator {
     }
     
     func start() {
-        let kanjiListViewController = SearchViewController(nibName: nil, bundle: nil)
-        kanjiListViewController.title = "Search Pokemon"
-        self.searchViewController = kanjiListViewController
-        navigationController.pushViewController(kanjiListViewController, animated: true)
+        let searchViewController = SearchViewController.instantiate(viewControllerOfType: SearchViewController.self, storyboardName: "Main")
+        searchViewController.title = "Search Pokemon"
+        self.searchViewController = searchViewController
+        navigationController.pushViewController(searchViewController, animated: true)
     }
     
 }

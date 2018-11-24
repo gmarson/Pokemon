@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,36 +21,80 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pikachu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdL-Tn-XPv">
-                        <rect key="frame" x="144" y="15.5" width="166" height="30"/>
+                        <rect key="frame" x="136" y="15.5" width="174" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pikachu" translatesAutoresizingMaskIntoConstraints="NO" id="cYh-3E-UiN">
-                        <rect key="frame" x="16" y="15.5" width="120" height="120"/>
+                        <rect key="frame" x="8" y="15.5" width="120" height="120"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="O4r-ze-UQS"/>
                             <constraint firstAttribute="height" constant="120" id="PXd-w6-aPm"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8r2-pj-3vu">
-                        <rect key="frame" x="144" y="54.5" width="166" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height: N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8r2-pj-3vu">
+                        <rect key="frame" x="136" y="54.5" width="174" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Types:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lxy-ym-TP1">
-                        <rect key="frame" x="144" y="114" width="51" height="21"/>
+                        <rect key="frame" x="136" y="113" width="51" height="20.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20.5" id="BeQ-lo-0yo"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVf-pz-tRq">
-                        <rect key="frame" x="144" y="84.5" width="166" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight: N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVf-pz-tRq">
+                        <rect key="frame" x="136" y="84" width="174" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3CV-m0-R8G">
+                        <rect key="frame" x="195" y="113" width="55" height="20.5"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tr3-db-D8r">
+                                <rect key="frame" x="0.0" y="0.0" width="55" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Electric" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yy4-gB-CFk">
+                                        <rect key="frame" x="4.5" y="3" width="46" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="Electric"/>
+                                <constraints>
+                                    <constraint firstItem="yy4-gB-CFk" firstAttribute="centerY" secondItem="Tr3-db-D8r" secondAttribute="centerY" id="Jcr-Zm-HC9"/>
+                                    <constraint firstItem="yy4-gB-CFk" firstAttribute="centerX" secondItem="Tr3-db-D8r" secondAttribute="centerX" id="Oi8-xI-fr2"/>
+                                    <constraint firstAttribute="width" constant="55" id="cfa-1M-JSC"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ac8-fd-pSF">
+                                <rect key="frame" x="55" y="0.0" width="55" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fighting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rA-2G-y6C">
+                                        <rect key="frame" x="2.5" y="3" width="50" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="2rA-2G-y6C" firstAttribute="centerX" secondItem="ac8-fd-pSF" secondAttribute="centerX" id="2TZ-wP-2fN"/>
+                                    <constraint firstItem="2rA-2G-y6C" firstAttribute="centerY" secondItem="ac8-fd-pSF" secondAttribute="centerY" id="yDq-df-lpT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Tr3-db-D8r" firstAttribute="width" secondItem="ac8-fd-pSF" secondAttribute="width" id="6De-aT-AFh"/>
+                        </constraints>
+                    </stackView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="yVf-pz-tRq" firstAttribute="trailing" secondItem="XdL-Tn-XPv" secondAttribute="trailing" id="0Fl-iQ-cU5"/>
@@ -59,26 +104,36 @@
                     <constraint firstItem="cYh-3E-UiN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="FUp-Wc-lgw"/>
                     <constraint firstItem="Lxy-ym-TP1" firstAttribute="top" secondItem="yVf-pz-tRq" secondAttribute="bottom" constant="8.5" id="GfW-xU-Mvy"/>
                     <constraint firstItem="yVf-pz-tRq" firstAttribute="top" secondItem="8r2-pj-3vu" secondAttribute="bottom" constant="9" id="L76-VM-Eph"/>
+                    <constraint firstItem="3CV-m0-R8G" firstAttribute="leading" secondItem="Lxy-ym-TP1" secondAttribute="trailing" constant="8" id="LrO-Ln-XA4"/>
                     <constraint firstItem="8r2-pj-3vu" firstAttribute="leading" secondItem="XdL-Tn-XPv" secondAttribute="leading" id="MTC-4p-LPc"/>
                     <constraint firstItem="XdL-Tn-XPv" firstAttribute="top" secondItem="cYh-3E-UiN" secondAttribute="top" id="QMg-wt-4BX"/>
-                    <constraint firstItem="8r2-pj-3vu" firstAttribute="trailing" secondItem="XdL-Tn-XPv" secondAttribute="trailing" id="duP-jX-0RH"/>
+                    <constraint firstItem="8r2-pj-3vu" firstAttribute="trailingMargin" secondItem="XdL-Tn-XPv" secondAttribute="trailing" constant="-8" id="duP-jX-0RH"/>
+                    <constraint firstItem="3CV-m0-R8G" firstAttribute="height" secondItem="Lxy-ym-TP1" secondAttribute="height" id="e5K-bY-2aC"/>
+                    <constraint firstItem="3CV-m0-R8G" firstAttribute="top" secondItem="Lxy-ym-TP1" secondAttribute="top" id="jo9-Q2-2EO"/>
                     <constraint firstItem="Lxy-ym-TP1" firstAttribute="leading" secondItem="XdL-Tn-XPv" secondAttribute="leading" id="qGf-Xt-s1Q"/>
-                    <constraint firstItem="cYh-3E-UiN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="vma-sh-2Lt"/>
+                    <constraint firstItem="cYh-3E-UiN" firstAttribute="leadingMargin" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="vma-sh-2Lt"/>
                     <constraint firstAttribute="trailingMargin" secondItem="XdL-Tn-XPv" secondAttribute="trailing" id="x4N-OD-UYl"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="105.59999999999999" y="123.68815592203899"/>
+            <connections>
+                <outlet property="pokemonHeight" destination="8r2-pj-3vu" id="CsF-uM-PR9"/>
+                <outlet property="pokemonImageView" destination="cYh-3E-UiN" id="ZXb-jN-2iK"/>
+                <outlet property="pokemonTitle" destination="XdL-Tn-XPv" id="eBy-4N-dRu"/>
+                <outlet property="pokemonTypes" destination="Lxy-ym-TP1" id="BGx-pm-q0j"/>
+                <outlet property="pokemonWeight" destination="yVf-pz-tRq" id="BD3-oK-7q2"/>
+                <outlet property="type1Label" destination="yy4-gB-CFk" id="Tob-v3-SOo"/>
+                <outlet property="type1View" destination="Tr3-db-D8r" id="lWq-QD-1ha"/>
+                <outlet property="type2Label" destination="2rA-2G-y6C" id="nQi-MA-eTd"/>
+                <outlet property="type2View" destination="ac8-fd-pSF" id="YyB-hi-ANR"/>
+            </connections>
+            <point key="canvasLocation" x="-6.4000000000000004" y="89.505247376311857"/>
         </tableViewCell>
-        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nq3-8k-sVO">
-            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-            <nil key="textColor"/>
-            <nil key="highlightedColor"/>
-        </label>
     </objects>
     <resources>
         <image name="pikachu" width="158" height="158"/>
+        <namedColor name="Electric">
+            <color red="0.97254901960784312" green="0.81176470588235294" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
