@@ -16,6 +16,15 @@ class SearchViewController: UIViewController {
     
     private var pokemon: Pokemon? = nil
     private let pokemonServices = PokemonServices()
+    private var errorAlert: UIAlertController = {
+        let a = UIAlertController(title: "Oops", message: "Pokemon not found!", preferredStyle: UIAlertController.Style.alert)
+        
+        a.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            
+        }))
+        
+        return a
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +55,10 @@ class SearchViewController: UIViewController {
             }
     
         }, onFailure: { (response) in
+           
             DispatchQueue.main.async {
                 self.tableView.isHidden = true
+                self.present(self.errorAlert, animated: true, completion: nil)
             }
         })
     }
