@@ -13,19 +13,18 @@ class PokemonServices {
     
     private let baseUrl = "pokemon/"
     
-    
     func getPokemon(identifier : String,
                     onSuccess: @escaping ((NetworkResponse, Pokemon?) -> ()),
                     onFailure: @escaping ((NetworkResponse) -> ()),
-                    onCompletion: (() -> ())) {
+                    onCompletion: (() -> ())? = nil) {
         
         let dispatcher = NetworkDispatcher(baseUrl: baseUrl + identifier)
         dispatcher.request(type: Pokemon.self, method: .get, onSuccess: { (response, pokemon) in
-            onSuccess(response,pokemon)
+            onSuccess(response, pokemon)
         }, onFailure: { (response) in
             onFailure(response)
         }, onCompletion: {
-            onCompletion()
+            onCompletion?()
         })
     }
     

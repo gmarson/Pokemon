@@ -2,7 +2,7 @@
 //  NetworkDispatcher.swift
 //  pokemonMVC-C
 //
-//  Created by Zup on 16/05/18.
+//  Created by Gabriel Marson on 16/05/18.
 //  Copyright © 2018 Gabriel M. All rights reserved.
 //
 
@@ -22,9 +22,9 @@ protocol NetworkDispatcherProtocol {
     var baseUrl: URL { get }
     init(baseUrl: String)
     var errorFactory: ErrorFactory { get set }
-    func request<T: Codable>(type: T.Type, method: HTTPMethod, headers: Headers?, payload: Data?, onSuccess: @escaping ((NetworkResponse, T?) -> ()), onFailure: @escaping ((NetworkResponse) -> ()), onCompletion: (() -> ()))
-    func requestArray<T: Codable>(type: T.Type, method: HTTPMethod, headers: Headers?, payload: Data?, onSuccess: @escaping ((NetworkResponse, [T]?) -> ()), onFailure: @escaping ((NetworkResponse) -> ()), onCompletion: (() -> ()))
-    func request(method: HTTPMethod, headers: Headers?, payload: Data?, onSuccess: @escaping ((NetworkResponse) -> ()),  onFailure: @escaping ((NetworkResponse) -> ()), onCompletion: (() -> ()))
+    func request<T: Decodable>(type: T.Type, method: HTTPMethod, headers: Headers?, payload: Data?, onSuccess: @escaping ((NetworkResponse, T?) -> ()), onFailure: @escaping ((NetworkResponse) -> ()), onCompletion: (() -> ())?)
+    func requestArray<T: Decodable>(type: T.Type, method: HTTPMethod, headers: Headers?, payload: Data?, onSuccess: @escaping ((NetworkResponse, [T]?) -> ()), onFailure: @escaping ((NetworkResponse) -> ()), onCompletion: (() -> ())?)
+    func request(method: HTTPMethod, headers: Headers?, payload: Data?, onSuccess: @escaping ((NetworkResponse) -> ()),  onFailure: @escaping ((NetworkResponse) -> ()), onCompletion: (() -> ())?)
 }
 
 class NetworkDispatcher: NetworkDispatcherProtocol {
@@ -49,12 +49,12 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
                     payload: Data? = nil,
                     onSuccess: @escaping ((NetworkResponse, T?) -> ()),
                     onFailure: @escaping ((NetworkResponse) -> ()),
-                    onCompletion: (() -> ())) where T : Codable
+                    onCompletion: (() -> ())?) where T : Decodable
     {
         
         let networkResponse = NetworkResponse()
        
-        guard let urlRequest = self.buildRequest(url: self.baseUrl, httpMethod: method) else {
+        guard let urlRequest = self.buildRequest(url: self.baseUrl, httpMethod: method, httpBody: payload, headers: headers) else {
             networkResponse.error = self.errorFactory.getError(type: .invalidURL)
             onFailure(networkResponse)
             return
@@ -86,17 +86,16 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
         task.resume()
     }
     
-    
     func requestArray<T>(type: T.Type,
                     method: HTTPMethod,
                     headers: Headers? = nil,
                     payload: Data? = nil,
                     onSuccess: @escaping ((NetworkResponse, [T]?) -> ()),
                     onFailure: @escaping ((NetworkResponse) -> ()),
-                    onCompletion: (() -> ())) where T : Codable
+                    onCompletion: (() -> ())?) where T : Decodable
     {
         let networkResponse = NetworkResponse()
-        guard let urlRequest = self.buildRequest(url: self.baseUrl, httpMethod: method) else {
+        guard let urlRequest = self.buildRequest(url: self.baseUrl, httpMethod: method, httpBody: payload, headers: headers) else {
             networkResponse.error = self.errorFactory.getError(type: .invalidURL)
             onFailure(networkResponse)
             return
@@ -134,10 +133,10 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
                  payload: Data? = nil,
                  onSuccess: @escaping ((NetworkResponse) -> ()),
                  onFailure: @escaping ((NetworkResponse) -> ()),
-                 onCompletion: (() -> ()))
+                 onCompletion: (() -> ())?)
     {
         let networkResponse = NetworkResponse()
-        guard let urlRequest = self.buildRequest(url: self.baseUrl, httpMethod: method) else {
+        guard let urlRequest = self.buildRequest(url: self.baseUrl, httpMethod: method, httpBody: payload, headers: headers) else {
             networkResponse.error = self.errorFactory.getError(type: .invalidURL)
             onFailure(networkResponse)
             return
