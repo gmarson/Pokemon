@@ -16,7 +16,7 @@ class SearchViewController: UIViewController {
     
     private var pokemon: Pokemon? = nil
     private let pokemonServices = PokemonServices()
-    private var errorAlert: UIAlertController = {
+    private lazy var errorAlert: UIAlertController = {
         let a = UIAlertController(title: "Oops", message: "Pokemon not found!", preferredStyle: UIAlertController.Style.alert)
         
         a.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
@@ -72,7 +72,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: PokemonTableViewCell.identifier) as! PokemonTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: PokemonTableViewCell.identifier) as! PokemonTableViewCell
         
         if let pokemon = pokemon {
             cell.setup(pokemon: pokemon)
@@ -86,9 +86,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return 150.0
     }
-    
 }
 
 extension SearchViewController: UISearchBarDelegate {

@@ -48,30 +48,20 @@
                                             <constraint firstAttribute="bottom" secondItem="lcS-QG-Uwy" secondAttribute="bottom" id="Sxk-QC-w4N"/>
                                         </constraints>
                                     </stackView>
-                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3rD-g4-jw4">
+                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="07d-hY-wye">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="547"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mainCell" rowHeight="65" id="tw4-sq-mkC">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="65"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tw4-sq-mkC" id="chb-VY-2qk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="3rD-g4-jw4" secondAttribute="trailing" id="13Z-g1-EfC"/>
-                                    <constraint firstItem="3rD-g4-jw4" firstAttribute="leading" secondItem="jOR-ax-brB" secondAttribute="leading" id="PQq-D5-Gpi"/>
+                                    <constraint firstItem="07d-hY-wye" firstAttribute="top" secondItem="jOR-ax-brB" secondAttribute="top" id="AVx-Bg-ajj"/>
                                     <constraint firstAttribute="trailing" secondItem="t7R-nt-iPS" secondAttribute="trailing" id="QNs-gq-VsW"/>
                                     <constraint firstItem="t7R-nt-iPS" firstAttribute="leading" secondItem="jOR-ax-brB" secondAttribute="leading" id="Y5k-rr-EZ4"/>
-                                    <constraint firstAttribute="bottom" secondItem="3rD-g4-jw4" secondAttribute="bottom" id="dBG-Ok-JB3"/>
+                                    <constraint firstAttribute="trailing" secondItem="07d-hY-wye" secondAttribute="trailing" id="gRV-om-HjJ"/>
+                                    <constraint firstItem="07d-hY-wye" firstAttribute="leading" secondItem="jOR-ax-brB" secondAttribute="leading" id="hBD-BO-Et6"/>
                                     <constraint firstItem="t7R-nt-iPS" firstAttribute="centerY" secondItem="jOR-ax-brB" secondAttribute="centerY" id="mlI-JP-Ht6"/>
-                                    <constraint firstItem="3rD-g4-jw4" firstAttribute="top" secondItem="jOR-ax-brB" secondAttribute="top" id="z6D-52-3JV"/>
+                                    <constraint firstAttribute="bottom" secondItem="07d-hY-wye" secondAttribute="bottom" id="z0d-Sl-TOe"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -92,12 +82,12 @@
                     <connections>
                         <outlet property="pikachuStackView" destination="t7R-nt-iPS" id="Pbw-5t-Gwk"/>
                         <outlet property="searchBar" destination="IUi-S0-W5T" id="Tmp-aV-o2t"/>
-                        <outlet property="tableView" destination="3rD-g4-jw4" id="Tal-Sy-N4c"/>
+                        <outlet property="tableView" destination="07d-hY-wye" id="Rkd-4s-Ssb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-266" y="-591"/>
+            <point key="canvasLocation" x="-266.39999999999998" y="-591.45427286356824"/>
         </scene>
     </scenes>
     <resources>
