@@ -9,19 +9,32 @@
 import Foundation
 import UIKit
 
+
 class PokemonSearchCoordinator: Coordinator {
     
     private let tabBarController: UITabBarController
+    private let navigationController: UINavigationController
     private var searchViewController: SearchViewController?
     
     init(tabBarController: UITabBarController) {
         self.tabBarController = tabBarController
+        self.navigationController = UINavigationController()
     }
     
     func start() {
         let searchViewController = SearchViewController.instantiate(viewControllerOfType: SearchViewController.self, storyboardName: "Main")
         self.searchViewController = searchViewController
-        tabBarController.viewControllers = [searchViewController]
+        self.searchViewController?.coordinatorDelegate = self
+        navigationController.viewControllers = [searchViewController]
+        tabBarController.viewControllers = [navigationController]
     }
+    
+}
+
+extension PokemonSearchCoordinator: PokemonSearchCoordinatorDelegate {
+    func toPokemonDetailed() {
+    
+    }
+    
     
 }

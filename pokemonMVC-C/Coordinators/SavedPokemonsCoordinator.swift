@@ -13,15 +13,18 @@ class SavedPokemonsCoordinator: Coordinator {
     
     private let tabBarController: UITabBarController
     private var savedPokemonsViewController: SavedPokemonsViewController?
+    private let navigationController: UINavigationController
     
     init(tabBarController: UITabBarController) {
         self.tabBarController = tabBarController
+        navigationController = UINavigationController()
     }
     
     func start() {
         let savedPokemonsViewController = SavedPokemonsViewController.instantiate(viewControllerOfType: SavedPokemonsViewController.self, storyboardName: "Main")
         self.savedPokemonsViewController = savedPokemonsViewController
-        tabBarController.viewControllers?.append(savedPokemonsViewController)
+        navigationController.viewControllers = [savedPokemonsViewController]
+        tabBarController.viewControllers?.append(navigationController)
     }
     
 }

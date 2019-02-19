@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol PokemonSearchCoordinatorDelegate {
+    func toPokemonDetailed()
+}
+
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pikachuStackView: UIStackView!
     
+    var coordinatorDelegate: PokemonSearchCoordinatorDelegate?
     private var pokemon: Pokemon? = nil
     private let pokemonServices = PokemonServices()
     private lazy var errorAlert: UIAlertController = {
@@ -30,6 +35,16 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupComponents()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 
     private func setupComponents() {
         searchBar.delegate = self
@@ -42,7 +57,6 @@ class SearchViewController: UIViewController {
     private func searchPokemon() {
         
         guard let searchText = searchBar.text?.lowercased() else {
-            //TODO: show alert error
             return
         }
         
