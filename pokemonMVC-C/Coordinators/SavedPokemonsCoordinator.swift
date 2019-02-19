@@ -7,3 +7,21 @@
 //
 
 import Foundation
+import UIKit
+
+class SavedPokemonsCoordinator: Coordinator {
+    
+    private let tabBarController: UITabBarController
+    private var savedPokemonsViewController: SavedPokemonsViewController?
+    
+    init(tabBarController: UITabBarController) {
+        self.tabBarController = tabBarController
+    }
+    
+    func start() {
+        let savedPokemonsViewController = SavedPokemonsViewController.instantiate(viewControllerOfType: SavedPokemonsViewController.self, storyboardName: "Main")
+        self.savedPokemonsViewController = savedPokemonsViewController
+        tabBarController.viewControllers?.append(savedPokemonsViewController)
+    }
+    
+}

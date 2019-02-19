@@ -99,5 +99,9 @@ extension SearchViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.tableView.isHidden = true
+    }
+    
 }
 

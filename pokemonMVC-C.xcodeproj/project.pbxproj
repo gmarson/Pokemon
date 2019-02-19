@@ -39,6 +39,9 @@
 		A0ACE3D5206EAC650048B936 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ACE3D4206EAC650048B936 /* Pokemon.swift */; };
 		A0ACE3D8206EADCB0048B936 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ACE3D7206EADCB0048B936 /* Ability.swift */; };
 		A73E8FF520B3032E00427E94 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73E8FF420B3032E00427E94 /* NetworkError.swift */; };
+		A752CF6E221C433C00B0280B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A752CF6D221C433C00B0280B /* TabBarViewController.swift */; };
+		A752CF71221C4B9600B0280B /* SavedPokemonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A752CF70221C4B9600B0280B /* SavedPokemonsViewController.swift */; };
+		A752CF73221C4C7E00B0280B /* SavedPokemonsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A752CF72221C4C7E00B0280B /* SavedPokemonsCoordinator.swift */; };
 		A780ECFA20B342A300D8DC40 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A780ECF920B342A300D8DC40 /* Decoder.swift */; };
 		A780ECFE20B34F6A00D8DC40 /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A780ECFD20B34F6A00D8DC40 /* Encoder.swift */; };
 		A780ED0020B35B1A00D8DC40 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A780ECFF20B35B1A00D8DC40 /* NetworkResponse.swift */; };
@@ -104,6 +107,9 @@
 		A0ACE3D4206EAC650048B936 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		A0ACE3D7206EADCB0048B936 /* Ability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
 		A73E8FF420B3032E00427E94 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		A752CF6D221C433C00B0280B /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		A752CF70221C4B9600B0280B /* SavedPokemonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPokemonsViewController.swift; sourceTree = "<group>"; };
+		A752CF72221C4C7E00B0280B /* SavedPokemonsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPokemonsCoordinator.swift; sourceTree = "<group>"; };
 		A780ECF920B342A300D8DC40 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
 		A780ECFD20B34F6A00D8DC40 /* Encoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encoder.swift; sourceTree = "<group>"; };
 		A780ECFF20B35B1A00D8DC40 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
@@ -257,6 +263,8 @@
 		A0ACE3C3206E996F0048B936 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A752CF6F221C4B7100B0280B /* Saved */,
+				A752CF6C221C430700B0280B /* TabBar */,
 				A02FABBE218E116800035412 /* Search */,
 				A0ACE394206E99050048B936 /* Main.storyboard */,
 			);
@@ -327,6 +335,22 @@
 			path = Attributes;
 			sourceTree = "<group>";
 		};
+		A752CF6C221C430700B0280B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A752CF6D221C433C00B0280B /* TabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		A752CF6F221C4B7100B0280B /* Saved */ = {
+			isa = PBXGroup;
+			children = (
+				A752CF70221C4B9600B0280B /* SavedPokemonsViewController.swift */,
+			);
+			path = Saved;
+			sourceTree = "<group>";
+		};
 		A780ECF820B341A600D8DC40 /* Encoder-Decoder */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +366,7 @@
 				A794287120AB71D800C49A84 /* Coordinator.swift */,
 				A794287320AB729600C49A84 /* ApplicationCoordinator.swift */,
 				A02FABBC218E0E7500035412 /* PokemonSearchCoordinator.swift */,
+				A752CF72221C4C7E00B0280B /* SavedPokemonsCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -524,8 +549,10 @@
 				A0ACE3D2206EAB140048B936 /* PokemonServices.swift in Sources */,
 				A0ACE3C6206E9D020048B936 /* Environment.swift in Sources */,
 				A07FC27120793A7400B1B6A1 /* Stat.swift in Sources */,
+				A752CF71221C4B9600B0280B /* SavedPokemonsViewController.swift in Sources */,
 				A07FC27D20793D2A00B1B6A1 /* GameIndice.swift in Sources */,
 				A07FC27320793ABD00B1B6A1 /* NameAndUrl.swift in Sources */,
+				A752CF73221C4C7E00B0280B /* SavedPokemonsCoordinator.swift in Sources */,
 				A0ACE3CC206EA8590048B936 /* UICollectionViewCellExtensions.swift in Sources */,
 				A0ACE3D8206EADCB0048B936 /* Ability.swift in Sources */,
 				A0ACE3CA206EA8500048B936 /* StringExtension.swift in Sources */,
@@ -545,6 +572,7 @@
 				A794287220AB71D800C49A84 /* Coordinator.swift in Sources */,
 				A794287820AC601000C49A84 /* NetworkDispatcher.swift in Sources */,
 				A07FC28220793DA000B1B6A1 /* VersionItemDetail.swift in Sources */,
+				A752CF6E221C433C00B0280B /* TabBarViewController.swift in Sources */,
 				A07FC27820793C7000B1B6A1 /* VersionGroupDetail.swift in Sources */,
 				A780ECFA20B342A300D8DC40 /* Decoder.swift in Sources */,
 				A0ACE391206E99050048B936 /* AppDelegate.swift in Sources */,
@@ -721,7 +749,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5KVHBZ5S3B;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/pokemonMVC-C/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -736,7 +764,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5KVHBZ5S3B;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/pokemonMVC-C/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

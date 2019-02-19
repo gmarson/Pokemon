@@ -11,18 +11,17 @@ import UIKit
 
 class PokemonSearchCoordinator: Coordinator {
     
-    private let navigationController: UINavigationController
+    private let tabBarController: UITabBarController
     private var searchViewController: SearchViewController?
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init(tabBarController: UITabBarController) {
+        self.tabBarController = tabBarController
     }
     
     func start() {
         let searchViewController = SearchViewController.instantiate(viewControllerOfType: SearchViewController.self, storyboardName: "Main")
-        searchViewController.title = "Search Pokemon"
         self.searchViewController = searchViewController
-        navigationController.pushViewController(searchViewController, animated: true)
+        tabBarController.viewControllers = [searchViewController]
     }
     
 }

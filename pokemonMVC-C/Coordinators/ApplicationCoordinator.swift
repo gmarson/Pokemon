@@ -12,20 +12,23 @@ import UIKit
 class ApplicationCoordinator: Coordinator {
     
     let window: UIWindow
-    let rootViewController: UINavigationController
+    let rootViewController: UITabBarController
     let pokemonSearchCoordinator: PokemonSearchCoordinator
-
+    let savedPokemonsCoordinator: SavedPokemonsCoordinator
     
     init(window : UIWindow) {
         self.window = window
-        rootViewController = UINavigationController()
+        rootViewController = TabBarViewController.instantiate(viewControllerOfType: TabBarViewController.self, storyboardName: "Main")
+        rootViewController.viewControllers = []
         
-        pokemonSearchCoordinator = PokemonSearchCoordinator(navigationController: rootViewController)
+        pokemonSearchCoordinator = PokemonSearchCoordinator(tabBarController: rootViewController)
+        savedPokemonsCoordinator = SavedPokemonsCoordinator(tabBarController: rootViewController)
     }
     
     func start() {
         window.rootViewController = rootViewController
         pokemonSearchCoordinator.start()
+        savedPokemonsCoordinator.start()
         window.makeKeyAndVisible()
     }
 }
