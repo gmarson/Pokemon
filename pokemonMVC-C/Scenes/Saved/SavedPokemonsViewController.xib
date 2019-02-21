@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SavedPokemonsViewController" customModule="pokemonMVC_C" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="yjO-Yi-npc"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5jJ-J2-Iyq">
+                    <rect key="frame" x="16" y="96" width="343" height="128"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="5jJ-J2-Iyq" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="76" id="8ZR-lt-h4F"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5jJ-J2-Iyq" secondAttribute="trailing" constant="16" id="F2V-3P-Trf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="5jJ-J2-Iyq" secondAttribute="bottom" constant="443" id="apg-v2-3oK"/>
+                <constraint firstItem="5jJ-J2-Iyq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="yAu-qu-pWU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="149.59999999999999" y="-73.313343328335833"/>
+        </view>
+    </objects>
+</document>

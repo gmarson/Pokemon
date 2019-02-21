@@ -22,11 +22,13 @@ class PokemonSearchCoordinator: Coordinator {
     }
     
     func start() {
-        let searchViewController = SearchViewController.instantiate(viewControllerOfType: SearchViewController.self, storyboardName: "Main")
+        let searchViewController = SearchViewController(nibName: "SearchViewController", bundle: nil)
         self.searchViewController = searchViewController
         self.searchViewController?.coordinatorDelegate = self
         navigationController.viewControllers = [searchViewController]
         tabBarController.viewControllers = [navigationController]
+        tabBarController.tabBar.items?[0].title = "Search"
+        tabBarController.tabBar.items?[0].image = UIImage(named: "gengar")
     }
     
 }

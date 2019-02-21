@@ -21,10 +21,12 @@ class SavedPokemonsCoordinator: Coordinator {
     }
     
     func start() {
-        let savedPokemonsViewController = SavedPokemonsViewController.instantiate(viewControllerOfType: SavedPokemonsViewController.self, storyboardName: "Main")
+        let savedPokemonsViewController = SavedPokemonsViewController(nibName: "SavedPokemonsViewController", bundle: nil)
         self.savedPokemonsViewController = savedPokemonsViewController
         navigationController.viewControllers = [savedPokemonsViewController]
         tabBarController.viewControllers?.append(navigationController)
+        tabBarController.tabBar.items?[1].title = "Saved"
+        tabBarController.tabBar.items?[1].image = UIImage(named: "pokeball")
     }
     
 }
