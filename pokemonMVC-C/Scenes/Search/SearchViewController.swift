@@ -20,6 +20,8 @@ class SearchViewController: UIViewController {
     
     var coordinatorDelegate: PokemonSearchCoordinatorDelegate?
     private var pokemon: Pokemon? = nil
+    private var currentPokemonImage: UIImage? = nil
+    
     private let pokemonServices = PokemonServices()
     private lazy var errorAlert: UIAlertController = {
         let a = UIAlertController(title: "Oops", message: "Pokemon not found!", preferredStyle: UIAlertController.Style.alert)
@@ -88,10 +90,18 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: PokemonTableViewCell.identifier) as! PokemonTableViewCell
         
-        //pokemon?.sprites?.front_default
-        
         if let pokemon = pokemon {
             cell.setup(pokemon: pokemon)
+            
+            cell.pokemonImageView.kf.setImage(with: pokemon.sprites?.front_default) { (result) in
+                switch result {
+                    
+                case .success(let content):
+                    self.currentPokemonImage = content.image
+                case .failure(_):
+                    break
+                }
+            }
         }
         
         return cell
@@ -113,6 +123,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        currentPokemonImage = nil
         searchBar.resignFirstResponder()
     }
     
