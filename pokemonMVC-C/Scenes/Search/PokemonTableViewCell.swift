@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PokemonTableViewCell: UITableViewCell {
 
@@ -29,12 +30,8 @@ class PokemonTableViewCell: UITableViewCell {
     
     private let constants = Constants()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
     func setup(pokemon: Pokemon) {
+        pokemonImageView.kf.setImage(with: pokemon.sprites?.front_default)
         pokemonTitle.text = pokemon.name?.firstUppercased
         
         if let height = pokemon.height, let weight = pokemon.weight {

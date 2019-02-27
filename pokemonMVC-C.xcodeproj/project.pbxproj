@@ -53,6 +53,8 @@
 		A794287420AB729600C49A84 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A794287320AB729600C49A84 /* ApplicationCoordinator.swift */; };
 		A794287820AC601000C49A84 /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A794287720AC601000C49A84 /* NetworkDispatcher.swift */; };
 		A7B87C5D20B87DCB00D1173B /* ErrorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B87C5C20B87DCB00D1173B /* ErrorFactory.swift */; };
+		A7CE7B75222702120075D95B /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CE7B74222702110075D95B /* ImageDownloader.swift */; };
+		A7CE7B78222709650075D95B /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7CE7B77222709650075D95B /* Kingfisher.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +127,8 @@
 		A794287320AB729600C49A84 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		A794287720AC601000C49A84 /* NetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
 		A7B87C5C20B87DCB00D1173B /* ErrorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorFactory.swift; sourceTree = "<group>"; };
+		A7CE7B74222702110075D95B /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		A7CE7B77222709650075D95B /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7CE7B78222709650075D95B /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +211,7 @@
 				A0ACE3A7206E99050048B936 /* pokemonMVC-CTests */,
 				A0ACE3B2206E99050048B936 /* pokemonMVC-CUITests */,
 				A0ACE38E206E99050048B936 /* Products */,
+				A7CE7B76222709630075D95B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -395,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				A0ACE3D1206EAB140048B936 /* PokemonServices.swift */,
+				A7CE7B74222702110075D95B /* ImageDownloader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -426,6 +433,14 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		A7CE7B76222709630075D95B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7CE7B77222709650075D95B /* Kingfisher.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -436,6 +451,7 @@
 				A0ACE389206E99050048B936 /* Sources */,
 				A0ACE38A206E99050048B936 /* Frameworks */,
 				A0ACE38B206E99050048B936 /* Resources */,
+				A7CE7B792227099C0075D95B /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -562,6 +578,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A7CE7B792227099C0075D95B /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A0ACE389206E99050048B936 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -575,6 +613,7 @@
 				A752CF71221C4B9600B0280B /* SavedPokemonsViewController.swift in Sources */,
 				A07FC27D20793D2A00B1B6A1 /* GameIndice.swift in Sources */,
 				A07FC27320793ABD00B1B6A1 /* NameAndUrl.swift in Sources */,
+				A7CE7B75222702120075D95B /* ImageDownloader.swift in Sources */,
 				A752CF73221C4C7E00B0280B /* SavedPokemonsCoordinator.swift in Sources */,
 				A0ACE3CC206EA8590048B936 /* UICollectionViewCellExtensions.swift in Sources */,
 				A0ACE3D8206EADCB0048B936 /* Ability.swift in Sources */,
@@ -774,6 +813,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/pokemonMVC-C/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -789,6 +832,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/pokemonMVC-C/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -88,6 +88,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: PokemonTableViewCell.identifier) as! PokemonTableViewCell
         
+        //pokemon?.sprites?.front_default
+        
         if let pokemon = pokemon {
             cell.setup(pokemon: pokemon)
         }
