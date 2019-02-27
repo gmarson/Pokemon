@@ -29,21 +29,13 @@ class PokemonTableViewCell: UITableViewCell {
     
     private let constants = Constants()
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        pokemonImageView.image = nil
-        pokemonHeight.text = constants.height + constants.notAvailable
-        pokemonWeight.text = constants.weight + constants.notAvailable
-        type2View.isHidden = true
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
     func setup(pokemon: Pokemon) {
-        pokemonTitle.text = pokemon.name
+        pokemonTitle.text = pokemon.name?.firstUppercased
         
         if let height = pokemon.height, let weight = pokemon.weight {
             pokemonHeight.text = constants.height + String(height)
@@ -53,18 +45,19 @@ class PokemonTableViewCell: UITableViewCell {
         guard let firstType = pokemon.types?.first else { return }
         
         type1View.backgroundColor = associatedColor(typeName: firstType.type?.name)
-        type1Label.text = firstType.type?.name
+        type1Label.text = firstType.type?.name?.firstUppercased
         
         if let size = pokemon.types?.count, size > 1, let secondType = pokemon.types?[1] {
             type2View.isHidden = false
             type2View.backgroundColor = associatedColor(typeName: secondType.type?.name)
-            type2Label.text = secondType.type?.name
+            type2Label.text = secondType.type?.name?.firstUppercased
         }
     }
     
-    func associatedColor(typeName: String?) -> UIColor? {
-        guard let name = typeName else { return UIColor.white }
-        return UIColor(named: name)
+    private func associatedColor(typeName: String?) -> UIColor? {
+        guard let name = typeName?.lowercased() else { return UIColor.white }
+        let color = UIColor(named: name)
+        return color
     }
     
 }

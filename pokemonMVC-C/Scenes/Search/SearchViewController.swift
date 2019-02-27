@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PokemonSearchCoordinatorDelegate {
-    func toPokemonDetailed()
+    func toPokemonDetailed(pokemon: Pokemon)
 }
 
 class SearchViewController: UIViewController {
@@ -96,7 +96,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // user coordinator here
+        guard let pokemon = pokemon else { return }
+        coordinatorDelegate?.toPokemonDetailed(pokemon: pokemon)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

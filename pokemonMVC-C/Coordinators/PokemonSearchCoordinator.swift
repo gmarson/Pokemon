@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 class PokemonSearchCoordinator: Coordinator {
     
     private let tabBarController: UITabBarController
@@ -34,8 +33,10 @@ class PokemonSearchCoordinator: Coordinator {
 }
 
 extension PokemonSearchCoordinator: PokemonSearchCoordinatorDelegate {
-    func toPokemonDetailed() {
-    
+    func toPokemonDetailed(pokemon: Pokemon) {
+        let detailViewController = PokemonDetailViewController.init(nibName: "PokemonDetailViewController", bundle: nil)
+        
+        navigationController.pushViewController(detailViewController, animated: true)
     }
     
     
