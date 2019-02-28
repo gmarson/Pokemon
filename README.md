@@ -1,2 +1,2 @@
-# PokemonMVC-C
+# Pokemon
 Still in progress
