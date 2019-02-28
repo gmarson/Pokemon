@@ -91,7 +91,7 @@
 		A07FC28420793E7500B1B6A1 /* LocationAreaEncounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAreaEncounter.swift; sourceTree = "<group>"; };
 		A07FC28620793EB900B1B6A1 /* VersionLocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionLocationDetail.swift; sourceTree = "<group>"; };
 		A07FC28820793F1900B1B6A1 /* EncounterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncounterDetail.swift; sourceTree = "<group>"; };
-		A0ACE38D206E99050048B936 /* pokemonMVC-C.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pokemonMVC-C.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0ACE38D206E99050048B936 /* pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0ACE390206E99050048B936 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0ACE392206E99050048B936 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A0ACE395206E99050048B936 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,10 +99,10 @@
 		A0ACE39A206E99050048B936 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0ACE39D206E99050048B936 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0ACE39F206E99050048B936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0ACE3A4206E99050048B936 /* pokemonMVC-CTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pokemonMVC-CTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0ACE3A4206E99050048B936 /* pokemonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pokemonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0ACE3A8206E99050048B936 /* pokemonMVC_CTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokemonMVC_CTests.swift; sourceTree = "<group>"; };
 		A0ACE3AA206E99050048B936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0ACE3AF206E99050048B936 /* pokemonMVC-CUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pokemonMVC-CUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0ACE3AF206E99050048B936 /* pokemonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pokemonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0ACE3B3206E99050048B936 /* pokemonMVC_CUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokemonMVC_CUITests.swift; sourceTree = "<group>"; };
 		A0ACE3B5206E99050048B936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0ACE3C5206E9D020048B936 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -218,9 +218,9 @@
 		A0ACE38E206E99050048B936 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0ACE38D206E99050048B936 /* pokemonMVC-C.app */,
-				A0ACE3A4206E99050048B936 /* pokemonMVC-CTests.xctest */,
-				A0ACE3AF206E99050048B936 /* pokemonMVC-CUITests.xctest */,
+				A0ACE38D206E99050048B936 /* pokemon.app */,
+				A0ACE3A4206E99050048B936 /* pokemonTests.xctest */,
+				A0ACE3AF206E99050048B936 /* pokemonUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -444,9 +444,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A0ACE38C206E99050048B936 /* pokemonMVC-C */ = {
+		A0ACE38C206E99050048B936 /* pokemon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0ACE3B8206E99050048B936 /* Build configuration list for PBXNativeTarget "pokemonMVC-C" */;
+			buildConfigurationList = A0ACE3B8206E99050048B936 /* Build configuration list for PBXNativeTarget "pokemon" */;
 			buildPhases = (
 				A0ACE389206E99050048B936 /* Sources */,
 				A0ACE38A206E99050048B936 /* Frameworks */,
@@ -457,14 +457,14 @@
 			);
 			dependencies = (
 			);
-			name = "pokemonMVC-C";
+			name = pokemon;
 			productName = "pokemonMVC-C";
-			productReference = A0ACE38D206E99050048B936 /* pokemonMVC-C.app */;
+			productReference = A0ACE38D206E99050048B936 /* pokemon.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A0ACE3A3206E99050048B936 /* pokemonMVC-CTests */ = {
+		A0ACE3A3206E99050048B936 /* pokemonTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0ACE3BB206E99050048B936 /* Build configuration list for PBXNativeTarget "pokemonMVC-CTests" */;
+			buildConfigurationList = A0ACE3BB206E99050048B936 /* Build configuration list for PBXNativeTarget "pokemonTests" */;
 			buildPhases = (
 				A0ACE3A0206E99050048B936 /* Sources */,
 				A0ACE3A1206E99050048B936 /* Frameworks */,
@@ -475,14 +475,14 @@
 			dependencies = (
 				A0ACE3A6206E99050048B936 /* PBXTargetDependency */,
 			);
-			name = "pokemonMVC-CTests";
+			name = pokemonTests;
 			productName = "pokemonMVC-CTests";
-			productReference = A0ACE3A4206E99050048B936 /* pokemonMVC-CTests.xctest */;
+			productReference = A0ACE3A4206E99050048B936 /* pokemonTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A0ACE3AE206E99050048B936 /* pokemonMVC-CUITests */ = {
+		A0ACE3AE206E99050048B936 /* pokemonUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0ACE3BE206E99050048B936 /* Build configuration list for PBXNativeTarget "pokemonMVC-CUITests" */;
+			buildConfigurationList = A0ACE3BE206E99050048B936 /* Build configuration list for PBXNativeTarget "pokemonUITests" */;
 			buildPhases = (
 				A0ACE3AB206E99050048B936 /* Sources */,
 				A0ACE3AC206E99050048B936 /* Frameworks */,
@@ -493,9 +493,9 @@
 			dependencies = (
 				A0ACE3B1206E99050048B936 /* PBXTargetDependency */,
 			);
-			name = "pokemonMVC-CUITests";
+			name = pokemonUITests;
 			productName = "pokemonMVC-CUITests";
-			productReference = A0ACE3AF206E99050048B936 /* pokemonMVC-CUITests.xctest */;
+			productReference = A0ACE3AF206E99050048B936 /* pokemonUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -527,7 +527,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A0ACE388206E99050048B936 /* Build configuration list for PBXProject "pokemonMVC-C" */;
+			buildConfigurationList = A0ACE388206E99050048B936 /* Build configuration list for PBXProject "pokemon" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -540,9 +540,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A0ACE38C206E99050048B936 /* pokemonMVC-C */,
-				A0ACE3A3206E99050048B936 /* pokemonMVC-CTests */,
-				A0ACE3AE206E99050048B936 /* pokemonMVC-CUITests */,
+				A0ACE38C206E99050048B936 /* pokemon */,
+				A0ACE3A3206E99050048B936 /* pokemonTests */,
+				A0ACE3AE206E99050048B936 /* pokemonUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -667,12 +667,12 @@
 /* Begin PBXTargetDependency section */
 		A0ACE3A6206E99050048B936 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A0ACE38C206E99050048B936 /* pokemonMVC-C */;
+			target = A0ACE38C206E99050048B936 /* pokemon */;
 			targetProxy = A0ACE3A5206E99050048B936 /* PBXContainerItemProxy */;
 		};
 		A0ACE3B1206E99050048B936 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A0ACE38C206E99050048B936 /* pokemonMVC-C */;
+			target = A0ACE38C206E99050048B936 /* pokemon */;
 			targetProxy = A0ACE3B0206E99050048B936 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -859,7 +859,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pokemonMVC-C.app/pokemonMVC-C";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pokemon.app/pokemon";
 			};
 			name = Debug;
 		};
@@ -876,7 +876,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pokemonMVC-C.app/pokemonMVC-C";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pokemon.app/pokemon";
 			};
 			name = Release;
 		};
@@ -915,7 +915,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A0ACE388206E99050048B936 /* Build configuration list for PBXProject "pokemonMVC-C" */ = {
+		A0ACE388206E99050048B936 /* Build configuration list for PBXProject "pokemon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0ACE3B6206E99050048B936 /* Debug */,
@@ -924,7 +924,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0ACE3B8206E99050048B936 /* Build configuration list for PBXNativeTarget "pokemonMVC-C" */ = {
+		A0ACE3B8206E99050048B936 /* Build configuration list for PBXNativeTarget "pokemon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0ACE3B9206E99050048B936 /* Debug */,
@@ -933,7 +933,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0ACE3BB206E99050048B936 /* Build configuration list for PBXNativeTarget "pokemonMVC-CTests" */ = {
+		A0ACE3BB206E99050048B936 /* Build configuration list for PBXNativeTarget "pokemonTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0ACE3BC206E99050048B936 /* Debug */,
@@ -942,7 +942,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0ACE3BE206E99050048B936 /* Build configuration list for PBXNativeTarget "pokemonMVC-CUITests" */ = {
+		A0ACE3BE206E99050048B936 /* Build configuration list for PBXNativeTarget "pokemonUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0ACE3BF206E99050048B936 /* Debug */,

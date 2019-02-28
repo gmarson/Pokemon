@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:pokemonMVC-C.xcodeproj">
+      location = "self:/Users/zup/Documents/Projects/PokemonMVC-C/pokemon.xcodeproj">
    </FileRef>
 </Workspace>
