@@ -11,13 +11,14 @@ import UIKit
 class PokemonDetailViewController: UIViewController {
 
     var pokemon: Pokemon = Pokemon()
+    var currentPokemonImage: UIImage?
     
     @IBOutlet weak var pokemonTitle: UILabel!
     @IBOutlet weak var pokemonImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupScreen()
     }
     
     private func setupScreen() {
