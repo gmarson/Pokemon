@@ -55,8 +55,9 @@
 		A794287820AC601000C49A84 /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A794287720AC601000C49A84 /* NetworkDispatcher.swift */; };
 		A7B87C5D20B87DCB00D1173B /* ErrorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B87C5C20B87DCB00D1173B /* ErrorFactory.swift */; };
 		A7CE7B75222702120075D95B /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CE7B74222702110075D95B /* ImageDownloader.swift */; };
-		A7CE7B78222709650075D95B /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7CE7B77222709650075D95B /* Kingfisher.framework */; };
-		A7F67611222978A1006DAAC6 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F67610222978A0006DAAC6 /* KeychainSwift.framework */; };
+		A7F6761522297AEB006DAAC6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F6761322297AEB006DAAC6 /* Kingfisher.framework */; };
+		A7F6761622298EEA006DAAC6 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F6761222297AEB006DAAC6 /* KeychainSwift.framework */; };
+		A7F6761722298EEA006DAAC6 /* KeychainSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A7F6761222297AEB006DAAC6 /* KeychainSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,20 @@
 			remoteInfo = "pokemonMVC-C";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A7F6761822298EEA006DAAC6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A7F6761722298EEA006DAAC6 /* KeychainSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A02FABBC218E0E7500035412 /* PokemonSearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSearchCoordinator.swift; sourceTree = "<group>"; };
@@ -131,8 +146,8 @@
 		A794287720AC601000C49A84 /* NetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
 		A7B87C5C20B87DCB00D1173B /* ErrorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorFactory.swift; sourceTree = "<group>"; };
 		A7CE7B74222702110075D95B /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
-		A7CE7B77222709650075D95B /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
-		A7F67610222978A0006DAAC6 /* KeychainSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainSwift.framework; path = Carthage/Build/iOS/KeychainSwift.framework; sourceTree = "<group>"; };
+		A7F6761222297AEB006DAAC6 /* KeychainSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainSwift.framework; path = Carthage/Build/iOS/KeychainSwift.framework; sourceTree = "<group>"; };
+		A7F6761322297AEB006DAAC6 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,8 +155,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7CE7B78222709650075D95B /* Kingfisher.framework in Frameworks */,
-				A7F67611222978A1006DAAC6 /* KeychainSwift.framework in Frameworks */,
+				A7F6761622298EEA006DAAC6 /* KeychainSwift.framework in Frameworks */,
+				A7F6761522297AEB006DAAC6 /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,8 +449,8 @@
 		A7CE7B76222709630075D95B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A7F67610222978A0006DAAC6 /* KeychainSwift.framework */,
-				A7CE7B77222709650075D95B /* Kingfisher.framework */,
+				A7F6761222297AEB006DAAC6 /* KeychainSwift.framework */,
+				A7F6761322297AEB006DAAC6 /* Kingfisher.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -447,10 +462,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0ACE3B8206E99050048B936 /* Build configuration list for PBXNativeTarget "pokemon" */;
 			buildPhases = (
+				A7CE7B792227099C0075D95B /* Carthage */,
 				A0ACE389206E99050048B936 /* Sources */,
 				A0ACE38A206E99050048B936 /* Frameworks */,
 				A0ACE38B206E99050048B936 /* Resources */,
-				A7CE7B792227099C0075D95B /* Carthage */,
+				A7F6761822298EEA006DAAC6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
