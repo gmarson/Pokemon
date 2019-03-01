@@ -56,6 +56,7 @@
 		A7B87C5D20B87DCB00D1173B /* ErrorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B87C5C20B87DCB00D1173B /* ErrorFactory.swift */; };
 		A7CE7B75222702120075D95B /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CE7B74222702110075D95B /* ImageDownloader.swift */; };
 		A7CE7B78222709650075D95B /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7CE7B77222709650075D95B /* Kingfisher.framework */; };
+		A7F67611222978A1006DAAC6 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F67610222978A0006DAAC6 /* KeychainSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		A7B87C5C20B87DCB00D1173B /* ErrorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorFactory.swift; sourceTree = "<group>"; };
 		A7CE7B74222702110075D95B /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		A7CE7B77222709650075D95B /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		A7F67610222978A0006DAAC6 /* KeychainSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainSwift.framework; path = Carthage/Build/iOS/KeychainSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7CE7B78222709650075D95B /* Kingfisher.framework in Frameworks */,
+				A7F67611222978A1006DAAC6 /* KeychainSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +434,7 @@
 		A7CE7B76222709630075D95B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A7F67610222978A0006DAAC6 /* KeychainSwift.framework */,
 				A7CE7B77222709650075D95B /* Kingfisher.framework */,
 			);
 			name = Frameworks;
