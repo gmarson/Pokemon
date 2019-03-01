@@ -40,6 +40,7 @@
 		A0ACE3D8206EADCB0048B936 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ACE3D7206EADCB0048B936 /* Ability.swift */; };
 		A0B2E9FF221F5ACB00BF2BDE /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B2E9FE221F5ACB00BF2BDE /* SearchViewController.xib */; };
 		A0B2EA01221F63BE00BF2BDE /* SavedPokemonsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B2EA00221F63BE00BF2BDE /* SavedPokemonsViewController.xib */; };
+		A0B2EA032228A91E00BF2BDE /* PokemonKeychainPersistency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B2EA022228A91E00BF2BDE /* PokemonKeychainPersistency.swift */; };
 		A73E8FF520B3032E00427E94 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73E8FF420B3032E00427E94 /* NetworkError.swift */; };
 		A752CF6E221C433C00B0280B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A752CF6D221C433C00B0280B /* TabBarViewController.swift */; };
 		A752CF71221C4B9600B0280B /* SavedPokemonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A752CF70221C4B9600B0280B /* SavedPokemonsViewController.swift */; };
@@ -114,6 +115,7 @@
 		A0ACE3D7206EADCB0048B936 /* Ability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
 		A0B2E9FE221F5ACB00BF2BDE /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		A0B2EA00221F63BE00BF2BDE /* SavedPokemonsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedPokemonsViewController.xib; sourceTree = "<group>"; };
+		A0B2EA022228A91E00BF2BDE /* PokemonKeychainPersistency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonKeychainPersistency.swift; sourceTree = "<group>"; };
 		A73E8FF420B3032E00427E94 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A752CF6D221C433C00B0280B /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		A752CF70221C4B9600B0280B /* SavedPokemonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPokemonsViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			children = (
 				A0ACE390206E99050048B936 /* AppDelegate.swift */,
 				A0ACE3C5206E9D020048B936 /* Environment.swift */,
+				A0B2EA022228A91E00BF2BDE /* PokemonKeychainPersistency.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				A0ACE393206E99050048B936 /* SearchViewController.swift in Sources */,
 				A0ACE3D2206EAB140048B936 /* PokemonServices.swift in Sources */,
 				A0ACE3C6206E9D020048B936 /* Environment.swift in Sources */,
+				A0B2EA032228A91E00BF2BDE /* PokemonKeychainPersistency.swift in Sources */,
 				A07FC27120793A7400B1B6A1 /* Stat.swift in Sources */,
 				A752CF71221C4B9600B0280B /* SavedPokemonsViewController.swift in Sources */,
 				A07FC27D20793D2A00B1B6A1 /* GameIndice.swift in Sources */,
