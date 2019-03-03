@@ -32,7 +32,7 @@ class PokemonTableViewCell: UITableViewCell {
     
     func setup(pokemon: Pokemon) {
         pokemonImageView.kf.indicatorType = .activity
-        pokemonTitle.text = pokemon.name?.firstUppercased
+        pokemonTitle.text = pokemon.prettyName
         
         if let height = pokemon.height, let weight = pokemon.weight {
             pokemonHeight.text = constants.height + String(height)
@@ -41,13 +41,13 @@ class PokemonTableViewCell: UITableViewCell {
         
         guard let firstType = pokemon.types?.first else { return }
         
-        type1View.backgroundColor = associatedColor(typeName: firstType.type?.name)
-        type1Label.text = firstType.type?.name?.firstUppercased
+        type1View.backgroundColor = associatedColor(typeName: firstType.type?.prettyName)
+        type1Label.text = firstType.type?.prettyName
         
         if let size = pokemon.types?.count, size > 1, let secondType = pokemon.types?[1] {
             type2View.isHidden = false
-            type2View.backgroundColor = associatedColor(typeName: secondType.type?.name)
-            type2Label.text = secondType.type?.name?.firstUppercased
+            type2View.backgroundColor = associatedColor(typeName: secondType.type?.prettyName)
+            type2Label.text = secondType.type?.prettyName
         }
     }
     

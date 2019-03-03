@@ -9,6 +9,18 @@
 import Foundation
 
 struct NameAndUrl: Codable {
-    var name: String?
+    private var name: String?
     var url: URL?
+}
+
+extension NameAndUrl {
+    var prettyName: String {
+        get {
+            guard let name = name else { return "" }
+            return name.firstUppercased
+        }
+        set {
+            name = newValue
+        }
+    }
 }
