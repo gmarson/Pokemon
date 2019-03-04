@@ -42,6 +42,8 @@
 		A0B2EA01221F63BE00BF2BDE /* SavedPokemonsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B2EA00221F63BE00BF2BDE /* SavedPokemonsViewController.xib */; };
 		A0B2EA032228A91E00BF2BDE /* PokemonKeychainPersistency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B2EA022228A91E00BF2BDE /* PokemonKeychainPersistency.swift */; };
 		A0D46DBE222C72D100C625B8 /* PokemonKeychainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D46DBD222C72D100C625B8 /* PokemonKeychainButton.swift */; };
+		A0D46DC1222D87F500C625B8 /* PokemonTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D46DC0222D87F500C625B8 /* PokemonTypeView.xib */; };
+		A0D46DC3222D880D00C625B8 /* PokemonTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D46DC2222D880D00C625B8 /* PokemonTypeView.swift */; };
 		A73E8FF520B3032E00427E94 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73E8FF420B3032E00427E94 /* NetworkError.swift */; };
 		A752CF6E221C433C00B0280B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A752CF6D221C433C00B0280B /* TabBarViewController.swift */; };
 		A752CF71221C4B9600B0280B /* SavedPokemonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A752CF70221C4B9600B0280B /* SavedPokemonsViewController.swift */; };
@@ -134,6 +136,8 @@
 		A0B2EA00221F63BE00BF2BDE /* SavedPokemonsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedPokemonsViewController.xib; sourceTree = "<group>"; };
 		A0B2EA022228A91E00BF2BDE /* PokemonKeychainPersistency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonKeychainPersistency.swift; sourceTree = "<group>"; };
 		A0D46DBD222C72D100C625B8 /* PokemonKeychainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonKeychainButton.swift; sourceTree = "<group>"; };
+		A0D46DC0222D87F500C625B8 /* PokemonTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonTypeView.xib; sourceTree = "<group>"; };
+		A0D46DC2222D880D00C625B8 /* PokemonTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypeView.swift; sourceTree = "<group>"; };
 		A73E8FF420B3032E00427E94 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A752CF6D221C433C00B0280B /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		A752CF70221C4B9600B0280B /* SavedPokemonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPokemonsViewController.swift; sourceTree = "<group>"; };
@@ -378,6 +382,8 @@
 			isa = PBXGroup;
 			children = (
 				A0D46DBD222C72D100C625B8 /* PokemonKeychainButton.swift */,
+				A0D46DC0222D87F500C625B8 /* PokemonTypeView.xib */,
+				A0D46DC2222D880D00C625B8 /* PokemonTypeView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -588,6 +594,7 @@
 			files = (
 				A0ACE39E206E99050048B936 /* LaunchScreen.storyboard in Resources */,
 				A02FABC2218E144500035412 /* PokemonTableViewCell.xib in Resources */,
+				A0D46DC1222D87F500C625B8 /* PokemonTypeView.xib in Resources */,
 				A0B2E9FF221F5ACB00BF2BDE /* SearchViewController.xib in Resources */,
 				A0ACE39B206E99050048B936 /* Assets.xcassets in Resources */,
 				A0ACE396206E99050048B936 /* Main.storyboard in Resources */,
@@ -672,6 +679,7 @@
 				A794287820AC601000C49A84 /* NetworkDispatcher.swift in Sources */,
 				A07FC28220793DA000B1B6A1 /* VersionItemDetail.swift in Sources */,
 				A752CF6E221C433C00B0280B /* TabBarViewController.swift in Sources */,
+				A0D46DC3222D880D00C625B8 /* PokemonTypeView.swift in Sources */,
 				A07FC27820793C7000B1B6A1 /* VersionGroupDetail.swift in Sources */,
 				A780ECFA20B342A300D8DC40 /* Decoder.swift in Sources */,
 				A0ACE391206E99050048B936 /* AppDelegate.swift in Sources */,

@@ -15,11 +15,9 @@ class PokemonTableViewCell: UITableViewCell {
     @IBOutlet weak var pokemonTitle: UILabel!
     @IBOutlet weak var pokemonWeight: UILabel!
     @IBOutlet weak var pokemonHeight: UILabel!
-    @IBOutlet weak var pokemonTypes: UILabel!
-    @IBOutlet weak var type1View: UIView!
-    @IBOutlet weak var type2View: UIView!
-    @IBOutlet weak var type1Label: UILabel!
-    @IBOutlet weak var type2Label: UILabel!
+    
+    @IBOutlet weak var pokemonType1: PokemonTypeView!
+    @IBOutlet weak var pokemonType2: PokemonTypeView!
     
     private struct Constants {
         let weight = "Weight: "
@@ -39,22 +37,11 @@ class PokemonTableViewCell: UITableViewCell {
             pokemonWeight.text = constants.weight + String(weight)
         }
         
-        guard let firstType = pokemon.types?.first else { return }
+        pokemonType1.setup(types: pokemon.types, position: 0)
+        pokemonType2.setup(types: pokemon.types, position: 1)
         
-        type1View.backgroundColor = associatedColor(typeName: firstType.type?.prettyName)
-        type1Label.text = firstType.type?.prettyName
-        
-        if let size = pokemon.types?.count, size > 1, let secondType = pokemon.types?[1] {
-            type2View.isHidden = false
-            type2View.backgroundColor = associatedColor(typeName: secondType.type?.prettyName)
-            type2Label.text = secondType.type?.prettyName
-        }
     }
     
-    private func associatedColor(typeName: String?) -> UIColor? {
-        guard let name = typeName?.lowercased() else { return UIColor.white }
-        let color = UIColor(named: name)
-        return color
-    }
+    
     
 }
