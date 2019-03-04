@@ -28,6 +28,11 @@ class PokemonTableViewCell: UITableViewCell {
     
     private let constants = Constants()
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        selectionStyle = .none
+    }
+    
     func setup(pokemon: Pokemon) {
         pokemonImageView.kf.indicatorType = .activity
         pokemonTitle.text = pokemon.prettyName

@@ -29,13 +29,11 @@ class PokemonDetailViewController: UIViewController {
     @IBOutlet private weak var pokemonTitle: UILabel!
     @IBOutlet private weak var pokemonImage: UIImageView!
     @IBOutlet private weak var baseExperienceLabel: UILabel!
-    @IBOutlet private weak var type1View: UIView!
-    @IBOutlet private weak var type1Label: UILabel!
-    @IBOutlet private weak var type2View: UIView!
-    @IBOutlet private weak var type2Label: UILabel!
     @IBOutlet private weak var abilityLabel: UILabel!
     @IBOutlet private weak var speciesLabel: UILabel!
     @IBOutlet private weak var pokemonKeychainButton: PokemonKeychainButton!
+    @IBOutlet weak var pokemonType1: PokemonTypeView!
+    @IBOutlet weak var pokemonType2: PokemonTypeView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,15 +49,16 @@ class PokemonDetailViewController: UIViewController {
         pokemonTitle.text = pokemon.prettyName
         pokemonImage.image = currentPokemonImage
         baseExperienceLabel.text = constants.baseExperience + pokemon.baseExperience
-        abilityLabel.text = constants.ability
         if let species = pokemon.species {
             speciesLabel.text = constants.species + species.prettyName
         }
         
-        if let a = pokemon.commomAbility {
-            abilityLabel.text = a.ability?.prettyName
+        if let a = pokemon.commomAbility, let abilityName = a.ability?.prettyName {
+            abilityLabel.text = constants.ability + abilityName
         }
         
+        pokemonType1.setup(types: pokemon.types, position: 0)
+        pokemonType2.setup(types: pokemon.types, position: 1)
         
     }
 

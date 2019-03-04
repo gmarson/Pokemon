@@ -17,11 +17,9 @@
                 <outlet property="pokemonImage" destination="Vx9-S8-ewR" id="Qsg-IU-QAs"/>
                 <outlet property="pokemonKeychainButton" destination="tDT-4V-9zR" id="qds-4q-W7l"/>
                 <outlet property="pokemonTitle" destination="nx8-Zf-vjz" id="5GS-mZ-INi"/>
+                <outlet property="pokemonType1" destination="8Lv-3e-PCC" id="0vh-oG-80K"/>
+                <outlet property="pokemonType2" destination="5QF-i4-G4Z" id="ZAc-ap-GPd"/>
                 <outlet property="speciesLabel" destination="XcX-Ia-CNn" id="L41-io-EqJ"/>
-                <outlet property="type1Label" destination="IQk-uP-vuK" id="bAq-YX-RTv"/>
-                <outlet property="type1View" destination="8Lv-3e-PCC" id="UWR-kN-G6a"/>
-                <outlet property="type2Label" destination="epK-dF-cph" id="hft-px-LHW"/>
-                <outlet property="type2View" destination="5QF-i4-G4Z" id="vFc-WK-rVK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -61,38 +59,18 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Lv-3e-PCC">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Lv-3e-PCC" customClass="PokemonTypeView" customModule="pokemon" customModuleProvider="target">
                     <rect key="frame" x="252" y="76" width="52" height="30"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQk-uP-vuK">
-                            <rect key="frame" x="6.5" y="8" width="39" height="14.5"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="JbB-QU-evq"/>
-                        <constraint firstItem="IQk-uP-vuK" firstAttribute="centerX" secondItem="8Lv-3e-PCC" secondAttribute="centerX" id="WKm-t9-iZf"/>
-                        <constraint firstItem="IQk-uP-vuK" firstAttribute="centerY" secondItem="8Lv-3e-PCC" secondAttribute="centerY" id="jxV-6M-1jJ"/>
                     </constraints>
                 </view>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5QF-i4-G4Z">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5QF-i4-G4Z" customClass="PokemonTypeView" customModule="pokemon" customModuleProvider="target">
                     <rect key="frame" x="252" y="122" width="52" height="30"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epK-dF-cph">
-                            <rect key="frame" x="6" y="8" width="40.5" height="14.5"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     <constraints>
-                        <constraint firstItem="epK-dF-cph" firstAttribute="centerY" secondItem="5QF-i4-G4Z" secondAttribute="centerY" id="R7N-8h-E2V"/>
                         <constraint firstAttribute="height" constant="30" id="qQh-i2-kUM"/>
-                        <constraint firstItem="epK-dF-cph" firstAttribute="centerX" secondItem="5QF-i4-G4Z" secondAttribute="centerX" id="sSg-zk-TB0"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDT-4V-9zR" customClass="PokemonKeychainButton" customModule="pokemon" customModuleProvider="target">

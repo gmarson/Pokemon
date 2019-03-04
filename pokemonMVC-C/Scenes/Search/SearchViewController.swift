@@ -124,17 +124,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension SearchViewController: UISearchBarDelegate {
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        self.searchPokemon()
-    }
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         currentPokemonImage = nil
         searchBar.resignFirstResponder()
+        searchPokemon()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.tableView.isHidden = true
+        tableView.isHidden = true
     }
     
 }
