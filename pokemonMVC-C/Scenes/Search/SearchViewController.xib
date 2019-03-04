@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="pokemonMVC_C" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="pokemon" customModuleProvider="target">
             <connections>
                 <outlet property="pikachuStackView" destination="bEB-IT-ExI" id="v7d-6g-ZmU"/>
                 <outlet property="searchBar" destination="2Qw-9l-6wx" id="xvQ-h7-7uh"/>
@@ -62,7 +62,7 @@
                         <constraint firstItem="64e-h0-pmz" firstAttribute="top" secondItem="3CK-mn-Xr7" secondAttribute="top" id="n2g-aR-mGy"/>
                     </constraints>
                 </view>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="2Qw-9l-6wx">
+                <searchBar contentMode="redraw" searchBarStyle="minimal" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Qw-9l-6wx">
                     <rect key="frame" x="0.0" y="20" width="375" height="56"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="Yca-hM-NSH"/>

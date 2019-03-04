@@ -60,6 +60,7 @@ class PokemonDetailViewController: UIViewController {
             abilityLabel.text = a.ability?.prettyName
         }
         
+        
     }
 
     @IBAction func addOrRemove(_ sender: PokemonKeychainButton) {
