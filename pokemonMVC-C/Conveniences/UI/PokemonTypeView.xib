@@ -12,9 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PokemonTypeView" customModule="pokemon" customModuleProvider="target">
             <connections>
-                <outlet property="parentView" destination="Ua2-mg-xPt" id="ara-dc-iff"/>
-                <outlet property="typeColor" destination="DBR-nt-OE1" id="xBt-n7-kx4"/>
-                <outlet property="typeLabel" destination="7bf-yJ-r9q" id="yUv-4s-zYH"/>
+                <outlet property="parentView" destination="Ua2-mg-xPt" id="Scv-ki-Geg"/>
+                <outlet property="typeColor" destination="DBR-nt-OE1" id="ETX-ln-2bu"/>
+                <outlet property="typeLabel" destination="7bf-yJ-r9q" id="vZO-7F-fL3"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -62,6 +62,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="53.600000000000001" y="73.763118440779621"/>
         </view>
     </objects>
 </document>

@@ -26,6 +26,7 @@ class PokemonDetailViewController: UIViewController {
     
     private let constants = Constants()
     
+    @IBOutlet weak var stat1View: PokemonStatInfoView!
     @IBOutlet private weak var pokemonTitle: UILabel!
     @IBOutlet private weak var pokemonImage: UIImageView!
     @IBOutlet private weak var baseExperienceLabel: UILabel!
@@ -59,8 +60,10 @@ class PokemonDetailViewController: UIViewController {
         
         pokemonType1.setup(types: pokemon.types, position: 0)
         pokemonType2.setup(types: pokemon.types, position: 1)
-        
+        stat1View.setup((pokemon.stats?.first!)!)
     }
+    
+    
 
     @IBAction func addOrRemove(_ sender: PokemonKeychainButton) {
         isPokemonInDatabase ? removeFromDatabase() : saveToDatabase()

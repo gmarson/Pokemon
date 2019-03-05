@@ -44,6 +44,9 @@
 		A0D46DBE222C72D100C625B8 /* PokemonKeychainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D46DBD222C72D100C625B8 /* PokemonKeychainButton.swift */; };
 		A0D46DC1222D87F500C625B8 /* PokemonTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D46DC0222D87F500C625B8 /* PokemonTypeView.xib */; };
 		A0D46DC3222D880D00C625B8 /* PokemonTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D46DC2222D880D00C625B8 /* PokemonTypeView.swift */; };
+		A0D46DC5222DD4D800C625B8 /* PokemonStatInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D46DC4222DD4D800C625B8 /* PokemonStatInfoView.xib */; };
+		A0D46DC7222DD4F100C625B8 /* PokemonStatInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D46DC6222DD4F100C625B8 /* PokemonStatInfoView.swift */; };
+		A0D46DC9222DD6AB00C625B8 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D46DC8222DD6AB00C625B8 /* UIViewExtension.swift */; };
 		A73E8FF520B3032E00427E94 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73E8FF420B3032E00427E94 /* NetworkError.swift */; };
 		A752CF6E221C433C00B0280B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A752CF6D221C433C00B0280B /* TabBarViewController.swift */; };
 		A752CF71221C4B9600B0280B /* SavedPokemonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A752CF70221C4B9600B0280B /* SavedPokemonsViewController.swift */; };
@@ -138,6 +141,9 @@
 		A0D46DBD222C72D100C625B8 /* PokemonKeychainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonKeychainButton.swift; sourceTree = "<group>"; };
 		A0D46DC0222D87F500C625B8 /* PokemonTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonTypeView.xib; sourceTree = "<group>"; };
 		A0D46DC2222D880D00C625B8 /* PokemonTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypeView.swift; sourceTree = "<group>"; };
+		A0D46DC4222DD4D800C625B8 /* PokemonStatInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonStatInfoView.xib; sourceTree = "<group>"; };
+		A0D46DC6222DD4F100C625B8 /* PokemonStatInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatInfoView.swift; sourceTree = "<group>"; };
+		A0D46DC8222DD6AB00C625B8 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		A73E8FF420B3032E00427E94 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A752CF6D221C433C00B0280B /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		A752CF70221C4B9600B0280B /* SavedPokemonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPokemonsViewController.swift; sourceTree = "<group>"; };
@@ -331,6 +337,7 @@
 				A0ACE3CD206EA86F0048B936 /* UITableViewCellExtension.swift */,
 				A0ACE3CB206EA8590048B936 /* UICollectionViewCellExtensions.swift */,
 				A0ACE3C9206EA8500048B936 /* StringExtension.swift */,
+				A0D46DC8222DD6AB00C625B8 /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -384,6 +391,8 @@
 				A0D46DBD222C72D100C625B8 /* PokemonKeychainButton.swift */,
 				A0D46DC0222D87F500C625B8 /* PokemonTypeView.xib */,
 				A0D46DC2222D880D00C625B8 /* PokemonTypeView.swift */,
+				A0D46DC4222DD4D800C625B8 /* PokemonStatInfoView.xib */,
+				A0D46DC6222DD4F100C625B8 /* PokemonStatInfoView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -596,6 +605,7 @@
 				A02FABC2218E144500035412 /* PokemonTableViewCell.xib in Resources */,
 				A0D46DC1222D87F500C625B8 /* PokemonTypeView.xib in Resources */,
 				A0B2E9FF221F5ACB00BF2BDE /* SearchViewController.xib in Resources */,
+				A0D46DC5222DD4D800C625B8 /* PokemonStatInfoView.xib in Resources */,
 				A0ACE39B206E99050048B936 /* Assets.xcassets in Resources */,
 				A0ACE396206E99050048B936 /* Main.storyboard in Resources */,
 				A0B2EA01221F63BE00BF2BDE /* SavedPokemonsViewController.xib in Resources */,
@@ -662,6 +672,7 @@
 				A0ACE3CA206EA8500048B936 /* StringExtension.swift in Sources */,
 				A752CF7B221C734100B0280B /* PokemonDetailViewController.swift in Sources */,
 				A0D46DBE222C72D100C625B8 /* PokemonKeychainButton.swift in Sources */,
+				A0D46DC9222DD6AB00C625B8 /* UIViewExtension.swift in Sources */,
 				A07FC26D207938C200B1B6A1 /* Sprites.swift in Sources */,
 				A07FC26F2079396F00B1B6A1 /* Type.swift in Sources */,
 				A07FC28520793E7500B1B6A1 /* LocationAreaEncounter.swift in Sources */,
@@ -674,6 +685,7 @@
 				A7B87C5D20B87DCB00D1173B /* ErrorFactory.swift in Sources */,
 				A02FABC5218E2F1100035412 /* UIViewControllerExtension.swift in Sources */,
 				A780ECFE20B34F6A00D8DC40 /* Encoder.swift in Sources */,
+				A0D46DC7222DD4F100C625B8 /* PokemonStatInfoView.swift in Sources */,
 				A0ACE3CE206EA86F0048B936 /* UITableViewCellExtension.swift in Sources */,
 				A794287220AB71D800C49A84 /* Coordinator.swift in Sources */,
 				A794287820AC601000C49A84 /* NetworkDispatcher.swift in Sources */,

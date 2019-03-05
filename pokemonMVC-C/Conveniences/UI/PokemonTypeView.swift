@@ -25,7 +25,7 @@ class PokemonTypeView: UIView {
     }
     
     private func commomInit() {
-        parentView = loadViewFromNib()
+        parentView = loadViewFromNib(nibName: "PokemonTypeView")
         parentView.frame = bounds
         parentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(parentView)
@@ -49,15 +49,6 @@ class PokemonTypeView: UIView {
         guard let name = typeName?.lowercased() else { return UIColor.white }
         let color = UIColor(named: name)
         return color
-    }
-    
-    private func loadViewFromNib() -> UIView {
-        
-        let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: "PokemonTypeView", bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-        
-        return view
     }
     
 }
