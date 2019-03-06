@@ -23,6 +23,7 @@
 		A07FC28520793E7500B1B6A1 /* LocationAreaEncounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07FC28420793E7500B1B6A1 /* LocationAreaEncounter.swift */; };
 		A07FC28720793EB900B1B6A1 /* VersionLocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07FC28620793EB900B1B6A1 /* VersionLocationDetail.swift */; };
 		A07FC28920793F1900B1B6A1 /* EncounterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07FC28820793F1900B1B6A1 /* EncounterDetail.swift */; };
+		A092F339222EDB5300D2CBB2 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A092F338222EDB5300D2CBB2 /* UIColorExtension.swift */; };
 		A0ACE391206E99050048B936 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ACE390206E99050048B936 /* AppDelegate.swift */; };
 		A0ACE393206E99050048B936 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ACE392206E99050048B936 /* SearchViewController.swift */; };
 		A0ACE396206E99050048B936 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0ACE394206E99050048B936 /* Main.storyboard */; };
@@ -114,6 +115,7 @@
 		A07FC28420793E7500B1B6A1 /* LocationAreaEncounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAreaEncounter.swift; sourceTree = "<group>"; };
 		A07FC28620793EB900B1B6A1 /* VersionLocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionLocationDetail.swift; sourceTree = "<group>"; };
 		A07FC28820793F1900B1B6A1 /* EncounterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncounterDetail.swift; sourceTree = "<group>"; };
+		A092F338222EDB5300D2CBB2 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A0ACE38D206E99050048B936 /* pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0ACE390206E99050048B936 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0ACE392206E99050048B936 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				A0ACE3CB206EA8590048B936 /* UICollectionViewCellExtensions.swift */,
 				A0ACE3C9206EA8500048B936 /* StringExtension.swift */,
 				A0D46DC8222DD6AB00C625B8 /* UIViewExtension.swift */,
+				A092F338222EDB5300D2CBB2 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				A0D46DC9222DD6AB00C625B8 /* UIViewExtension.swift in Sources */,
 				A07FC26D207938C200B1B6A1 /* Sprites.swift in Sources */,
 				A07FC26F2079396F00B1B6A1 /* Type.swift in Sources */,
+				A092F339222EDB5300D2CBB2 /* UIColorExtension.swift in Sources */,
 				A07FC28520793E7500B1B6A1 /* LocationAreaEncounter.swift in Sources */,
 				A02FABBD218E0E7500035412 /* PokemonSearchCoordinator.swift in Sources */,
 				A07FC27520793C2200B1B6A1 /* Move.swift in Sources */,

@@ -40,15 +40,8 @@ class PokemonTypeView: UIView {
         
         let t = types[position]
         isHidden = false
-        typeColor.backgroundColor = associatedColor(typeName: t.type?.prettyName)
+        typeColor.backgroundColor = UIColor.associatedColor(typeName: t.type?.prettyName)
         typeLabel.text = t.type?.prettyName
         self.layoutSubviews()
     }
-    
-    private func associatedColor(typeName: String?) -> UIColor? {
-        guard let name = typeName?.lowercased() else { return UIColor.white }
-        let color = UIColor(named: name)
-        return color
-    }
-    
 }

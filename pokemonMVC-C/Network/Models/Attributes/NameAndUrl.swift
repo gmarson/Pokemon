@@ -9,7 +9,7 @@
 import Foundation
 
 struct NameAndUrl: Codable {
-    private var name: String?
+    var name: String?
     var url: URL?
 }
 

@@ -10,6 +10,16 @@ import UIKit
 
 class PokemonDetailViewController: UIViewController {
 
+    @IBOutlet var statViews: [PokemonStatInfoView]!
+    @IBOutlet private weak var pokemonTitle: UILabel!
+    @IBOutlet private weak var pokemonImage: UIImageView!
+    @IBOutlet private weak var baseExperienceLabel: UILabel!
+    @IBOutlet private weak var abilityLabel: UILabel!
+    @IBOutlet private weak var speciesLabel: UILabel!
+    @IBOutlet private weak var pokemonKeychainButton: PokemonKeychainButton!
+    @IBOutlet weak var pokemonType1: PokemonTypeView!
+    @IBOutlet weak var pokemonType2: PokemonTypeView!
+    
     var pokemon: Pokemon = Pokemon()
     var currentPokemonImage: UIImage?
     let keychain = PokemonKeychainPersistency()
@@ -25,16 +35,6 @@ class PokemonDetailViewController: UIViewController {
     }
     
     private let constants = Constants()
-    
-    @IBOutlet weak var stat1View: PokemonStatInfoView!
-    @IBOutlet private weak var pokemonTitle: UILabel!
-    @IBOutlet private weak var pokemonImage: UIImageView!
-    @IBOutlet private weak var baseExperienceLabel: UILabel!
-    @IBOutlet private weak var abilityLabel: UILabel!
-    @IBOutlet private weak var speciesLabel: UILabel!
-    @IBOutlet private weak var pokemonKeychainButton: PokemonKeychainButton!
-    @IBOutlet weak var pokemonType1: PokemonTypeView!
-    @IBOutlet weak var pokemonType2: PokemonTypeView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,10 +60,17 @@ class PokemonDetailViewController: UIViewController {
         
         pokemonType1.setup(types: pokemon.types, position: 0)
         pokemonType2.setup(types: pokemon.types, position: 1)
-        stat1View.setup((pokemon.stats?.first!)!)
+        setupStatViews()
+        
     }
     
-    
+    private func setupStatViews() {
+        guard let stats = pokemon.stats, stats.count == statViews.count else { return }
+        
+        zip(statViews, stats).forEach { tuple in
+            tuple.0.setup(tuple.1)
+        }
+    }
 
     @IBAction func addOrRemove(_ sender: PokemonKeychainButton) {
         isPokemonInDatabase ? removeFromDatabase() : saveToDatabase()

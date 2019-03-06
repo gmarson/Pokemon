@@ -20,8 +20,13 @@
                 <outlet property="pokemonType1" destination="8Lv-3e-PCC" id="0vh-oG-80K"/>
                 <outlet property="pokemonType2" destination="5QF-i4-G4Z" id="ZAc-ap-GPd"/>
                 <outlet property="speciesLabel" destination="XcX-Ia-CNn" id="L41-io-EqJ"/>
-                <outlet property="stat1View" destination="N09-H0-ZYK" id="bUQ-09-cZt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="statViews" destination="ElZ-Nc-aCF" collectionClass="NSMutableArray" id="l8H-cn-c05"/>
+                <outletCollection property="statViews" destination="N09-H0-ZYK" collectionClass="NSMutableArray" id="nW8-e4-KAE"/>
+                <outletCollection property="statViews" destination="gHe-wu-Ayh" collectionClass="NSMutableArray" id="IvD-Ll-2XF"/>
+                <outletCollection property="statViews" destination="dht-dz-nOr" collectionClass="NSMutableArray" id="HCn-R9-Srr"/>
+                <outletCollection property="statViews" destination="Ou8-fE-OXU" collectionClass="NSMutableArray" id="e5H-wl-GFM"/>
+                <outletCollection property="statViews" destination="Fg6-7B-6fP" collectionClass="NSMutableArray" id="xU8-i2-1fe"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -97,20 +102,62 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCu-95-hNa">
                             <rect key="frame" x="16" y="414" width="288" height="167"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N09-H0-ZYK" customClass="PokemonStatInfoView" customModule="pokemon" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="8" width="96" height="43"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="HHW-YZ-E8h">
+                                    <rect key="frame" x="0.0" y="8" width="288" height="50"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ElZ-Nc-aCF" customClass="PokemonStatInfoView" customModule="pokemon" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="93.5" height="50"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N09-H0-ZYK" customClass="PokemonStatInfoView" customModule="pokemon" customModuleProvider="target">
+                                            <rect key="frame" x="97.5" y="0.0" width="93" height="50"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHe-wu-Ayh" customClass="PokemonStatInfoView" customModule="pokemon" customModuleProvider="target">
+                                            <rect key="frame" x="194.5" y="0.0" width="93.5" height="50"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                    </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="43" id="KIJ-1e-3nz"/>
-                                        <constraint firstAttribute="width" constant="96" id="jXR-XK-XCj"/>
+                                        <constraint firstItem="gHe-wu-Ayh" firstAttribute="width" secondItem="ElZ-Nc-aCF" secondAttribute="width" id="8VC-Id-OrS"/>
+                                        <constraint firstAttribute="height" constant="50" id="Cn5-Qb-7Mm"/>
+                                        <constraint firstItem="ElZ-Nc-aCF" firstAttribute="leading" secondItem="HHW-YZ-E8h" secondAttribute="leading" id="GVm-df-6my"/>
+                                        <constraint firstItem="N09-H0-ZYK" firstAttribute="width" secondItem="ElZ-Nc-aCF" secondAttribute="width" id="Tad-Qe-2gJ"/>
                                     </constraints>
-                                </view>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ii9-XP-Jbh">
+                                    <rect key="frame" x="0.0" y="74" width="288" height="50"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dht-dz-nOr" customClass="PokemonStatInfoView" customModule="pokemon" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="93.5" height="50"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ou8-fE-OXU" customClass="PokemonStatInfoView" customModule="pokemon" customModuleProvider="target">
+                                            <rect key="frame" x="97.5" y="0.0" width="93" height="50"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fg6-7B-6fP" customClass="PokemonStatInfoView" customModule="pokemon" customModuleProvider="target">
+                                            <rect key="frame" x="194.5" y="0.0" width="93.5" height="50"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="7tq-ba-ry2"/>
+                                        <constraint firstItem="Fg6-7B-6fP" firstAttribute="width" secondItem="dht-dz-nOr" secondAttribute="width" id="EZd-cY-9Em"/>
+                                        <constraint firstItem="dht-dz-nOr" firstAttribute="leading" secondItem="ii9-XP-Jbh" secondAttribute="leading" id="OWU-Hq-VEZ"/>
+                                        <constraint firstItem="Ou8-fE-OXU" firstAttribute="width" secondItem="dht-dz-nOr" secondAttribute="width" id="vJ8-jJ-oZA"/>
+                                    </constraints>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="167" id="1SF-s4-TAv"/>
-                                <constraint firstItem="N09-H0-ZYK" firstAttribute="top" secondItem="bCu-95-hNa" secondAttribute="top" constant="8" id="A2f-UT-zWW"/>
-                                <constraint firstItem="N09-H0-ZYK" firstAttribute="leading" secondItem="bCu-95-hNa" secondAttribute="leading" id="KTN-q0-ZLd"/>
+                                <constraint firstItem="HHW-YZ-E8h" firstAttribute="top" secondItem="bCu-95-hNa" secondAttribute="top" constant="8" id="EPD-bV-CtD"/>
+                                <constraint firstItem="ii9-XP-Jbh" firstAttribute="leading" secondItem="HHW-YZ-E8h" secondAttribute="leading" id="Hth-mc-k0I"/>
+                                <constraint firstItem="ii9-XP-Jbh" firstAttribute="trailing" secondItem="HHW-YZ-E8h" secondAttribute="trailing" id="JDw-YK-a2M"/>
+                                <constraint firstItem="ii9-XP-Jbh" firstAttribute="top" secondItem="HHW-YZ-E8h" secondAttribute="bottom" constant="16" id="Jcc-Zl-tEy"/>
+                                <constraint firstAttribute="trailing" secondItem="HHW-YZ-E8h" secondAttribute="trailing" id="fVT-Pe-Kgn"/>
+                                <constraint firstItem="HHW-YZ-E8h" firstAttribute="leading" secondItem="bCu-95-hNa" secondAttribute="leading" id="nUb-O8-bPO"/>
                             </constraints>
                         </view>
                     </subviews>
