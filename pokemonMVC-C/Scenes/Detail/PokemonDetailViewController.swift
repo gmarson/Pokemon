@@ -22,11 +22,16 @@ class PokemonDetailViewController: UIViewController {
     
     var pokemon: Pokemon = Pokemon()
     var currentPokemonImage: UIImage?
+    let keychain = PokemonKeychainPersistency()
     
     private struct Constants {
         let baseExperience = "Base Experience: "
         let species = "Species: "
         let ability = "Ability: "
+    }
+    
+    var isPokemonInDatabase: Bool {
+        return keychain.isInDatabase(key: pokemon.prettyName)
     }
     
     private let constants = Constants()
@@ -38,7 +43,7 @@ class PokemonDetailViewController: UIViewController {
     }
     
     private func setButtonStatus() {
-        //isPokemonInDatabase ? pokemonKeychainButton.turnIntoDeleteButton() : pokemonKeychainButton.turnIntoAddButton()
+        isPokemonInDatabase ? pokemonKeychainButton.turnIntoDeleteButton() : pokemonKeychainButton.turnIntoAddButton()
     }
     
     private func setupScreen() {
@@ -68,15 +73,21 @@ class PokemonDetailViewController: UIViewController {
     }
 
     @IBAction func addOrRemove(_ sender: PokemonKeychainButton) {
-        //isPokemonInDatabase ? removeFromDatabase() : saveToDatabase()
+        isPokemonInDatabase ? removeFromDatabase() : saveToDatabase()
     }
     
     private func saveToDatabase() {
-        
+        keychain.save(pokemon: pokemon, onSuccess: {
+            self.setButtonStatus()
+        })
     }
     
     private func removeFromDatabase() {
-        
+        keychain.remove(key: pokemon.prettyName, onSuccess: {
+            self.setButtonStatus()
+        }) {
+            // TODO : show alert with failure
+        }
     }
     
 }

@@ -1,2 +1,3 @@
+github "JSSAlertView/JSSAlertView" "4.2.0"
+github "evgenyneu/keychain-swift" "13.0.0"
 github "onevcat/Kingfisher" "5.2.0"
-github "realm/realm-cocoa" "v3.13.1"
