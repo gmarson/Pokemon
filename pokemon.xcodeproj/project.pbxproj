@@ -11,6 +11,8 @@
 		A02FABC1218E144500035412 /* PokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FABBF218E144500035412 /* PokemonTableViewCell.swift */; };
 		A02FABC2218E144500035412 /* PokemonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02FABC0218E144500035412 /* PokemonTableViewCell.xib */; };
 		A02FABC5218E2F1100035412 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FABC4218E2F1100035412 /* UIViewControllerExtension.swift */; };
+		A065D2B72246F19900BD1013 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A065D2B62246F19800BD1013 /* RealmSwift.framework */; };
+		A065D2B92246F20200BD1013 /* PokemonRealmPersistency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065D2B82246F20200BD1013 /* PokemonRealmPersistency.swift */; };
 		A07FC26D207938C200B1B6A1 /* Sprites.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07FC26C207938C200B1B6A1 /* Sprites.swift */; };
 		A07FC26F2079396F00B1B6A1 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07FC26E2079396F00B1B6A1 /* Type.swift */; };
 		A07FC27120793A7400B1B6A1 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07FC27020793A7400B1B6A1 /* Stat.swift */; };
@@ -41,7 +43,6 @@
 		A0ACE3D8206EADCB0048B936 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ACE3D7206EADCB0048B936 /* Ability.swift */; };
 		A0B2E9FF221F5ACB00BF2BDE /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B2E9FE221F5ACB00BF2BDE /* SearchViewController.xib */; };
 		A0B2EA01221F63BE00BF2BDE /* SavedPokemonsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B2EA00221F63BE00BF2BDE /* SavedPokemonsViewController.xib */; };
-		A0B2EA032228A91E00BF2BDE /* PokemonKeychainPersistency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B2EA022228A91E00BF2BDE /* PokemonKeychainPersistency.swift */; };
 		A0D46DBE222C72D100C625B8 /* PokemonKeychainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D46DBD222C72D100C625B8 /* PokemonKeychainButton.swift */; };
 		A0D46DC1222D87F500C625B8 /* PokemonTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D46DC0222D87F500C625B8 /* PokemonTypeView.xib */; };
 		A0D46DC3222D880D00C625B8 /* PokemonTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D46DC2222D880D00C625B8 /* PokemonTypeView.swift */; };
@@ -63,8 +64,6 @@
 		A7B87C5D20B87DCB00D1173B /* ErrorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B87C5C20B87DCB00D1173B /* ErrorFactory.swift */; };
 		A7CE7B75222702120075D95B /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CE7B74222702110075D95B /* ImageDownloader.swift */; };
 		A7F6761522297AEB006DAAC6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F6761322297AEB006DAAC6 /* Kingfisher.framework */; };
-		A7F6761622298EEA006DAAC6 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F6761222297AEB006DAAC6 /* KeychainSwift.framework */; };
-		A7F6761722298EEA006DAAC6 /* KeychainSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A7F6761222297AEB006DAAC6 /* KeychainSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +90,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A7F6761722298EEA006DAAC6 /* KeychainSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +101,8 @@
 		A02FABBF218E144500035412 /* PokemonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewCell.swift; sourceTree = "<group>"; };
 		A02FABC0218E144500035412 /* PokemonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonTableViewCell.xib; sourceTree = "<group>"; };
 		A02FABC4218E2F1100035412 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		A065D2B62246F19800BD1013 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		A065D2B82246F20200BD1013 /* PokemonRealmPersistency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRealmPersistency.swift; sourceTree = "<group>"; };
 		A07FC26C207938C200B1B6A1 /* Sprites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprites.swift; sourceTree = "<group>"; };
 		A07FC26E2079396F00B1B6A1 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		A07FC27020793A7400B1B6A1 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
@@ -139,7 +139,6 @@
 		A0ACE3D7206EADCB0048B936 /* Ability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
 		A0B2E9FE221F5ACB00BF2BDE /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		A0B2EA00221F63BE00BF2BDE /* SavedPokemonsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedPokemonsViewController.xib; sourceTree = "<group>"; };
-		A0B2EA022228A91E00BF2BDE /* PokemonKeychainPersistency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonKeychainPersistency.swift; sourceTree = "<group>"; };
 		A0D46DBD222C72D100C625B8 /* PokemonKeychainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonKeychainButton.swift; sourceTree = "<group>"; };
 		A0D46DC0222D87F500C625B8 /* PokemonTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonTypeView.xib; sourceTree = "<group>"; };
 		A0D46DC2222D880D00C625B8 /* PokemonTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypeView.swift; sourceTree = "<group>"; };
@@ -160,7 +159,6 @@
 		A794287720AC601000C49A84 /* NetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
 		A7B87C5C20B87DCB00D1173B /* ErrorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorFactory.swift; sourceTree = "<group>"; };
 		A7CE7B74222702110075D95B /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
-		A7F6761222297AEB006DAAC6 /* KeychainSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainSwift.framework; path = Carthage/Build/iOS/KeychainSwift.framework; sourceTree = "<group>"; };
 		A7F6761322297AEB006DAAC6 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,7 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7F6761622298EEA006DAAC6 /* KeychainSwift.framework in Frameworks */,
+				A065D2B72246F19900BD1013 /* RealmSwift.framework in Frameworks */,
 				A7F6761522297AEB006DAAC6 /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,7 +346,7 @@
 		A0ACE3CF206EA8DE0048B936 /* Conveniences */ = {
 			isa = PBXGroup;
 			children = (
-				A0D46DBF222C784400C625B8 /* Keychain */,
+				A0D46DBF222C784400C625B8 /* Realm */,
 				A0D46DBC222C72AA00C625B8 /* UI */,
 				A0ACE3C8206EA8140048B936 /* Extensions */,
 			);
@@ -400,12 +398,12 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		A0D46DBF222C784400C625B8 /* Keychain */ = {
+		A0D46DBF222C784400C625B8 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				A0B2EA022228A91E00BF2BDE /* PokemonKeychainPersistency.swift */,
+				A065D2B82246F20200BD1013 /* PokemonRealmPersistency.swift */,
 			);
-			path = Keychain;
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		A752CF6C221C430700B0280B /* TabBar */ = {
@@ -486,7 +484,7 @@
 		A7CE7B76222709630075D95B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A7F6761222297AEB006DAAC6 /* KeychainSwift.framework */,
+				A065D2B62246F19800BD1013 /* RealmSwift.framework */,
 				A7F6761322297AEB006DAAC6 /* Kingfisher.framework */,
 			);
 			name = Frameworks;
@@ -663,7 +661,6 @@
 				A0ACE393206E99050048B936 /* SearchViewController.swift in Sources */,
 				A0ACE3D2206EAB140048B936 /* PokemonServices.swift in Sources */,
 				A0ACE3C6206E9D020048B936 /* Environment.swift in Sources */,
-				A0B2EA032228A91E00BF2BDE /* PokemonKeychainPersistency.swift in Sources */,
 				A07FC27120793A7400B1B6A1 /* Stat.swift in Sources */,
 				A752CF71221C4B9600B0280B /* SavedPokemonsViewController.swift in Sources */,
 				A07FC27D20793D2A00B1B6A1 /* GameIndice.swift in Sources */,
@@ -703,6 +700,7 @@
 				A73E8FF520B3032E00427E94 /* NetworkError.swift in Sources */,
 				A07FC28720793EB900B1B6A1 /* VersionLocationDetail.swift in Sources */,
 				A794287420AB729600C49A84 /* ApplicationCoordinator.swift in Sources */,
+				A065D2B92246F20200BD1013 /* PokemonRealmPersistency.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
