@@ -12,19 +12,24 @@ import KeychainSwift
 class PokemonKeychainPersistency {
     
     let keychain = KeychainSwift()
+    private var savedPokemons = [String]()
+    private let key = "key"
+    
+    init() {
+        savedPokemons = UserDefaults.standard.stringArray(forKey: key) ?? [String]()
+    }
     
     func isInDatabase(key: String) -> Bool {
-        var pokemon: Pokemon? = nil
-        retrieve(key: key, onSuccess: { pkm in
-            pokemon = pkm
-        })
-        
-        return pokemon != nil
+        return savedPokemons.first { (name) -> Bool in
+            return key == name
+        } != nil
     }
     
     func save(pokemon: Pokemon, onSuccess: (() -> ())? = nil, onFailure: (() -> ())? = nil) {
         if let encoded = try? JSONEncoder().encode(pokemon) {
             keychain.set(encoded, forKey: pokemon.prettyName)
+            savedPokemons.append(pokemon.prettyName)
+            UserDefaults.standard.set(savedPokemons, forKey: key)
             onSuccess?()
         } else {
             onFailure?()
@@ -45,11 +50,27 @@ class PokemonKeychainPersistency {
             print("Decode Failed")
             onFailure?()
         }
+    }
+    
+    func retrieveAll() -> [Pokemon] {
+        var pokemons = [Pokemon]()
+        savedPokemons.forEach { (name) in
+            retrieve(key: name, onSuccess: { (pokemon) in
+                pokemons.append(pokemon)
+            })
+        }
         
+        return pokemons
     }
     
     func remove(key: String, onSuccess: (() -> ()), onFailure: (() -> ())? = nil) {
         if keychain.delete(key) {
+            
+            self.savedPokemons.removeAll { (name) -> Bool in
+                return name == key
+            }
+            
+            UserDefaults.standard.set(self.savedPokemons, forKey: self.key)
             onSuccess()
         } else {
             onFailure?()
@@ -57,6 +78,8 @@ class PokemonKeychainPersistency {
     }
     
     func deleteDatabase() {
+        savedPokemons = [String]()
+        UserDefaults.standard.set(savedPokemons, forKey: self.key)
         keychain.clear()
     }
 }

@@ -14,18 +14,16 @@ protocol PokemonSearchCoordinatorDelegate {
 
 struct SearchDTO {
     let pokemon: Pokemon
-    let currentPokemonImage: UIImage?
 }
 
 class SearchViewController: UIViewController {
 
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var pikachuStackView: UIStackView!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var pikachuStackView: UIStackView!
     
     var coordinatorDelegate: PokemonSearchCoordinatorDelegate?
     private var pokemon: Pokemon? = nil
-    private var currentPokemonImage: UIImage? = nil
     
     private let pokemonServices = PokemonServices()
     private lazy var errorAlert: UIAlertController = {
@@ -102,7 +100,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                 switch result {
                     
                 case .success(let content):
-                    self.currentPokemonImage = content.image
+                    self.pokemon?.pngImage = content.image.pngData()
                 case .failure(_):
                     break
                 }
@@ -114,7 +112,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let pokemon = pokemon else { return }
-        let dto = SearchDTO(pokemon: pokemon, currentPokemonImage: currentPokemonImage)
+        let dto = SearchDTO(pokemon: pokemon)
         coordinatorDelegate?.toPokemonDetailed(searchDTO: dto)
     }
     
@@ -125,7 +123,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        currentPokemonImage = nil
         searchBar.resignFirstResponder()
         searchPokemon()
     }

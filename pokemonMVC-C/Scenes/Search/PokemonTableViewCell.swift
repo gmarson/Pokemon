@@ -34,7 +34,13 @@ class PokemonTableViewCell: UITableViewCell {
     }
     
     func setup(pokemon: Pokemon) {
-        pokemonImageView.kf.indicatorType = .activity
+        
+        if let png = pokemon.pngImage {
+            pokemonImageView.image = UIImage(data: png)
+        } else {
+            pokemonImageView.kf.indicatorType = .activity
+        }
+        
         pokemonTitle.text = pokemon.prettyName
         
         if let height = pokemon.height, let weight = pokemon.weight {

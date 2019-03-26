@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Pokemon: Codable {
     var id: Int?
@@ -26,7 +27,9 @@ struct Pokemon: Codable {
     var moves: [Move]?
     var held_itens: [HeldItem]?
     var location_area_encounters: URL?
-
+    
+    
+    var pngImage: Data?
 }
 
 extension Pokemon {

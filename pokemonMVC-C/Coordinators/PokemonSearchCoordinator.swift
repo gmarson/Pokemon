@@ -36,7 +36,6 @@ extension PokemonSearchCoordinator: PokemonSearchCoordinatorDelegate {
     func toPokemonDetailed(searchDTO: SearchDTO) {
         let detailViewController = PokemonDetailViewController.init(nibName: "PokemonDetailViewController", bundle: nil)
         detailViewController.pokemon = searchDTO.pokemon
-        detailViewController.currentPokemonImage = searchDTO.currentPokemonImage
         navigationController.pushViewController(detailViewController, animated: true)
         
     }

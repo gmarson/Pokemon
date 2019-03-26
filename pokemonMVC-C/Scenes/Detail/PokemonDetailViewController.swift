@@ -21,7 +21,6 @@ class PokemonDetailViewController: UIViewController {
     @IBOutlet weak var pokemonType2: PokemonTypeView!
     
     var pokemon: Pokemon = Pokemon()
-    var currentPokemonImage: UIImage?
     let keychain = PokemonKeychainPersistency()
     
     private struct Constants {
@@ -48,7 +47,10 @@ class PokemonDetailViewController: UIViewController {
     
     private func setupScreen() {
         pokemonTitle.text = pokemon.prettyName
-        pokemonImage.image = currentPokemonImage
+        if let data = pokemon.pngImage {
+            pokemonImage.image = UIImage(data: data)
+        }
+    
         baseExperienceLabel.text = constants.baseExperience + pokemon.baseExperience
         if let species = pokemon.species {
             speciesLabel.text = constants.species + species.prettyName
