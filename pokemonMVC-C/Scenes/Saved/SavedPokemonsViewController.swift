@@ -2,11 +2,19 @@
 //  SavedPokemonsViewController.swift
 //  pokemonMVC-C
 //
-//  Created by Zup on 19/02/19.
+//  Created by Gabriel M on 19/02/19.
 //  Copyright © 2019 Gabriel M. All rights reserved.
 //
 
 import UIKit
+
+protocol SavedPokemonsCoordinatorDelegate {
+    func toPokemonDetailed(savedDTO: SavedDTO)
+}
+
+struct SavedDTO {
+    let pokemon: Pokemon
+}
 
 class SavedPokemonsViewController: UIViewController {
 
@@ -14,8 +22,8 @@ class SavedPokemonsViewController: UIViewController {
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
     
-    private let keychain = PokemonKeychainPersistency()
     private var pokemons = [Pokemon]()
+    var coordinatorDelegate: SavedPokemonsCoordinatorDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +36,7 @@ class SavedPokemonsViewController: UIViewController {
     }
     
     private func retrivePokemons() {
-        pokemons = keychain.retrieveAll()
+        pokemons = PokemonKeychainPersistency().retrieveAll()
         let decision = pokemons.count != 0
         stackView.isHidden = decision
         tableView.isHidden = !decision
@@ -65,6 +73,24 @@ extension SavedPokemonsViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        coordinatorDelegate?.toPokemonDetailed(savedDTO: SavedDTO(pokemon: pokemons[indexPath.row]))
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            PokemonKeychainPersistency().remove(key: pokemons[indexPath.row].prettyName, onSuccess: {
+                self.retrivePokemons()
+            }) {
+                //Show alert message error
+            }
+        }
     }
     
 }

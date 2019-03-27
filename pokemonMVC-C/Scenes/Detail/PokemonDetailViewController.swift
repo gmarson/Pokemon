@@ -21,8 +21,7 @@ class PokemonDetailViewController: UIViewController {
     @IBOutlet weak var pokemonType2: PokemonTypeView!
     
     var pokemon: Pokemon = Pokemon()
-    let keychain = PokemonKeychainPersistency()
-    
+  
     private struct Constants {
         let baseExperience = "Base Experience: "
         let species = "Species: "
@@ -30,15 +29,19 @@ class PokemonDetailViewController: UIViewController {
     }
     
     var isPokemonInDatabase: Bool {
-        return keychain.isInDatabase(key: pokemon.prettyName)
+        return PokemonKeychainPersistency().isInDatabase(key: pokemon.prettyName)
     }
     
     private let constants = Constants()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setButtonStatus()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScreen()
-        setButtonStatus()
     }
     
     private func setButtonStatus() {
@@ -63,7 +66,6 @@ class PokemonDetailViewController: UIViewController {
         pokemonType1.setup(types: pokemon.types, position: 0)
         pokemonType2.setup(types: pokemon.types, position: 1)
         setupStatViews()
-        
     }
     
     private func setupStatViews() {
@@ -79,13 +81,13 @@ class PokemonDetailViewController: UIViewController {
     }
     
     private func saveToDatabase() {
-        keychain.save(pokemon: pokemon, onSuccess: {
+        PokemonKeychainPersistency().save(pokemon: pokemon, onSuccess: {
             self.setButtonStatus()
         })
     }
     
     private func removeFromDatabase() {
-        keychain.remove(key: pokemon.prettyName, onSuccess: {
+        PokemonKeychainPersistency().remove(key: pokemon.prettyName, onSuccess: {
             self.setButtonStatus()
         }) {
             // TODO : show alert with failure

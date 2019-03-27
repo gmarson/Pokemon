@@ -39,6 +39,4 @@ extension PokemonSearchCoordinator: PokemonSearchCoordinatorDelegate {
         navigationController.pushViewController(detailViewController, animated: true)
         
     }
-    
-    
 }
