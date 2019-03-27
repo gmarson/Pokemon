@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C040A39F224BC39F00166E99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040A39E224BC39F00166E99 /* AppDelegate.swift */; };
-		C040A3A1224BC39F00166E99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040A3A0224BC39F00166E99 /* ViewController.swift */; };
 		C040A3B7224BC3A000166E99 /* PokemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040A3B6224BC3A000166E99 /* PokemonTests.swift */; };
 		C040A3C2224BC3A000166E99 /* PokemonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040A3C1224BC3A000166E99 /* PokemonUITests.swift */; };
 		C040A420224BC3B100166E99 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040A3D0224BC3AF00166E99 /* Environment.swift */; };
@@ -102,7 +101,6 @@
 /* Begin PBXFileReference section */
 		C040A39B224BC39F00166E99 /* Pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C040A39E224BC39F00166E99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C040A3A0224BC39F00166E99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C040A3AD224BC3A000166E99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C040A3B2224BC3A000166E99 /* PokemonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C040A3B6224BC3A000166E99 /* PokemonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTests.swift; sourceTree = "<group>"; };
@@ -223,7 +221,6 @@
 				C040A3D2224BC3AF00166E99 /* Network */,
 				C040A414224BC3B000166E99 /* Resources */,
 				C040A404224BC3B000166E99 /* Scenes */,
-				C040A3A0224BC39F00166E99 /* ViewController.swift */,
 			);
 			path = Pokemon;
 			sourceTree = "<group>";
@@ -666,7 +663,6 @@
 				C040A42D224BC3B100166E99 /* Type.swift in Sources */,
 				C040A424224BC3B100166E99 /* GameIndice.swift in Sources */,
 				C040A42F224BC3B100166E99 /* Stat.swift in Sources */,
-				C040A3A1224BC39F00166E99 /* ViewController.swift in Sources */,
 				C040A43F224BC3B100166E99 /* UIColorExtension.swift in Sources */,
 				C040A448224BC3B100166E99 /* SearchViewController.swift in Sources */,
 				C040A446224BC3B100166E99 /* TabBarViewController.swift in Sources */,
