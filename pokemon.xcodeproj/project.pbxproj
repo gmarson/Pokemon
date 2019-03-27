@@ -65,6 +65,12 @@
 		C040A460224BC7AE00166E99 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A45E224BC7AE00166E99 /* Kingfisher.framework */; };
 		C040A461224BC7B900166E99 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A45D224BC7AE00166E99 /* KeychainSwift.framework */; };
 		C040A462224BC7B900166E99 /* KeychainSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C040A45D224BC7AE00166E99 /* KeychainSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C040A465224C0D2E00166E99 /* SavedPokemonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040A464224C0D2E00166E99 /* SavedPokemonsViewModel.swift */; };
+		C040A46B224C112800166E99 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A466224C112800166E99 /* RxSwift.framework */; };
+		C040A46C224C112800166E99 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A467224C112800166E99 /* RxAtomic.framework */; };
+		C040A46D224C112800166E99 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A468224C112800166E99 /* RxBlocking.framework */; };
+		C040A46E224C112800166E99 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A469224C112800166E99 /* RxTest.framework */; };
+		C040A46F224C112800166E99 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A46A224C112800166E99 /* RxCocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +168,12 @@
 		C040A41F224BC3B100166E99 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C040A45D224BC7AE00166E99 /* KeychainSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainSwift.framework; path = Carthage/Build/iOS/KeychainSwift.framework; sourceTree = "<group>"; };
 		C040A45E224BC7AE00166E99 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		C040A464224C0D2E00166E99 /* SavedPokemonsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPokemonsViewModel.swift; sourceTree = "<group>"; };
+		C040A466224C112800166E99 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		C040A467224C112800166E99 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
+		C040A468224C112800166E99 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		C040A469224C112800166E99 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		C040A46A224C112800166E99 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +182,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C040A461224BC7B900166E99 /* KeychainSwift.framework in Frameworks */,
+				C040A46D224C112800166E99 /* RxBlocking.framework in Frameworks */,
+				C040A46F224C112800166E99 /* RxCocoa.framework in Frameworks */,
+				C040A46E224C112800166E99 /* RxTest.framework in Frameworks */,
+				C040A46C224C112800166E99 /* RxAtomic.framework in Frameworks */,
 				C040A460224BC7AE00166E99 /* Kingfisher.framework in Frameworks */,
+				C040A46B224C112800166E99 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +446,7 @@
 			children = (
 				C040A406224BC3B000166E99 /* SavedPokemonsViewController.xib */,
 				C040A407224BC3B000166E99 /* SavedPokemonsViewController.swift */,
+				C040A464224C0D2E00166E99 /* SavedPokemonsViewModel.swift */,
 			);
 			path = Saved;
 			sourceTree = "<group>";
@@ -486,6 +504,11 @@
 		C040A45A224BC70400166E99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C040A467224C112800166E99 /* RxAtomic.framework */,
+				C040A468224C112800166E99 /* RxBlocking.framework */,
+				C040A46A224C112800166E99 /* RxCocoa.framework */,
+				C040A466224C112800166E99 /* RxSwift.framework */,
+				C040A469224C112800166E99 /* RxTest.framework */,
 				C040A45D224BC7AE00166E99 /* KeychainSwift.framework */,
 				C040A45E224BC7AE00166E99 /* Kingfisher.framework */,
 			);
@@ -656,6 +679,7 @@
 				C040A427224BC3B100166E99 /* EncounterDetail.swift in Sources */,
 				C040A423224BC3B100166E99 /* Move.swift in Sources */,
 				C040A455224BC3B100166E99 /* Coordinator.swift in Sources */,
+				C040A465224C0D2E00166E99 /* SavedPokemonsViewModel.swift in Sources */,
 				C040A44E224BC3B100166E99 /* pokemonMVC_C.xcdatamodeld in Sources */,
 				C040A431224BC3B100166E99 /* NetworkResponse.swift in Sources */,
 				C040A42B224BC3B100166E99 /* HeldItem.swift in Sources */,
