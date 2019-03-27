@@ -10,9 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SavedPokemonsViewController" customModule="pokemon" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SavedPokemonsViewController" customModule="Pokemon" customModuleProvider="target">
             <connections>
-                <outlet property="searchBar" destination="Q3f-89-hPo" id="qH5-n0-hLj"/>
                 <outlet property="stackView" destination="9sh-aW-S1K" id="bIG-iy-SdZ"/>
                 <outlet property="tableView" destination="nE1-ZV-KYg" id="pan-j6-nbn"/>
                 <outlet property="view" destination="iN0-l3-epB" id="yjO-Yi-npc"/>
@@ -46,15 +45,8 @@
                         <constraint firstAttribute="bottom" secondItem="zHK-mK-7Hz" secondAttribute="bottom" id="s4t-9S-bDg"/>
                     </constraints>
                 </stackView>
-                <searchBar hidden="YES" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Q3f-89-hPo">
-                    <rect key="frame" x="0.0" y="20" width="375" height="56"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="56" id="3v0-vf-4PU"/>
-                    </constraints>
-                    <textInputTraits key="textInputTraits"/>
-                </searchBar>
                 <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nE1-ZV-KYg">
-                    <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
@@ -64,11 +56,8 @@
                 <constraint firstItem="9sh-aW-S1K" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1HY-az-pYl"/>
                 <constraint firstItem="9sh-aW-S1K" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="4oD-ft-jsc"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nE1-ZV-KYg" secondAttribute="trailing" id="BDx-56-T0v"/>
-                <constraint firstItem="Q3f-89-hPo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="NYg-GG-PLv"/>
                 <constraint firstItem="nE1-ZV-KYg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="b1A-7D-W3a"/>
-                <constraint firstItem="Q3f-89-hPo" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="dfA-Xr-aOj"/>
-                <constraint firstItem="Q3f-89-hPo" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ssl-yP-N3t"/>
-                <constraint firstItem="nE1-ZV-KYg" firstAttribute="top" secondItem="Q3f-89-hPo" secondAttribute="bottom" id="zO7-n0-wRu"/>
+                <constraint firstItem="nE1-ZV-KYg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="kQn-DF-0DZ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="149.59999999999999" y="-73.313343328335833"/>

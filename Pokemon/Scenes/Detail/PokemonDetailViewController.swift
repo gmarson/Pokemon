@@ -42,6 +42,11 @@ class PokemonDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScreen()
+        setTitle()
+    }
+    
+    private func setTitle() {
+        title = "Details"
     }
     
     private func setButtonStatus() {
