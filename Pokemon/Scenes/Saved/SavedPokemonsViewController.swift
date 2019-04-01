@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 protocol SavedPokemonsCoordinatorDelegate {
     func toPokemonDetailed(savedDTO: SavedDTO)
@@ -22,11 +23,13 @@ class SavedPokemonsViewController: UIViewController {
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
     
-    private var pokemons = [Pokemon]()
+    private var viewModel: SavedPokemonsViewModel!
+    private let disposeBag = DisposeBag()
     var coordinatorDelegate: SavedPokemonsCoordinatorDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
         setupTitle()
         setupTableView()
     }
@@ -35,15 +38,26 @@ class SavedPokemonsViewController: UIViewController {
         title = "Saved"
     }
     
-    private func retrivePokemons() {
-        pokemons = PokemonKeychainPersistency().retrieveAll()
-        let decision = pokemons.count != 0
-        stackView.isHidden = decision
-        tableView.isHidden = !decision
-        tableView.reloadData()
+    func bind() {
+        
+        viewModel.viewState.subscribe { [weak self] (event) in
+            guard let self = self, let state = event.element else { return }
+            switch state {
+                
+            case .idle:
+                break
+            case .retrieved(_):
+                let decision = self.viewModel.pokemons.count != 0
+                self.stackView.isHidden = decision
+                self.tableView.isHidden = !decision
+                self.tableView.reloadData()
+            }
+            
+        }.disposed(by: disposeBag)
+        
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         let nib = UINib(nibName: "PokemonTableViewCell", bundle: nil)
@@ -52,20 +66,19 @@ class SavedPokemonsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        retrivePokemons()
+        viewModel.retrievePokemons()
     }
     
 }
 
 extension SavedPokemonsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pokemons.count
+        return viewModel.pokemons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PokemonTableViewCell.identifier) as! PokemonTableViewCell
-        let pokemon = pokemons[indexPath.row]
-        
+        let pokemon = viewModel.pokemons[indexPath.row]
         cell.setup(pokemon: pokemon)
     
         return cell
@@ -76,7 +89,7 @@ extension SavedPokemonsViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinatorDelegate?.toPokemonDetailed(savedDTO: SavedDTO(pokemon: pokemons[indexPath.row]))
+        coordinatorDelegate?.toPokemonDetailed(savedDTO: SavedDTO(pokemon: viewModel.pokemons[indexPath.row]))
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -85,8 +98,8 @@ extension SavedPokemonsViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            PokemonKeychainPersistency().remove(key: pokemons[indexPath.row].prettyName, onSuccess: {
-                self.retrivePokemons()
+            PokemonKeychainPersistency().remove(key: viewModel.pokemons[indexPath.row].prettyName, onSuccess: {
+                self.viewModel.retrievePokemons()
             }) {
                 //Show alert message error
             }

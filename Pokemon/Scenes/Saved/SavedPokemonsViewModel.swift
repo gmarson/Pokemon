@@ -7,7 +7,21 @@
 //
 
 import Foundation
+import RxSwift
 
 class SavedPokemonsViewModel {
+    
+    enum ViewState {
+        case idle
+        case retrieved(pokemons: [Pokemon])
+    }
+    
+    var viewState = BehaviorSubject<ViewState>(value: .idle)
+    var pokemons = [Pokemon]()
+    
+    func retrievePokemons() {
+        pokemons = PokemonKeychainPersistency().retrieveAll()
+        viewState.onNext(.retrieved(pokemons: pokemons))
+    }
     
 }
