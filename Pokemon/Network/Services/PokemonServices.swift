@@ -28,4 +28,9 @@ class PokemonServices {
         })
     }
     
+    var mock: Data {
+        let url = Bundle.main.url(forResource: "pokemonMock", withExtension: "json")!
+        return try! Data(contentsOf: url)
+    }
+    
 }

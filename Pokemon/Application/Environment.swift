@@ -14,7 +14,7 @@ class Environment {
     static let shared = Environment()
     
     // MARK: - Properties
-    var baseURL: String! {
+    var baseURL: String {
         return "https://pokeapi.co/api/v2/"
     }
 }
