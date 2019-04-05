@@ -38,8 +38,8 @@ class PokemonSearchCoordinator: Coordinator {
 
 extension PokemonSearchCoordinator: PokemonSearchCoordinatorDelegate {
     func toPokemonDetailed(searchDTO: SearchDTO) {
-        let detailViewController = PokemonDetailViewController.init(nibName: "PokemonDetailViewController", bundle: nil)
-        detailViewController.pokemon = searchDTO.pokemon
+        let viewModel = DetailViewModel(pokemon: searchDTO.pokemon)
+        let detailViewController = DetailViewController.newInstance(viewModel: viewModel)
         navigationController.pushViewController(detailViewController, animated: true)
     }
 }

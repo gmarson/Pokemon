@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import RxSwift
 
-class PokemonDetailViewController: UIViewController {
+class DetailViewController: UIViewController {
 
     @IBOutlet var statViews: [PokemonStatInfoView]!
     @IBOutlet private weak var pokemonTitle: UILabel!
@@ -20,19 +21,25 @@ class PokemonDetailViewController: UIViewController {
     @IBOutlet weak var pokemonType1: PokemonTypeView!
     @IBOutlet weak var pokemonType2: PokemonTypeView!
     
-    var pokemon: Pokemon = Pokemon()
-  
+    private var viewModel: DetailViewModel!
+    private var disposeBag = DisposeBag()
+    
     private struct Constants {
         let baseExperience = "Base Experience: "
         let species = "Species: "
         let ability = "Ability: "
     }
     
-    var isPokemonInDatabase: Bool {
-        return PokemonKeychainPersistency().isInDatabase(key: pokemon.prettyName)
-    }
+    
     
     private let constants = Constants()
+    
+    class func newInstance(viewModel: DetailViewModel) -> DetailViewController {
+        let viewController = DetailViewController.instantiate(viewControllerOfType: DetailViewController.self)
+        viewController.viewModel = viewModel
+        
+        return viewController
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -41,8 +48,28 @@ class PokemonDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupScreen()
+        bind()
         setTitle()
+    }
+    
+    private func bind() {
+        viewModel.viewState
+            .subscribeOn(MainScheduler.instance)
+            .subscribe { [weak self] (event) in
+                guard let self = self, let state = event.element else { return }
+                switch state {
+                    
+                case .pokemonReceived(let pokemon):
+                    self.setupScreen(pokemon: pokemon)
+                case .keychainOperationMade:
+                    self.setButtonStatus()
+                case .keychainError:
+                    self.present(UIAlertController.errorAlert(message: "This pokemon could not be removed"), animated: true, completion: nil)
+                case .idle:
+                    break
+                }
+            
+        }.disposed(by: disposeBag)
     }
     
     private func setTitle() {
@@ -50,10 +77,10 @@ class PokemonDetailViewController: UIViewController {
     }
     
     private func setButtonStatus() {
-        isPokemonInDatabase ? pokemonKeychainButton.turnIntoDeleteButton() : pokemonKeychainButton.turnIntoAddButton()
+        viewModel.isPokemonInDatabase ? pokemonKeychainButton.turnIntoDeleteButton() : pokemonKeychainButton.turnIntoAddButton()
     }
     
-    private func setupScreen() {
+    private func setupScreen(pokemon: Pokemon) {
         pokemonTitle.text = pokemon.prettyName
         if let data = pokemon.pngImage {
             pokemonImage.image = UIImage(data: data)
@@ -70,33 +97,18 @@ class PokemonDetailViewController: UIViewController {
         
         pokemonType1.setup(types: pokemon.types, position: 0)
         pokemonType2.setup(types: pokemon.types, position: 1)
-        setupStatViews()
+        setupStatViews(pokemon: pokemon)
     }
     
-    private func setupStatViews() {
+    private func setupStatViews(pokemon: Pokemon) {
         guard let stats = pokemon.stats, stats.count == statViews.count else { return }
-        
         zip(statViews, stats).forEach { tuple in
             tuple.0.setup(tuple.1)
         }
     }
 
     @IBAction func addOrRemove(_ sender: PokemonKeychainButton) {
-        isPokemonInDatabase ? removeFromDatabase() : saveToDatabase()
-    }
-    
-    private func saveToDatabase() {
-        PokemonKeychainPersistency().save(pokemon: pokemon, onSuccess: {
-            self.setButtonStatus()
-        })
-    }
-    
-    private func removeFromDatabase() {
-        PokemonKeychainPersistency().remove(key: pokemon.prettyName, onSuccess: {
-            self.setButtonStatus()
-        }) { _ in
-            // TODO : show alert with failure
-        }
+        viewModel.addOrRemoveFromDatabase()
     }
     
 }

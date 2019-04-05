@@ -39,8 +39,8 @@ class SavedPokemonsCoordinator: Coordinator {
 
 extension SavedPokemonsCoordinator: SavedPokemonsCoordinatorDelegate {
     func toPokemonDetailed(savedDTO: SavedDTO) {
-        let detailViewController = PokemonDetailViewController.init(nibName: "PokemonDetailViewController", bundle: nil)
-        detailViewController.pokemon = savedDTO.pokemon
+        let viewModel = DetailViewModel(pokemon: savedDTO.pokemon)
+        let detailViewController = DetailViewController.newInstance(viewModel: viewModel)
         navigationController.pushViewController(detailViewController, animated: true)
     }
 }

@@ -9,14 +9,6 @@
 import UIKit
 import RxSwift
 
-protocol PokemonSearchCoordinatorDelegate {
-    func toPokemonDetailed(searchDTO: SearchDTO)
-}
-
-struct SearchDTO {
-    let pokemon: Pokemon
-}
-
 class SearchViewController: UIViewController {
 
     @IBOutlet private weak var searchBar: UISearchBar!

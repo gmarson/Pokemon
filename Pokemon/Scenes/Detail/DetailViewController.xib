@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PokemonDetailViewController" customModule="pokemon" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="Pokemon" customModuleProvider="target">
             <connections>
                 <outlet property="abilityLabel" destination="WMC-pt-2kP" id="Gv9-HG-W4v"/>
                 <outlet property="baseExperienceLabel" destination="rRe-fI-1nP" id="daE-r7-5f1"/>
@@ -71,11 +71,11 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KMd-ew-ryy">
                             <rect key="frame" x="85" y="284" width="150" height="20"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Lv-3e-PCC" customClass="PokemonTypeView" customModule="pokemon" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Lv-3e-PCC" customClass="PokemonTypeView" customModule="Pokemon" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="70" height="20"/>
                                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5QF-i4-G4Z" customClass="PokemonTypeView" customModule="pokemon" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5QF-i4-G4Z" customClass="PokemonTypeView" customModule="Pokemon" customModuleProvider="target">
                                     <rect key="frame" x="80" y="0.0" width="70" height="20"/>
                                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </view>
@@ -87,7 +87,7 @@
                                 <constraint firstItem="8Lv-3e-PCC" firstAttribute="width" secondItem="5QF-i4-G4Z" secondAttribute="width" id="gqG-Xm-5V1"/>
                             </constraints>
                         </stackView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDT-4V-9zR" customClass="PokemonKeychainButton" customModule="pokemon" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDT-4V-9zR" customClass="PokemonKeychainButton" customModule="Pokemon" customModuleProvider="target">
                             <rect key="frame" x="16" y="605" width="288" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="SWp-u7-Zev"/>
@@ -105,15 +105,15 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="HHW-YZ-E8h">
                                     <rect key="frame" x="0.0" y="8" width="288" height="50"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ElZ-Nc-aCF" customClass="PokemonStatInfoView" customModule="pokemon" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ElZ-Nc-aCF" customClass="PokemonStatInfoView" customModule="Pokemon" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="93.5" height="50"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N09-H0-ZYK" customClass="PokemonStatInfoView" customModule="pokemon" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N09-H0-ZYK" customClass="PokemonStatInfoView" customModule="Pokemon" customModuleProvider="target">
                                             <rect key="frame" x="97.5" y="0.0" width="93" height="50"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHe-wu-Ayh" customClass="PokemonStatInfoView" customModule="pokemon" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHe-wu-Ayh" customClass="PokemonStatInfoView" customModule="Pokemon" customModuleProvider="target">
                                             <rect key="frame" x="194.5" y="0.0" width="93.5" height="50"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
@@ -128,15 +128,15 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ii9-XP-Jbh">
                                     <rect key="frame" x="0.0" y="74" width="288" height="50"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dht-dz-nOr" customClass="PokemonStatInfoView" customModule="pokemon" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dht-dz-nOr" customClass="PokemonStatInfoView" customModule="Pokemon" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="93.5" height="50"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ou8-fE-OXU" customClass="PokemonStatInfoView" customModule="pokemon" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ou8-fE-OXU" customClass="PokemonStatInfoView" customModule="Pokemon" customModuleProvider="target">
                                             <rect key="frame" x="97.5" y="0.0" width="93" height="50"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fg6-7B-6fP" customClass="PokemonStatInfoView" customModule="pokemon" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fg6-7B-6fP" customClass="PokemonStatInfoView" customModule="Pokemon" customModuleProvider="target">
                                             <rect key="frame" x="194.5" y="0.0" width="93.5" height="50"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>

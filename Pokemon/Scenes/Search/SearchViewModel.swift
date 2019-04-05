@@ -10,6 +10,14 @@ import Foundation
 import RxSwift
 import Kingfisher
 
+protocol PokemonSearchCoordinatorDelegate {
+    func toPokemonDetailed(searchDTO: SearchDTO)
+}
+
+struct SearchDTO {
+    let pokemon: Pokemon
+}
+
 class SearchViewModel {
     
     enum ViewState {
