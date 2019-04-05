@@ -30,8 +30,6 @@ class DetailViewController: UIViewController {
         let ability = "Ability: "
     }
     
-    
-    
     private let constants = Constants()
     
     class func newInstance(viewModel: DetailViewModel) -> DetailViewController {
