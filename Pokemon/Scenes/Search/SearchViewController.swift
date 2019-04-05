@@ -26,16 +26,6 @@ class SearchViewController: UIViewController {
     private var viewModel: SearchViewModel!
     private var disposeBag = DisposeBag()
     
-    private func errorAlert(message: String) -> UIAlertController {
-        let a = UIAlertController(title: "Oops", message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        a.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            
-        }))
-        
-        return a
-    }
-    
     class func newInstance(viewModel: SearchViewModel) -> SearchViewController {
         let viewController = SearchViewController.instantiate(viewControllerOfType: SearchViewController.self)
         viewController.viewModel = viewModel
@@ -79,7 +69,7 @@ class SearchViewController: UIViewController {
                     
                     DispatchQueue.main.async {
                         self.tableView.isHidden = true
-                        self.present(self.errorAlert(message: error.rawValue), animated: true, completion: nil)
+                        self.present(UIAlertController.errorAlert(message: error.rawValue), animated: true, completion: nil)
                     }
                 case .downloadedImage:
                     self.tableView.reloadData()

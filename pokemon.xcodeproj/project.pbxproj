@@ -75,6 +75,7 @@
 		C0D84C68225799E800E95969 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A466224C112800166E99 /* RxSwift.framework */; };
 		C0D84C69225799E800E95969 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C040A466224C112800166E99 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C0D84C6E22579D0200E95969 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D84C6D22579D0200E95969 /* SearchViewModel.swift */; };
+		C0D84C702257D05500E95969 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D84C6F2257D05500E95969 /* UIAlertControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +184,7 @@
 		C040A469224C112800166E99 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		C040A46A224C112800166E99 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		C0D84C6D22579D0200E95969 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		C0D84C6F2257D05500E95969 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -425,6 +427,7 @@
 				C040A3FF224BC3AF00166E99 /* UIViewControllerExtension.swift */,
 				C040A400224BC3AF00166E99 /* UIViewExtension.swift */,
 				C040A401224BC3AF00166E99 /* StringExtension.swift */,
+				C0D84C6F2257D05500E95969 /* UIAlertControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				C040A438224BC3B100166E99 /* PokemonTypeView.swift in Sources */,
 				C040A432224BC3B100166E99 /* NetworkError.swift in Sources */,
 				C040A422224BC3B100166E99 /* VersionGroupDetail.swift in Sources */,
+				C0D84C702257D05500E95969 /* UIAlertControllerExtension.swift in Sources */,
 				C040A42C224BC3B100166E99 /* Ability.swift in Sources */,
 				C040A420224BC3B100166E99 /* Environment.swift in Sources */,
 				C040A428224BC3B100166E99 /* Sprites.swift in Sources */,
