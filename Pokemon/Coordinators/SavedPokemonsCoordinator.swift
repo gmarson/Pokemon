@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-
-
 class SavedPokemonsCoordinator: Coordinator {
     
     private let tabBarController: UITabBarController
@@ -23,14 +21,20 @@ class SavedPokemonsCoordinator: Coordinator {
     }
     
     func start() {
-        let savedPokemonsViewController = SavedPokemonsViewController(nibName: "SavedPokemonsViewController", bundle: nil)
+        let viewModel = SavedPokemonsViewModel()
+        viewModel.coordinatorDelegate = self
+        let savedPokemonsViewController = SavedPokemonsViewController.newInstance(viewModel: viewModel)
         self.savedPokemonsViewController = savedPokemonsViewController
         navigationController.viewControllers = [savedPokemonsViewController]
-        self.savedPokemonsViewController?.coordinatorDelegate = self
+        setupTabBar()
+    }
+    
+    private func setupTabBar() {
         tabBarController.viewControllers?.append(navigationController)
         tabBarController.tabBar.items?[1].title = "Saved"
         tabBarController.tabBar.items?[1].image = UIImage(named: "pokeball")
     }
+    
 }
 
 extension SavedPokemonsCoordinator: SavedPokemonsCoordinatorDelegate {
@@ -38,6 +42,5 @@ extension SavedPokemonsCoordinator: SavedPokemonsCoordinatorDelegate {
         let detailViewController = PokemonDetailViewController.init(nibName: "PokemonDetailViewController", bundle: nil)
         detailViewController.pokemon = savedDTO.pokemon
         navigationController.pushViewController(detailViewController, animated: true)
-        
     }
 }

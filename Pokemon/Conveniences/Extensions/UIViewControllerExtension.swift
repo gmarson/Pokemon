@@ -10,8 +10,20 @@ import UIKit
 
 extension UIViewController {
     
-    class func instantiate<T>(viewControllerOfType type: T.Type, storyboardName: String) -> T {
+    class func instantiate<T: UIViewController>(viewControllerOfType type: T.Type, storyboardName: String, bundle: Bundle? = nil) -> T {
+        
         return UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: "\(type)") as! T
     }
+    
+    class func instantiate<T: UIViewController>(viewControllerOfType type: T.Type, nibName: String? = nil, bundle: Bundle? = nil) -> T {
+        
+        if let name = nibName {
+            return T(nibName: name, bundle: bundle)
+        } else {
+            return T(nibName: "\(type)", bundle: bundle)
+        }
+        
+    }
+    
     
 }

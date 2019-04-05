@@ -94,7 +94,7 @@ class PokemonDetailViewController: UIViewController {
     private func removeFromDatabase() {
         PokemonKeychainPersistency().remove(key: pokemon.prettyName, onSuccess: {
             self.setButtonStatus()
-        }) {
+        }) { _ in
             // TODO : show alert with failure
         }
     }

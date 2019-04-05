@@ -23,6 +23,5 @@ struct NetworkError {
             self.message = message
         }
         
-        
     }
 }

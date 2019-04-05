@@ -9,6 +9,10 @@
 import Foundation
 import KeychainSwift
 
+enum KeychainErrors: String {
+    case deletion = "We are having trouble to remove this pokemon, try again later!"
+}
+
 class PokemonKeychainPersistency {
     
     let keychain = KeychainSwift()
@@ -63,7 +67,7 @@ class PokemonKeychainPersistency {
         return pokemons
     }
     
-    func remove(key: String, onSuccess: (() -> ()), onFailure: (() -> ())? = nil) {
+    func remove(key: String, onSuccess: (() -> ()), onFailure: ((KeychainErrors) -> ())? = nil) {
         if keychain.delete(key) {
             
             self.savedPokemons.removeAll { (name) -> Bool in
@@ -73,7 +77,7 @@ class PokemonKeychainPersistency {
             UserDefaults.standard.set(self.savedPokemons, forKey: self.key)
             onSuccess()
         } else {
-            onFailure?()
+            onFailure?(KeychainErrors.deletion)
         }
     }
     

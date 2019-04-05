@@ -66,11 +66,14 @@
 		C040A461224BC7B900166E99 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A45D224BC7AE00166E99 /* KeychainSwift.framework */; };
 		C040A462224BC7B900166E99 /* KeychainSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C040A45D224BC7AE00166E99 /* KeychainSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C040A465224C0D2E00166E99 /* SavedPokemonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040A464224C0D2E00166E99 /* SavedPokemonsViewModel.swift */; };
-		C040A46B224C112800166E99 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A466224C112800166E99 /* RxSwift.framework */; };
-		C040A46C224C112800166E99 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A467224C112800166E99 /* RxAtomic.framework */; };
-		C040A46D224C112800166E99 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A468224C112800166E99 /* RxBlocking.framework */; };
-		C040A46E224C112800166E99 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A469224C112800166E99 /* RxTest.framework */; };
-		C040A46F224C112800166E99 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A46A224C112800166E99 /* RxCocoa.framework */; };
+		C0D84C62225799E700E95969 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A467224C112800166E99 /* RxAtomic.framework */; };
+		C0D84C63225799E700E95969 /* RxAtomic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C040A467224C112800166E99 /* RxAtomic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C0D84C64225799E700E95969 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A468224C112800166E99 /* RxBlocking.framework */; };
+		C0D84C65225799E700E95969 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C040A468224C112800166E99 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C0D84C66225799E700E95969 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A46A224C112800166E99 /* RxCocoa.framework */; };
+		C0D84C67225799E700E95969 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C040A46A224C112800166E99 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C0D84C68225799E800E95969 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A466224C112800166E99 /* RxSwift.framework */; };
+		C0D84C69225799E800E95969 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C040A466224C112800166E99 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +100,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C0D84C69225799E800E95969 /* RxSwift.framework in Embed Frameworks */,
+				C0D84C67225799E700E95969 /* RxCocoa.framework in Embed Frameworks */,
 				C040A462224BC7B900166E99 /* KeychainSwift.framework in Embed Frameworks */,
+				C0D84C63225799E700E95969 /* RxAtomic.framework in Embed Frameworks */,
+				C0D84C65225799E700E95969 /* RxBlocking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,12 +189,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C040A461224BC7B900166E99 /* KeychainSwift.framework in Frameworks */,
-				C040A46D224C112800166E99 /* RxBlocking.framework in Frameworks */,
-				C040A46F224C112800166E99 /* RxCocoa.framework in Frameworks */,
-				C040A46E224C112800166E99 /* RxTest.framework in Frameworks */,
-				C040A46C224C112800166E99 /* RxAtomic.framework in Frameworks */,
 				C040A460224BC7AE00166E99 /* Kingfisher.framework in Frameworks */,
-				C040A46B224C112800166E99 /* RxSwift.framework in Frameworks */,
+				C0D84C68225799E800E95969 /* RxSwift.framework in Frameworks */,
+				C0D84C62225799E700E95969 /* RxAtomic.framework in Frameworks */,
+				C0D84C66225799E700E95969 /* RxCocoa.framework in Frameworks */,
+				C0D84C64225799E700E95969 /* RxBlocking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

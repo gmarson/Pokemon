@@ -9,13 +9,6 @@
 import UIKit
 import RxSwift
 
-protocol SavedPokemonsCoordinatorDelegate {
-    func toPokemonDetailed(savedDTO: SavedDTO)
-}
-
-struct SavedDTO {
-    let pokemon: Pokemon
-}
 
 class SavedPokemonsViewController: UIViewController {
 
@@ -25,7 +18,13 @@ class SavedPokemonsViewController: UIViewController {
     
     private var viewModel: SavedPokemonsViewModel!
     private let disposeBag = DisposeBag()
-    var coordinatorDelegate: SavedPokemonsCoordinatorDelegate?
+    
+    class func newInstance(viewModel: SavedPokemonsViewModel) -> SavedPokemonsViewController {
+        let viewController = SavedPokemonsViewController.instantiate(viewControllerOfType: SavedPokemonsViewController.self)
+        viewController.viewModel = viewModel
+        
+        return viewController
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +50,9 @@ class SavedPokemonsViewController: UIViewController {
                 self.stackView.isHidden = decision
                 self.tableView.isHidden = !decision
                 self.tableView.reloadData()
+            case .keychainError(let error):
+                //TODO show alert with error
+                break
             }
             
         }.disposed(by: disposeBag)
@@ -89,7 +91,7 @@ extension SavedPokemonsViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinatorDelegate?.toPokemonDetailed(savedDTO: SavedDTO(pokemon: viewModel.pokemons[indexPath.row]))
+        viewModel.toPokemonDetailed(index: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -98,11 +100,7 @@ extension SavedPokemonsViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            PokemonKeychainPersistency().remove(key: viewModel.pokemons[indexPath.row].prettyName, onSuccess: {
-                self.viewModel.retrievePokemons()
-            }) {
-                //Show alert message error
-            }
+            viewModel.removePokemon(index: indexPath.row)
         }
     }
     
