@@ -39,7 +39,9 @@ class SavedPokemonsViewController: UIViewController {
     
     func bind() {
         
-        viewModel.viewState.subscribe { [weak self] (event) in
+        viewModel.viewState
+            .subscribeOn(MainScheduler.instance)
+            .subscribe { [weak self] (event) in
             guard let self = self, let state = event.element else { return }
             switch state {
                 

@@ -12,12 +12,12 @@ import Kingfisher
 class PokemonTableViewCell: UITableViewCell {
 
     @IBOutlet weak var pokemonImageView: UIImageView!
-    @IBOutlet weak var pokemonTitle: UILabel!
-    @IBOutlet weak var pokemonWeight: UILabel!
-    @IBOutlet weak var pokemonHeight: UILabel!
+    @IBOutlet private weak var pokemonTitle: UILabel!
+    @IBOutlet private weak var pokemonWeight: UILabel!
+    @IBOutlet private weak var pokemonHeight: UILabel!
     
-    @IBOutlet weak var pokemonType1: PokemonTypeView!
-    @IBOutlet weak var pokemonType2: PokemonTypeView!
+    @IBOutlet private weak var pokemonType1: PokemonTypeView!
+    @IBOutlet private weak var pokemonType2: PokemonTypeView!
     
     private struct Constants {
         let weight = "Weight: "
@@ -28,17 +28,21 @@ class PokemonTableViewCell: UITableViewCell {
     
     private let constants = Constants()
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        pokemonImageView.image = UIImage()
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        pokemonImageView.kf.indicatorType = .activity
     }
     
     func setup(pokemon: Pokemon) {
         
         if let png = pokemon.pngImage {
             pokemonImageView.image = UIImage(data: png)
-        } else {
-            pokemonImageView.kf.indicatorType = .activity
         }
         
         pokemonTitle.text = pokemon.prettyName

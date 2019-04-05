@@ -21,15 +21,19 @@ class PokemonSearchCoordinator: Coordinator {
     }
     
     func start() {
-        let searchViewController = SearchViewController(nibName: "SearchViewController", bundle: nil)
+        let viewModel = SearchViewModel()
+        viewModel.coordinatorDelegate = self
+        let searchViewController = SearchViewController.newInstance(viewModel: viewModel)
         self.searchViewController = searchViewController
-        self.searchViewController?.coordinatorDelegate = self
         navigationController.viewControllers = [searchViewController]
+        setupTabBar()
+    }
+
+    private func setupTabBar() {
         tabBarController.viewControllers = [navigationController]
         tabBarController.tabBar.items?[0].title = "Search"
         tabBarController.tabBar.items?[0].image = UIImage(named: "gengar")
     }
-    
 }
 
 extension PokemonSearchCoordinator: PokemonSearchCoordinatorDelegate {
@@ -37,6 +41,5 @@ extension PokemonSearchCoordinator: PokemonSearchCoordinatorDelegate {
         let detailViewController = PokemonDetailViewController.init(nibName: "PokemonDetailViewController", bundle: nil)
         detailViewController.pokemon = searchDTO.pokemon
         navigationController.pushViewController(detailViewController, animated: true)
-        
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 protocol PokemonSearchCoordinatorDelegate {
     func toPokemonDetailed(searchDTO: SearchDTO)
@@ -22,23 +23,30 @@ class SearchViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var pikachuStackView: UIStackView!
     
-    var coordinatorDelegate: PokemonSearchCoordinatorDelegate?
-    private var pokemon: Pokemon? = nil
+    private var viewModel: SearchViewModel!
+    private var disposeBag = DisposeBag()
     
-    private let pokemonServices = PokemonServices()
-    private lazy var errorAlert: UIAlertController = {
-        let a = UIAlertController(title: "Oops", message: "Pokemon not found!", preferredStyle: UIAlertController.Style.alert)
+    private func errorAlert(message: String) -> UIAlertController {
+        let a = UIAlertController(title: "Oops", message: message, preferredStyle: UIAlertController.Style.alert)
         
         a.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
             
         }))
         
         return a
-    }()
+    }
+    
+    class func newInstance(viewModel: SearchViewModel) -> SearchViewController {
+        let viewController = SearchViewController.instantiate(viewControllerOfType: SearchViewController.self)
+        viewController.viewModel = viewModel
+        
+        return viewController
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupComponents()
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +59,34 @@ class SearchViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
+    private func bind() {
+        viewModel.viewState
+            .subscribeOn(MainScheduler.instance)
+            .subscribe { [weak self] (event) in
+                guard let self = self, let state = event.element else { return }
+                switch state {
+                    
+                case .idle:
+                    break
+                case .retrieved(_):
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.isHidden = false
+                        self.tableView.reloadData()
+                    }
+                    
+                case .error(let error):
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.isHidden = true
+                        self.present(self.errorAlert(message: error.rawValue), animated: true, completion: nil)
+                    }
+                case .downloadedImage:
+                    self.tableView.reloadData()
+                }
+        }.disposed(by: disposeBag)
+    }
+    
     private func setupComponents() {
         searchBar.delegate = self
         tableView.delegate = self
@@ -59,61 +95,24 @@ class SearchViewController: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: PokemonTableViewCell.identifier)
     }
 
-    private func searchPokemon() {
-        
-        guard let searchText = searchBar.text?.lowercased() else {
-            return
-        }
-        
-        pokemonServices.getPokemon(identifier: searchText, onSuccess: { (response, pokemon) in
-            
-            self.pokemon = pokemon
-            DispatchQueue.main.async {
-                self.tableView.isHidden = false
-                self.tableView.reloadData()
-            }
-    
-        }, onFailure: { (response) in
-           
-            DispatchQueue.main.async {
-                self.tableView.isHidden = true
-                self.present(self.errorAlert, animated: true, completion: nil)
-            }
-        })
-    }
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pokemon == nil ? 0 : 1
+        return viewModel.numberOfRowsInSection
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: PokemonTableViewCell.identifier) as! PokemonTableViewCell
-        
-        if let pokemon = pokemon {
-            cell.setup(pokemon: pokemon)
-            
-            cell.pokemonImageView.kf.setImage(with: pokemon.sprites?.front_default) { (result) in
-                switch result {
-                    
-                case .success(let content):
-                    self.pokemon?.pngImage = content.image.pngData()
-                case .failure(_):
-                    break
-                }
-            }
-        }
+        cell.setup(pokemon: viewModel.pokemon)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let pokemon = pokemon else { return }
-        let dto = SearchDTO(pokemon: pokemon)
-        coordinatorDelegate?.toPokemonDetailed(searchDTO: dto)
+        viewModel.toPokemonDetailed(index: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -124,7 +123,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        searchPokemon()
+        viewModel.searchPokemon(text: searchBar.text?.lowercased())
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

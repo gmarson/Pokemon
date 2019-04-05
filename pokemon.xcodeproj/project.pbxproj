@@ -74,6 +74,7 @@
 		C0D84C67225799E700E95969 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C040A46A224C112800166E99 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C0D84C68225799E800E95969 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C040A466224C112800166E99 /* RxSwift.framework */; };
 		C0D84C69225799E800E95969 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C040A466224C112800166E99 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C0D84C6E22579D0200E95969 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D84C6D22579D0200E95969 /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +182,7 @@
 		C040A468224C112800166E99 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		C040A469224C112800166E99 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		C040A46A224C112800166E99 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		C0D84C6D22579D0200E95969 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -472,6 +474,7 @@
 				C040A40E224BC3B000166E99 /* PokemonTableViewCell.xib */,
 				C040A40F224BC3B000166E99 /* SearchViewController.xib */,
 				C040A410224BC3B000166E99 /* PokemonTableViewCell.swift */,
+				C0D84C6D22579D0200E95969 /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 				C040A43F224BC3B100166E99 /* UIColorExtension.swift in Sources */,
 				C040A448224BC3B100166E99 /* SearchViewController.swift in Sources */,
 				C040A446224BC3B100166E99 /* TabBarViewController.swift in Sources */,
+				C0D84C6E22579D0200E95969 /* SearchViewModel.swift in Sources */,
 				C040A434224BC3B100166E99 /* Encoder.swift in Sources */,
 				C040A43D224BC3B100166E99 /* UITableViewCellExtension.swift in Sources */,
 				C040A430224BC3B100166E99 /* ErrorFactory.swift in Sources */,
