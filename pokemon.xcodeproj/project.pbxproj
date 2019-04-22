@@ -541,10 +541,10 @@
 			buildConfigurationList = C040A3C6224BC3A000166E99 /* Build configuration list for PBXNativeTarget "Pokemon" */;
 			buildPhases = (
 				C040A463224BC81D00166E99 /* Carthage */,
+				C040A459224BC6FF00166E99 /* Embed Frameworks */,
 				C040A397224BC39F00166E99 /* Sources */,
 				C040A398224BC39F00166E99 /* Frameworks */,
 				C040A399224BC39F00166E99 /* Resources */,
-				C040A459224BC6FF00166E99 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

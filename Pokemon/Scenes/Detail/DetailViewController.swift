@@ -28,6 +28,9 @@ class DetailViewController: UIViewController {
         let baseExperience = "Base Experience: "
         let species = "Species: "
         let ability = "Ability: "
+        let failToAdd = "This pokemon could not be added"
+        let failToRemove = "This pokemon could not be removed"
+        let title = "Details"
     }
     
     private let constants = Constants()
@@ -59,10 +62,12 @@ class DetailViewController: UIViewController {
                     
                 case .pokemonReceived(let pokemon):
                     self.setupScreen(pokemon: pokemon)
-                case .keychainOperationMade:
-                    self.setButtonStatus()
-                case .keychainError:
-                    self.present(UIAlertController.errorAlert(message: "This pokemon could not be removed"), animated: true, completion: nil)
+                case .pokemonAdded:
+                    self.pokemonKeychainButton.turnIntoDeleteButton()
+                case .pokemonRemoved:
+                    self.pokemonKeychainButton.turnIntoAddButton()
+                case .keychainError(let errorType):
+                    self.handleKeychainError(error: errorType)
                 case .idle:
                     break
                 }
@@ -70,8 +75,20 @@ class DetailViewController: UIViewController {
         }.disposed(by: disposeBag)
     }
     
+    private func handleKeychainError(error: DetailKeychainError ) {
+        var message = ""
+        switch error {
+        case .failToDelete:
+            message = constants.failToRemove
+        case .failToAdd:
+            message = constants.failToAdd
+        }
+        
+        self.present(UIAlertController.errorAlert(message: message), animated: true, completion: nil)
+    }
+    
     private func setTitle() {
-        title = "Details"
+        title = constants.title
     }
     
     private func setButtonStatus() {

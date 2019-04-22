@@ -9,14 +9,40 @@
 import Foundation
 import RxSwift
 
+typealias DetailKeychainError = DetailViewModel.KeychainErrors
+typealias DetailViewState = DetailViewModel.ViewState
 
 class DetailViewModel {
     
-    enum ViewState {
+    enum ViewState: Equatable {
+        static func == (lhs: DetailViewModel.ViewState, rhs: DetailViewModel.ViewState) -> Bool {
+            switch (lhs, rhs) {
+           
+            case (.pokemonReceived(_) , .pokemonReceived(_)):
+                return true
+            case (.pokemonRemoved, .pokemonRemoved):
+                return true
+            case (.pokemonAdded, pokemonAdded):
+                return true
+            case (let .keychainError(error1), let .keychainError(error2)):
+                return error1 == error2
+            case (.idle, .idle):
+                return true
+            default:
+                return false
+            }
+        }
+        
         case pokemonReceived(pokemon: Pokemon)
-        case keychainOperationMade
-        case keychainError
+        case pokemonRemoved
+        case pokemonAdded
+        case keychainError(_ type: KeychainErrors)
         case idle
+    }
+    
+    enum KeychainErrors: Equatable {
+        case failToDelete
+        case failToAdd
     }
     
     init(pokemon: Pokemon) {
@@ -31,17 +57,19 @@ class DetailViewModel {
         return PokemonKeychainPersistency().isInDatabase(key: pokemon.prettyName)
     }
     
-    private func saveToDatabase() {
+    func saveToDatabase() {
         PokemonKeychainPersistency().save(pokemon: pokemon, onSuccess: {
-            self.viewState.onNext(.keychainOperationMade)
-        })
+             self.viewState.onNext(.pokemonAdded)
+        }) {
+            self.viewState.onNext(.keychainError(.failToAdd))
+        }
     }
     
-    private func removeFromDatabase() {
+    func removeFromDatabase() {
         PokemonKeychainPersistency().remove(key: pokemon.prettyName, onSuccess: {
-            self.viewState.onNext(.keychainOperationMade)
+            self.viewState.onNext(.pokemonRemoved)
         }) { _ in
-            self.viewState.onNext(.keychainError)
+            self.viewState.onNext(.keychainError(.failToDelete))
         }
     }
     
