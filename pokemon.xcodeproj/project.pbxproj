@@ -603,18 +603,21 @@
 				TargetAttributes = {
 					C040A39A224BC39F00166E99 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					C040A3B1224BC3A000166E99 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = C040A39A224BC39F00166E99;
 					};
 					C040A3BC224BC3A000166E99 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = C040A39A224BC39F00166E99;
 					};
 				};
 			};
-			buildConfigurationList = C040A396224BC39F00166E99 /* Build configuration list for PBXProject "Pokemon" */;
+			buildConfigurationList = C040A396224BC39F00166E99 /* Build configuration list for PBXProject "pokemon" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -929,7 +932,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = gmarson.Pokemon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -950,7 +953,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = gmarson.Pokemon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -969,7 +972,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = gmarson.PokemonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pokemon.app/Pokemon";
 			};
@@ -989,7 +992,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = gmarson.PokemonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pokemon.app/Pokemon";
 			};
@@ -1008,7 +1011,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = gmarson.PokemonUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Pokemon;
 			};
@@ -1027,7 +1030,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = gmarson.PokemonUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Pokemon;
 			};
@@ -1036,7 +1039,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C040A396224BC39F00166E99 /* Build configuration list for PBXProject "Pokemon" */ = {
+		C040A396224BC39F00166E99 /* Build configuration list for PBXProject "pokemon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C040A3C4224BC3A000166E99 /* Debug */,
