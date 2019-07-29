@@ -10,4 +10,5 @@ import ReSwift
 
 struct AppState: StateType {
     let routingState: RoutingState
+    let searchState: SearchState
 }

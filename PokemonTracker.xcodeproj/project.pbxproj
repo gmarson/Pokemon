@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0D3C20322EF6CA50015D812 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D3C20222EF6CA50015D812 /* ReSwift.framework */; };
+		A0D3C20422EF6CB70015D812 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D3C20222EF6CA50015D812 /* ReSwift.framework */; };
+		A0D3C20522EF6CB70015D812 /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0D3C20222EF6CA50015D812 /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A0D3C20922EF71DE0015D812 /* RoutingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C20822EF71DE0015D812 /* RoutingAction.swift */; };
+		A0D3C20B22EF726E0015D812 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C20A22EF726E0015D812 /* SearchState.swift */; };
+		A0D3C20D22EF75060015D812 /* SearchReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C20C22EF75060015D812 /* SearchReducer.swift */; };
 		A0FB2E7F226E734C00F90F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FB2E7E226E734C00F90F78 /* AppDelegate.swift */; };
 		A0FB2E84226E734C00F90F78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0FB2E82226E734C00F90F78 /* Main.storyboard */; };
 		A0FB2E87226E734C00F90F78 /* PokemonTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0FB2E85226E734C00F90F78 /* PokemonTracker.xcdatamodeld */; };
@@ -112,6 +118,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A0D3C20522EF6CB70015D812 /* ReSwift.framework in Embed Frameworks */,
 				A0FB2F4C226E792700F90F78 /* RxSwift.framework in Embed Frameworks */,
 				A0FB2F4A226E792700F90F78 /* RxCocoa.framework in Embed Frameworks */,
 				A0FB2F44226E792700F90F78 /* KeychainSwift.framework in Embed Frameworks */,
@@ -125,6 +132,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A0D3C20222EF6CA50015D812 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
+		A0D3C20822EF71DE0015D812 /* RoutingAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingAction.swift; sourceTree = "<group>"; };
+		A0D3C20A22EF726E0015D812 /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
+		A0D3C20C22EF75060015D812 /* SearchReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReducer.swift; sourceTree = "<group>"; };
 		A0FB2E7B226E734C00F90F78 /* PokemonTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0FB2E7E226E734C00F90F78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0FB2E83226E734C00F90F78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -212,8 +223,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0D3C20322EF6CA50015D812 /* ReSwift.framework in Frameworks */,
 				A0FB2F4E226E7AF500F90F78 /* Rswift.framework in Frameworks */,
 				C0951F3C22EF42DA00D6FD47 /* ReSwift.framework in Frameworks */,
+				A0D3C20422EF6CB70015D812 /* ReSwift.framework in Frameworks */,
 				A0FB2F45226E792700F90F78 /* RxAtomic.framework in Frameworks */,
 				A0FB2F43226E792700F90F78 /* KeychainSwift.framework in Frameworks */,
 				A0FB2F49226E792700F90F78 /* RxCocoa.framework in Frameworks */,
@@ -240,6 +253,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0D3C20622EF71550015D812 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				C0951F4122EF438B00D6FD47 /* RoutingState.swift */,
+				A0D3C20A22EF726E0015D812 /* SearchState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		A0D3C20722EF71C00015D812 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				A0D3C20822EF71DE0015D812 /* RoutingAction.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
 		A0FB2E72226E734C00F90F78 = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +294,8 @@
 		A0FB2E7D226E734C00F90F78 /* PokemonTracker */ = {
 			isa = PBXGroup;
 			children = (
+				A0D3C20722EF71C00015D812 /* Actions */,
+				A0D3C20622EF71550015D812 /* State */,
 				C0951F4022EF437A00D6FD47 /* Router */,
 				C0951F3522EF419500D6FD47 /* Reducers */,
 				A0FB2EAF226E739C00F90F78 /* Application */,
@@ -548,6 +580,7 @@
 			isa = PBXGroup;
 			children = (
 				C0951F3A22EF42B700D6FD47 /* ReSwift.framework */,
+				A0D3C20222EF6CA50015D812 /* ReSwift.framework */,
 				A0FB2F34226E78E600F90F78 /* KeychainSwift.framework */,
 				A0FB2F39226E78E600F90F78 /* Kingfisher.framework */,
 				A0FB2F33226E78E600F90F78 /* Rswift.framework */,
@@ -565,6 +598,7 @@
 			children = (
 				C0951F3622EF41A600D6FD47 /* AppReducer.swift */,
 				C0951F4322EF446C00D6FD47 /* RoutingReducer.swift */,
+				A0D3C20C22EF75060015D812 /* SearchReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -573,7 +607,6 @@
 			isa = PBXGroup;
 			children = (
 				C0951F3E22EF431500D6FD47 /* AppRouter.swift */,
-				C0951F4122EF438B00D6FD47 /* RoutingState.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -776,6 +809,7 @@
 				A0FB2F5A226E875600F90F78 /* SearchViewModel.swift in Sources */,
 				A0FB2F10226E74F200F90F78 /* PokemonServices.swift in Sources */,
 				A0FB2F06226E74F200F90F78 /* Type.swift in Sources */,
+				A0D3C20922EF71DE0015D812 /* RoutingAction.swift in Sources */,
 				C0951F3722EF41A600D6FD47 /* AppReducer.swift in Sources */,
 				A0FB2E87226E734C00F90F78 /* PokemonTracker.xcdatamodeld in Sources */,
 				A0FB2F14226E766A00F90F78 /* Environment.swift in Sources */,
@@ -805,7 +839,9 @@
 				A0FB2ED7226E74EB00F90F78 /* SavedPokemonsCoordinator.swift in Sources */,
 				A0FB2EC7226E74CF00F90F78 /* PokemonStatInfoView.swift in Sources */,
 				A0FB2F01226E74F200F90F78 /* Sprites.swift in Sources */,
+				A0D3C20B22EF726E0015D812 /* SearchState.swift in Sources */,
 				A0FB2ED6226E74EB00F90F78 /* PokemonSearchCoordinator.swift in Sources */,
+				A0D3C20D22EF75060015D812 /* SearchReducer.swift in Sources */,
 				A0FB2F5C226E875600F90F78 /* PokemonTableViewCell.swift in Sources */,
 				A0FB2ECC226E74CF00F90F78 /* UIViewControllerExtension.swift in Sources */,
 				A0FB2EFB226E74F200F90F78 /* VersionGroupDetail.swift in Sources */,

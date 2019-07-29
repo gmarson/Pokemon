@@ -15,9 +15,11 @@ class ApplicationCoordinator: Coordinator {
     let rootViewController: UITabBarController
     let pokemonSearchCoordinator: PokemonSearchCoordinator
     let savedPokemonsCoordinator: SavedPokemonsCoordinator
+    let appRouter: AppRouter
     
     init(window : UIWindow) {
         self.window = window
+        self.appRouter = AppRouter(window: window)
         rootViewController = TabBarViewController.instantiate(viewControllerOfType: TabBarViewController.self, storyboardName: "Main")
         rootViewController.viewControllers = []
         
