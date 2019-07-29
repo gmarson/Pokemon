@@ -7,10 +7,12 @@
 //
 import UIKit
 import CoreData
+import ReSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    var store = Store<AppState>(reducer: appReducer, state: nil)
     var window: UIWindow?
     private var applicationCoordinator: ApplicationCoordinator?
     
