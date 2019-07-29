@@ -6,7 +6,7 @@
 //  Copyright © 2018 Gabriel M. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class Environment {
     

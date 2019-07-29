@@ -79,6 +79,7 @@
 		A0FB2F68226E878200F90F78 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FB2F65226E878200F90F78 /* DetailViewModel.swift */; };
 		A0FB2F69226E878200F90F78 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FB2F66226E878200F90F78 /* DetailViewController.swift */; };
 		A0FB2F6A226E878200F90F78 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FB2F67226E878200F90F78 /* DetailViewController.xib */; };
+		C0951F3222EF3D1600D6FD47 /* ReSwift.framework.dSYM in Frameworks */ = {isa = PBXBuildFile; fileRef = C0951F3122EF3D1600D6FD47 /* ReSwift.framework.dSYM */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,7 @@
 		A0FB2F65226E878200F90F78 /* DetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewModel.swift; path = PokemonTracker/Scenes/Detail/DetailViewModel.swift; sourceTree = SOURCE_ROOT; };
 		A0FB2F66226E878200F90F78 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = PokemonTracker/Scenes/Detail/DetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		A0FB2F67226E878200F90F78 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailViewController.xib; path = PokemonTracker/Scenes/Detail/DetailViewController.xib; sourceTree = SOURCE_ROOT; };
+		C0951F3122EF3D1600D6FD47 /* ReSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReSwift.framework.dSYM; path = Carthage/Build/iOS/ReSwift.framework.dSYM; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0951F3222EF3D1600D6FD47 /* ReSwift.framework.dSYM in Frameworks */,
 				A0FB2F4E226E7AF500F90F78 /* Rswift.framework in Frameworks */,
 				A0FB2F45226E792700F90F78 /* RxAtomic.framework in Frameworks */,
 				A0FB2F43226E792700F90F78 /* KeychainSwift.framework in Frameworks */,
@@ -529,6 +532,7 @@
 		A0FB2F32226E78E600F90F78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C0951F3122EF3D1600D6FD47 /* ReSwift.framework.dSYM */,
 				A0FB2F34226E78E600F90F78 /* KeychainSwift.framework */,
 				A0FB2F39226E78E600F90F78 /* Kingfisher.framework */,
 				A0FB2F33226E78E600F90F78 /* Rswift.framework */,
