@@ -6,24 +6,21 @@
 //  Copyright © 2019 Gabriel M. All rights reserved.
 //
 
-import Foundation
 import ReSwift
 
 func searchPokemon(state: AppState, store: Store<AppState>) -> SearchAction {
     
     PokemonServices().getPokemon(identifier: state.searchState.pokemonToBeSearched, onSuccess: { (response, pokemon) in
-        guard let pokemon = pokemon else {
-            //self.viewState.onNext(.error(SearchState.Errors.emptyPokemon))
-            return
-        }
-        
         //self.pokemon = pokemon
-        //self.viewState.onNext(.retrieved(pokemon: pokemon)) show also update current state
         
+        //self.viewState.onNext(.retrieved(pokemon: pokemon)) should also update current state
         
+        store.dispatch(FinishedSearchAction(pokemon: pokemon))
+        store.dispatch(downloadImage(state: state, store: store))
         //self.downloadImage() should dispatch an action to download image
         
     }, onFailure: { (response) in
+        store.dispatch(FinishedSearchAction())
         //self.viewState.onNext(.error(Errors.emptyPokemon))
     })
     
@@ -34,4 +31,11 @@ struct SearchAction: Action {
     
 }
 
+struct FinishedSearchAction: Action {
+    let pokemon: Pokemon?
+    
+    init(pokemon: Pokemon? = nil) {
+        self.pokemon = pokemon
+    }
+}
 

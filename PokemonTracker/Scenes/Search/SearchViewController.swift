@@ -10,79 +10,40 @@ import UIKit
 import RxSwift
 import ReSwift
 
-protocol SearchViewControllerProtocol: class {
-    func searchPokemon(text: String?)
-}
-
 class SearchViewController: UIViewController {
 
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var pikachuStackView: UIStackView!
     
-    weak var handler: SearchViewControllerProtocol?
     private var viewModel: SearchViewModel!
-    private var disposeBag = DisposeBag()
     
     class func newInstance() -> SearchViewController {
-        let viewController = SearchViewController.instantiate(viewControllerOfType: SearchViewController.self)
-        //viewController.viewModel = viewModel
-        
-        return viewController
+        return SearchViewController.instantiate(viewControllerOfType: SearchViewController.self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupComponents()
-        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        store.subscribe(self) {
+            $0.select({
+                $0.searchState
+            })
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
+        store.unsubscribe(self)
     }
 
-    func inject(handler: SearchViewControllerProtocol) {
-        self.handler = handler
-    }
-    
-    func render(viewModel: SearchViewModel) {
-        self.viewModel = viewModel
-    }
-    
-    private func bind() {
-        viewModel.viewState
-            .subscribeOn(MainScheduler.instance)
-            .subscribe { [weak self] (event) in
-                guard let self = self, let state = event.element else { return }
-                switch state {
-                    
-                case .idle:
-                    break
-                case .retrieved(_):
-                    
-                    DispatchQueue.main.async {
-                        self.tableView.isHidden = false
-                        self.tableView.reloadData()
-                    }
-                    
-                case .error(let error):
-                    
-                    DispatchQueue.main.async {
-                        self.tableView.isHidden = true
-                        self.present(UIAlertController.errorAlert(message: error.rawValue), animated: true, completion: nil)
-                    }
-                case .downloadedImage:
-                    self.tableView.reloadData()
-                }
-        }.disposed(by: disposeBag)
-    }
-    
     private func setupComponents() {
         searchBar.delegate = self
         tableView.delegate = self
@@ -90,7 +51,6 @@ class SearchViewController: UIViewController {
         let nib = UINib(nibName: "PokemonTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: PokemonTableViewCell.identifier)
     }
-
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -119,9 +79,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        viewModel.searchPokemon(text: searchBar.text?.lowercased())
-        
-        handler?.searchPokemon(text: searchBar.text?.lowercased())
+        store.dispatch(searchPokemon)
+        //viewModel.searchPokemon(text: searchBar.text?.lowercased())
         
     }
     

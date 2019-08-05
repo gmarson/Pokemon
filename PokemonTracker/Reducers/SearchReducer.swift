@@ -9,6 +9,15 @@
 import ReSwift
 
 func searchReducer(action: Action, state: SearchState?) -> SearchState {
-    let state = state ?? SearchState(pokemonToBeSearched: "")
-    return state
+    
+    var unwrappedState = state ?? SearchState()
+    
+    switch action {
+    case let routingAction as FinishedSearchAction:
+        unwrappedState.pokemon = routingAction.pokemon
+    default: break
+    }
+    
+    
+    return unwrappedState
 }
