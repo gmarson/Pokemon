@@ -9,6 +9,9 @@
 import UIKit
 import RxSwift
 
+protocol SavedPokemonsViewControllerProtocol: class {
+    
+}
 
 class SavedPokemonsViewController: UIViewController {
 

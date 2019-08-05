@@ -8,6 +8,11 @@
 
 import UIKit
 import RxSwift
+import ReSwift
+
+protocol SearchViewControllerProtocol: class {
+    func searchPokemon(text: String?)
+}
 
 class SearchViewController: UIViewController {
 
@@ -15,12 +20,13 @@ class SearchViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var pikachuStackView: UIStackView!
     
+    weak var handler: SearchViewControllerProtocol?
     private var viewModel: SearchViewModel!
     private var disposeBag = DisposeBag()
     
-    class func newInstance(viewModel: SearchViewModel) -> SearchViewController {
+    class func newInstance() -> SearchViewController {
         let viewController = SearchViewController.instantiate(viewControllerOfType: SearchViewController.self)
-        viewController.viewModel = viewModel
+        //viewController.viewModel = viewModel
         
         return viewController
     }
@@ -41,6 +47,14 @@ class SearchViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
+    func inject(handler: SearchViewControllerProtocol) {
+        self.handler = handler
+    }
+    
+    func render(viewModel: SearchViewModel) {
+        self.viewModel = viewModel
+    }
+    
     private func bind() {
         viewModel.viewState
             .subscribeOn(MainScheduler.instance)
@@ -106,11 +120,39 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         viewModel.searchPokemon(text: searchBar.text?.lowercased())
+        
+        handler?.searchPokemon(text: searchBar.text?.lowercased())
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         tableView.isHidden = true
     }
-    
 }
 
+extension SearchViewController: StoreSubscriber {
+    
+    func newState(state: SearchState) {
+        switch state.currentViewState {
+            
+        case .idle:
+            break
+        case .retrieved(_):
+            
+            DispatchQueue.main.async {
+                self.tableView.isHidden = false
+                self.tableView.reloadData()
+            }
+            
+        case .error(let error):
+            
+            DispatchQueue.main.async {
+                self.tableView.isHidden = true
+                self.present(UIAlertController.errorAlert(message: error.rawValue), animated: true, completion: nil)
+            }
+        case .downloadedImage:
+            self.tableView.reloadData()
+        }
+    }
+    
+}

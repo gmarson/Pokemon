@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import Kingfisher
+import ReSwift
 
 protocol PokemonSearchCoordinatorDelegate {
     func toPokemonDetailed(searchDTO: SearchDTO)
@@ -36,7 +37,6 @@ class SearchViewModel {
     var viewState = BehaviorSubject<ViewState>(value: .idle)
     var pokemon: Pokemon! = nil
     private let pokemonServices = PokemonServices()
-    
     
     var numberOfRowsInSection: Int {
         return pokemon == nil ? 0 : 1
@@ -80,6 +80,7 @@ class SearchViewModel {
     }
     
 }
+
 
 extension SearchViewModel {
     func toPokemonDetailed(index: Int) {

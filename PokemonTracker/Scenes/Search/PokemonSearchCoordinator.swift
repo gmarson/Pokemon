@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import ReSwift
 
 class PokemonSearchCoordinator: Coordinator {
     
@@ -21,9 +22,12 @@ class PokemonSearchCoordinator: Coordinator {
     }
     
     func start() {
+        
+        let searchViewController = SearchViewController.newInstance()
+        
         let viewModel = SearchViewModel()
         viewModel.coordinatorDelegate = self
-        let searchViewController = SearchViewController.newInstance(viewModel: viewModel)
+        
         self.searchViewController = searchViewController
         navigationController.viewControllers = [searchViewController]
         setupTabBar()

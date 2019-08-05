@@ -9,6 +9,10 @@
 import UIKit
 import RxSwift
 
+protocol DetailViewControllerProtocol: class {
+    
+}
+
 class DetailViewController: UIViewController {
 
     @IBOutlet var statViews: [PokemonStatInfoView]!

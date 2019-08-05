@@ -9,6 +9,6 @@
 import ReSwift
 
 func searchReducer(action: Action, state: SearchState?) -> SearchState {
-    let state = state ?? SearchState()
+    let state = state ?? SearchState(pokemonToBeSearched: "")
     return state
 }
