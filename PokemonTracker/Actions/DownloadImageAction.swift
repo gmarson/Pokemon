@@ -10,30 +10,31 @@ import Kingfisher
 import ReSwift
 import ReSwiftThunk
 
-//func downloadImage(state: AppState, store: Store<AppState>) -> DownloadImageAction {
-//    
-//    guard let url = state.searchState.pokemon?.sprites?.front_default else { return DownloadImageAction() }
-//
-//    KingfisherManager.shared.retrieveImage(with: url) { (result : Result) in
-//        switch result {
-//
-//        case .success(let success):
-//            store.dispatch(DownloadedImageAction(data: success.image.pngData()))
-//
-//            //TODO need to figure out a way to pass pokemon to the next screen
-//            //self.viewState.onNext(.downloadedImage)
-//            //self.pokemon?.pngImage = success.image.pngData()
-//        case .failure(_):
-//            break
-//        }
-//    }
-//
-//    return DownloadImageAction()
-//}
-
-struct DownloadImageAction: Action {
-
+let downloadPokemonImageThunk = Thunk<AppState> { dispatch, getState in
+    guard let state = getState() else { return }
+    
+    switch state.searchState.currentViewState {
+    case .retrieved(let pokemon):
+        
+        guard let url = pokemon.sprites?.front_default else { return }
+        KingfisherManager.shared.retrieveImage(with: url) { (result : Result) in
+            switch result {
+                
+            case .success(let success):
+                DispatchQueue.main.async {
+                    dispatch(DownloadedImageAction(data: success.image.pngData()))
+                }
+                
+            case .failure(_):
+                break
+            }
+        }
+    
+    default:
+        break
+    }
 }
+
 
 struct DownloadedImageAction: Action {
     let pngData: Data?

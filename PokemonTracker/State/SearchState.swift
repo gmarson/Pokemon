@@ -23,7 +23,7 @@ struct SearchState: StateType {
     enum ViewState {
         case idle
         case retrieved(pokemon: Pokemon)
-        case downloadedImage
+        case downloadedImage(data: Data?)
         case error(_ error: Errors)
     }
     

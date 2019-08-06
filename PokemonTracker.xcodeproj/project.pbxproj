@@ -97,6 +97,9 @@
 		C09A3A1522F9BA89003884B8 /* ReSwiftThunk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09A3A1422F9BA89003884B8 /* ReSwiftThunk.framework */; };
 		C09A3A1622F9BA99003884B8 /* ReSwiftThunk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09A3A1422F9BA89003884B8 /* ReSwiftThunk.framework */; };
 		C09A3A1722F9BA99003884B8 /* ReSwiftThunk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C09A3A1422F9BA89003884B8 /* ReSwiftThunk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C09A3A2422FA10F0003884B8 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09A3A2322FA10F0003884B8 /* Nuke.framework */; };
+		C09A3A2522FA10FA003884B8 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09A3A2322FA10F0003884B8 /* Nuke.framework */; };
+		C09A3A2622FA10FA003884B8 /* Nuke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C09A3A2322FA10F0003884B8 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +126,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C09A3A2622FA10FA003884B8 /* Nuke.framework in Embed Frameworks */,
 				C09A3A1722F9BA99003884B8 /* ReSwiftThunk.framework in Embed Frameworks */,
 				A0D3C20522EF6CB70015D812 /* ReSwift.framework in Embed Frameworks */,
 				A0FB2F4C226E792700F90F78 /* RxSwift.framework in Embed Frameworks */,
@@ -225,6 +229,7 @@
 		C09A3A1022F879E6003884B8 /* SavedPokemonsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SavedPokemonsCoordinator.swift; path = PokemonTracker/Scenes/Saved/SavedPokemonsCoordinator.swift; sourceTree = SOURCE_ROOT; };
 		C09A3A1222F8A41D003884B8 /* DownloadImageAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageAction.swift; sourceTree = "<group>"; };
 		C09A3A1422F9BA89003884B8 /* ReSwiftThunk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwiftThunk.framework; path = Carthage/Build/iOS/ReSwiftThunk.framework; sourceTree = "<group>"; };
+		C09A3A2322FA10F0003884B8 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,10 +245,12 @@
 				A0FB2F43226E792700F90F78 /* KeychainSwift.framework in Frameworks */,
 				A0FB2F49226E792700F90F78 /* RxCocoa.framework in Frameworks */,
 				A0FB2F4B226E792700F90F78 /* RxSwift.framework in Frameworks */,
+				C09A3A2422FA10F0003884B8 /* Nuke.framework in Frameworks */,
 				C09A3A1622F9BA99003884B8 /* ReSwiftThunk.framework in Frameworks */,
 				C09A3A1522F9BA89003884B8 /* ReSwiftThunk.framework in Frameworks */,
 				A0FB2F41226E78E700F90F78 /* Kingfisher.framework in Frameworks */,
 				A0FB2F47226E792700F90F78 /* RxBlocking.framework in Frameworks */,
+				C09A3A2522FA10FA003884B8 /* Nuke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +592,7 @@
 		A0FB2F32226E78E600F90F78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C09A3A2322FA10F0003884B8 /* Nuke.framework */,
 				C09A3A1422F9BA89003884B8 /* ReSwiftThunk.framework */,
 				C0951F3A22EF42B700D6FD47 /* ReSwift.framework */,
 				A0D3C20222EF6CA50015D812 /* ReSwift.framework */,

@@ -71,7 +71,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.toPokemonDetailed(index: indexPath.row)
+        //viewModel.toPokemonDetailed(index: indexPath.row) TODO: dispatch action
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -101,17 +101,19 @@ extension SearchViewController: StoreSubscriber {
             
         case .idle:
             break
-        case .retrieved(_):
-            
+        case .retrieved(let pokemon):
+            self.viewModel.pokemon = pokemon
             self.tableView.isHidden = false
             self.tableView.reloadData()
+            store.dispatch(downloadPokemonImageThunk)
             
         case .error(let error):
             
             self.tableView.isHidden = true
             self.present(UIAlertController.errorAlert(message: error.rawValue), animated: true, completion: nil)
         
-        case .downloadedImage:
+        case .downloadedImage(let image):
+            self.viewModel.pokemon.pngImage = image
             self.tableView.reloadData()
         }
     }
