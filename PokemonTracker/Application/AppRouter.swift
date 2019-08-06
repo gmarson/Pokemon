@@ -9,20 +9,26 @@
 import ReSwift
 import UIKit
 
-//https://willowtreeapps.com/ideas/app-coordinators-and-redux-on-ios
-
-enum RoutingDestination: String {
-    case search = "MenuTableViewController"
-    case saved = "CategoriesTableViewController"
-    case detail = "GameViewController"
+enum RoutingDestination {
+    case search
+    case saved
+    case detail(requestingCoordinator: Coordinator)
 }
 
-final class AppRouter {
+final class AppRouter: Coordinator {
     
-    var rootViewController: TabBarViewController
+    let window: UIWindow
+    let rootViewController: UITabBarController
+    let pokemonSearchCoordinator: PokemonSearchCoordinator
+    let savedPokemonsCoordinator: SavedPokemonsCoordinator
     
-    init(root: TabBarViewController) {
-        rootViewController = root
+    init(window: UIWindow) {
+        self.window = window
+        rootViewController = TabBarViewController.instantiate(viewControllerOfType: TabBarViewController.self, storyboardName: "Main")
+        rootViewController.viewControllers = []
+        
+        pokemonSearchCoordinator = PokemonSearchCoordinator(tabBarController: rootViewController)
+        savedPokemonsCoordinator = SavedPokemonsCoordinator(tabBarController: rootViewController)
         
         store.subscribe(self) {
             $0.select {
@@ -31,25 +37,27 @@ final class AppRouter {
         }
     }
     
+    func start() {
+        window.rootViewController = rootViewController
+        store.dispatch(RoutingAction(destination: .search))
+        store.dispatch(RoutingAction(destination: .saved))
+        window.makeKeyAndVisible()
+    }
 }
 
- // MARK: - StoreSubscriber
-
+// MARK: - StoreSubscriber
 extension AppRouter: StoreSubscriber {
     func newState(state: RoutingState) {
-        
         switch state.navigationState {
-            
         case .search:
-            break
+            pokemonSearchCoordinator.start()
         case .saved:
+            savedPokemonsCoordinator.start()
+        case .detail(let requestingCoordinator):
             break
-        case .detail:
-            break
-        
+//            let viewModel = DetailViewModel(pokemon: searchDTO.pokemon)
+//            let detailViewController = DetailViewController.newInstance(viewModel: viewModel)
+//            navigationController.pushViewController(detailViewController, animated: true)
         }
-        
-        // 5
-        //pushViewController(identifier: state.navigationState.rawValue, animated: true)
     }
 }

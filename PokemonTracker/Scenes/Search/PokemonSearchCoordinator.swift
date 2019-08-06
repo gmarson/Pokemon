@@ -41,6 +41,7 @@ class PokemonSearchCoordinator: Coordinator {
 }
 
 extension PokemonSearchCoordinator: PokemonSearchCoordinatorDelegate {
+    //TODO need to create a delegate to appCoordinator
     func toPokemonDetailed(searchDTO: SearchDTO) {
         let viewModel = DetailViewModel(pokemon: searchDTO.pokemon)
         let detailViewController = DetailViewController.newInstance(viewModel: viewModel)

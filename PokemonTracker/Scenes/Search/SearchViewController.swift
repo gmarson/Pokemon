@@ -19,7 +19,10 @@ class SearchViewController: UIViewController {
     private var viewModel: SearchViewModel!
     
     class func newInstance() -> SearchViewController {
-        return SearchViewController.instantiate(viewControllerOfType: SearchViewController.self)
+
+        let vc = SearchViewController.instantiate(viewControllerOfType: SearchViewController.self)
+        vc.viewModel = SearchViewModel()
+        return vc
     }
     
     override func viewDidLoad() {
@@ -79,9 +82,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        store.dispatch(searchPokemon)
-        //viewModel.searchPokemon(text: searchBar.text?.lowercased())
         
+        guard let text = searchBar.text?.lowercased() else { return }
+        
+        store.dispatch(fetchPokemonThunk(pokemonName: text))
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -92,23 +96,21 @@ extension SearchViewController: UISearchBarDelegate {
 extension SearchViewController: StoreSubscriber {
     
     func newState(state: SearchState) {
+        
         switch state.currentViewState {
             
         case .idle:
             break
         case .retrieved(_):
             
-            DispatchQueue.main.async {
-                self.tableView.isHidden = false
-                self.tableView.reloadData()
-            }
+            self.tableView.isHidden = false
+            self.tableView.reloadData()
             
         case .error(let error):
             
-            DispatchQueue.main.async {
-                self.tableView.isHidden = true
-                self.present(UIAlertController.errorAlert(message: error.rawValue), animated: true, completion: nil)
-            }
+            self.tableView.isHidden = true
+            self.present(UIAlertController.errorAlert(message: error.rawValue), animated: true, completion: nil)
+        
         case .downloadedImage:
             self.tableView.reloadData()
         }

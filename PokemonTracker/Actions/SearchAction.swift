@@ -7,35 +7,32 @@
 //
 
 import ReSwift
+import ReSwiftThunk
 
-func searchPokemon(state: AppState, store: Store<AppState>) -> SearchAction {
-    
-    PokemonServices().getPokemon(identifier: state.searchState.pokemonToBeSearched, onSuccess: { (response, pokemon) in
-        //self.pokemon = pokemon
-        
-        //self.viewState.onNext(.retrieved(pokemon: pokemon)) should also update current state
-        
-        store.dispatch(FinishedSearchAction(pokemon: pokemon))
-        store.dispatch(downloadImage(state: state, store: store))
-        //self.downloadImage() should dispatch an action to download image
-        
-    }, onFailure: { (response) in
-        store.dispatch(FinishedSearchAction())
-        //self.viewState.onNext(.error(Errors.emptyPokemon))
-    })
-    
-    return SearchAction()
+
+func fetchPokemonThunk(pokemonName: String) -> Thunk<AppState> {
+    return Thunk<AppState> { dispatch, getState in
+        guard let state = getState() else { return }
+        PokemonServices().getPokemon(identifier: pokemonName, onSuccess: { (response, pokemon) in
+            DispatchQueue.main.async {
+                dispatch(FinishedSearchAction(pokemon: pokemon, networkResponse: response))
+            }
+        }, onFailure: { (response) in
+            DispatchQueue.main.async {
+                dispatch(FinishedSearchAction(networkResponse: response))
+            }
+        })
+    }
 }
 
-struct SearchAction: Action {
-    
-}
 
 struct FinishedSearchAction: Action {
     let pokemon: Pokemon?
+    let networkResponse: NetworkResponse
     
-    init(pokemon: Pokemon? = nil) {
+    init(pokemon: Pokemon? = nil, networkResponse: NetworkResponse) {
         self.pokemon = pokemon
+        self.networkResponse = networkResponse
     }
 }
 

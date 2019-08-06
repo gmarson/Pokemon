@@ -3,3 +3,4 @@ github "evgenyneu/keychain-swift" ~> 13.0
 github "ReactiveX/RxSwift" ~> 4.4.2
 github "mac-cain13/R.swift.Library"
 github "ReSwift/ReSwift"
+github "ReSwift/ReSwift-Thunk"

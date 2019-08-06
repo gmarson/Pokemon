@@ -10,9 +10,7 @@ import ReSwift
 
 struct SearchState: StateType {
 
-    init(pokemonToBeSearched: String = "", currentViewState: ViewState? = nil, pokemon: Pokemon? = nil) {
-        self.pokemonToBeSearched = pokemonToBeSearched
-        self.pokemon = pokemon
+    init(currentViewState: ViewState? = nil) {
         if let state = currentViewState {
             self.currentViewState = state
         } else {
@@ -20,8 +18,6 @@ struct SearchState: StateType {
         }
     }
     
-    var pokemon: Pokemon? = nil
-    var pokemonToBeSearched: String
     private(set) var currentViewState: ViewState
     
     enum ViewState {

@@ -7,6 +7,11 @@
 //
 
 import ReSwift
+import ReSwiftThunk
+
+let thunkMiddleware: Middleware<AppState> = createThunksMiddleware()
+
+var store = Store<AppState>(reducer: appReducer, state: nil, middleware: [thunkMiddleware])
 
 struct AppState: StateType {
     let routingState: RoutingState

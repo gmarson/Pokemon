@@ -94,6 +94,9 @@
 		C09A3A0F22F879D5003884B8 /* PokemonSearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A3A0E22F879D4003884B8 /* PokemonSearchCoordinator.swift */; };
 		C09A3A1122F879E6003884B8 /* SavedPokemonsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A3A1022F879E6003884B8 /* SavedPokemonsCoordinator.swift */; };
 		C09A3A1322F8A41D003884B8 /* DownloadImageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A3A1222F8A41D003884B8 /* DownloadImageAction.swift */; };
+		C09A3A1522F9BA89003884B8 /* ReSwiftThunk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09A3A1422F9BA89003884B8 /* ReSwiftThunk.framework */; };
+		C09A3A1622F9BA99003884B8 /* ReSwiftThunk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09A3A1422F9BA89003884B8 /* ReSwiftThunk.framework */; };
+		C09A3A1722F9BA99003884B8 /* ReSwiftThunk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C09A3A1422F9BA89003884B8 /* ReSwiftThunk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +123,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C09A3A1722F9BA99003884B8 /* ReSwiftThunk.framework in Embed Frameworks */,
 				A0D3C20522EF6CB70015D812 /* ReSwift.framework in Embed Frameworks */,
 				A0FB2F4C226E792700F90F78 /* RxSwift.framework in Embed Frameworks */,
 				A0FB2F4A226E792700F90F78 /* RxCocoa.framework in Embed Frameworks */,
@@ -220,6 +224,7 @@
 		C09A3A0E22F879D4003884B8 /* PokemonSearchCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PokemonSearchCoordinator.swift; path = PokemonTracker/Scenes/Search/PokemonSearchCoordinator.swift; sourceTree = SOURCE_ROOT; };
 		C09A3A1022F879E6003884B8 /* SavedPokemonsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SavedPokemonsCoordinator.swift; path = PokemonTracker/Scenes/Saved/SavedPokemonsCoordinator.swift; sourceTree = SOURCE_ROOT; };
 		C09A3A1222F8A41D003884B8 /* DownloadImageAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageAction.swift; sourceTree = "<group>"; };
+		C09A3A1422F9BA89003884B8 /* ReSwiftThunk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwiftThunk.framework; path = Carthage/Build/iOS/ReSwiftThunk.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +240,8 @@
 				A0FB2F43226E792700F90F78 /* KeychainSwift.framework in Frameworks */,
 				A0FB2F49226E792700F90F78 /* RxCocoa.framework in Frameworks */,
 				A0FB2F4B226E792700F90F78 /* RxSwift.framework in Frameworks */,
+				C09A3A1622F9BA99003884B8 /* ReSwiftThunk.framework in Frameworks */,
+				C09A3A1522F9BA89003884B8 /* ReSwiftThunk.framework in Frameworks */,
 				A0FB2F41226E78E700F90F78 /* Kingfisher.framework in Frameworks */,
 				A0FB2F47226E792700F90F78 /* RxBlocking.framework in Frameworks */,
 			);
@@ -260,6 +267,7 @@
 		A0D3C20622EF71550015D812 /* State */ = {
 			isa = PBXGroup;
 			children = (
+				C0951F3322EF417E00D6FD47 /* AppState.swift */,
 				C0951F4122EF438B00D6FD47 /* RoutingState.swift */,
 				A0D3C20A22EF726E0015D812 /* SearchState.swift */,
 			);
@@ -340,7 +348,6 @@
 				A0FB2ED1226E74EB00F90F78 /* ApplicationCoordinator.swift */,
 				A0FB2F13226E766A00F90F78 /* Environment.swift */,
 				A0FB2E7E226E734C00F90F78 /* AppDelegate.swift */,
-				C0951F3322EF417E00D6FD47 /* AppState.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -578,6 +585,7 @@
 		A0FB2F32226E78E600F90F78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C09A3A1422F9BA89003884B8 /* ReSwiftThunk.framework */,
 				C0951F3A22EF42B700D6FD47 /* ReSwift.framework */,
 				A0D3C20222EF6CA50015D812 /* ReSwift.framework */,
 				A0FB2F34226E78E600F90F78 /* KeychainSwift.framework */,

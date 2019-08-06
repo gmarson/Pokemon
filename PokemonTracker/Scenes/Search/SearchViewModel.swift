@@ -20,7 +20,6 @@ class SearchViewModel {
     
     var coordinatorDelegate: PokemonSearchCoordinatorDelegate?
     var pokemon: Pokemon! = nil
-    private let pokemonServices = PokemonServices()
     
     var numberOfRowsInSection: Int {
         return pokemon == nil ? 0 : 1

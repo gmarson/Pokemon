@@ -13,9 +13,12 @@ func searchReducer(action: Action, state: SearchState?) -> SearchState {
     var unwrappedState = state ?? SearchState()
     
     switch action {
-    case let routingAction as FinishedSearchAction:
-        unwrappedState.pokemon = routingAction.pokemon
+        
+    case let finishedSearchAction as FinishedSearchAction:
+        return SearchState(currentViewState: SearchState.ViewState.retrieved(pokemon: finishedSearchAction.pokemon!))
+    
     default: break
+    
     }
     
     
