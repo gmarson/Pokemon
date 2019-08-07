@@ -10,6 +10,26 @@ import ReSwift
 
 struct SearchState: StateType {
 
+    //TODO:
+    
+    //Change to
+    /*
+     struct MySubState: Equatable {
+     // Combined substate derived from the app state.
+     
+     init(state: AppState) {
+     // Compute here the substate needed.
+     }
+     }
+     
+     store.subscribe(self) { $0.select(MySubState.init) }
+     
+     func newState(state: MySubState) {
+     // Profit!
+     }
+     */
+    
+    
     init(currentViewState: ViewState? = nil) {
         if let state = currentViewState {
             self.currentViewState = state

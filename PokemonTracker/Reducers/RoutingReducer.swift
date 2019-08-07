@@ -9,7 +9,14 @@
 import ReSwift
 
 func routingReducer(action: Action, state: RoutingState?) -> RoutingState {
-    let state = state ?? RoutingState()
-    return state
+    print("Routing Reducer called")
+    
+    var strongState = state ?? RoutingState()
+    
+    if let routingAction = action as? RoutingAction {
+        strongState.navigationState = routingAction.destination
+    }
+    
+    return strongState
 }
 

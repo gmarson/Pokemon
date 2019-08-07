@@ -18,10 +18,10 @@ class SearchViewController: UIViewController {
     
     private var viewModel: SearchViewModel!
     
-    class func newInstance() -> SearchViewController {
+    class func newInstance(viewModel: SearchViewModel) -> SearchViewController {
 
         let vc = SearchViewController.instantiate(viewControllerOfType: SearchViewController.self)
-        vc.viewModel = SearchViewModel()
+        vc.viewModel = viewModel
         return vc
     }
     
@@ -34,11 +34,13 @@ class SearchViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
         
-        store.subscribe(self) {
-            $0.select({
-                $0.searchState
-            })
-        }
+        store.subscribe(self) { $0.select(SearchState.init) }
+        
+//        store.subscribe(self) {
+//            $0.select({
+//                SearchState.init
+//            })
+//        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -97,6 +99,7 @@ extension SearchViewController: StoreSubscriber {
     
     func newState(state: SearchState) {
         
+        print("New state on Search view Controller")
         switch state.currentViewState {
             
         case .idle:

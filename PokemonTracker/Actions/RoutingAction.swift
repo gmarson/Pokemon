@@ -10,4 +10,8 @@ import ReSwift
 
 struct RoutingAction: Action {
     let destination: RoutingDestination
+    
+    init(destination: RoutingDestination) {
+        self.destination = destination
+    }
 }

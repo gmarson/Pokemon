@@ -43,11 +43,16 @@ final class AppRouter: Coordinator {
         store.dispatch(RoutingAction(destination: .saved))
         window.makeKeyAndVisible()
     }
+    
+    deinit {
+        store.unsubscribe(self)
+    }
 }
 
 // MARK: - StoreSubscriber
 extension AppRouter: StoreSubscriber {
     func newState(state: RoutingState) {
+        print("new state on coordinator")
         switch state.navigationState {
         case .search:
             pokemonSearchCoordinator.start()

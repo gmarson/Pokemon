@@ -12,7 +12,8 @@ import ReSwiftThunk
 
 func fetchPokemonThunk(pokemonName: String) -> Thunk<AppState> {
     return Thunk<AppState> { dispatch, getState in
-        guard let state = getState() else { return }
+        //guard let state = getState() else { return }
+        print("Fetch Pokemon Thunk")
         PokemonServices().getPokemon(identifier: pokemonName, onSuccess: { (response, pokemon) in
             DispatchQueue.main.async {
                 dispatch(FinishedSearchAction(pokemon: pokemon, networkResponse: response))
