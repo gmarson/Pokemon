@@ -11,19 +11,18 @@ import ReSwift
 func searchReducer(action: Action, state: SearchState?) -> SearchState {
     
     print("Search reducer called")
-    let unwrappedState = state ?? SearchState()
+    let unwrappedState = state ?? SearchState.idle
     
     switch action {
         
     case let finishedSearchAction as FinishedSearchAction:
-        return SearchState(currentViewState: SearchState.ViewState.retrieved(pokemon: finishedSearchAction.pokemon!))
+        return SearchState.retrieved(pokemon: finishedSearchAction.pokemon!)
     case let downloadedImage as DownloadedImageAction:
-        return SearchState(currentViewState: SearchState.ViewState.downloadedImage(data: downloadedImage.pngData))
+        return SearchState.downloadedImage(data: downloadedImage.pngData)
         
     default: break
     
     }
-    
     
     return unwrappedState
 }

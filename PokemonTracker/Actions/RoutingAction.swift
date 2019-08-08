@@ -8,10 +8,15 @@
 
 import ReSwift
 
-struct RoutingAction: Action {
-    let destination: RoutingDestination
+protocol RoutingAction: Action {}
+struct SearchRouteAction: RoutingAction {}
+struct SavedRouteAction: RoutingAction {}
+
+struct DeatailRouteAction: RoutingAction {
     
-    init(destination: RoutingDestination) {
-        self.destination = destination
+    private(set) var requestingCoordinator: Coordinator
+    
+    init(requestingCoordinator: Coordinator) {
+        self.requestingCoordinator = requestingCoordinator
     }
 }

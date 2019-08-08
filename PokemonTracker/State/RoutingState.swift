@@ -8,10 +8,21 @@
 
 import ReSwift
 
-struct RoutingState: StateType {
-    var navigationState: RoutingDestination
-    
-    init(navigationState: RoutingDestination = .search) {
-        self.navigationState = navigationState
+enum RoutingState: Equatable {
+    static func == (lhs: RoutingState, rhs: RoutingState) -> Bool {
+        switch (lhs, rhs) {
+        case (.search, .search):
+            return true
+        case (.saved, .saved):
+            return true
+        case (.detail(_), .detail(_)):
+            return false
+        default:
+            return false
+        }
     }
+    
+    case search
+    case saved
+    case detail(requestingCoordinator: Coordinator)
 }

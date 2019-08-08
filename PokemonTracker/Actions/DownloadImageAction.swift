@@ -13,7 +13,7 @@ import ReSwiftThunk
 let downloadPokemonImageThunk = Thunk<AppState> { dispatch, getState in
     guard let state = getState() else { return }
     
-    switch state.searchState.currentViewState {
+    switch state.searchState {
     case .retrieved(let pokemon):
         
         guard let url = pokemon.sprites?.front_default else { return }

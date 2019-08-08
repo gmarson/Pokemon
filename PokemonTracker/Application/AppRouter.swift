@@ -9,11 +9,7 @@
 import ReSwift
 import UIKit
 
-enum RoutingDestination {
-    case search
-    case saved
-    case detail(requestingCoordinator: Coordinator)
-}
+
 
 final class AppRouter: Coordinator {
     
@@ -39,8 +35,8 @@ final class AppRouter: Coordinator {
     
     func start() {
         window.rootViewController = rootViewController
-        store.dispatch(RoutingAction(destination: .search))
-        store.dispatch(RoutingAction(destination: .saved))
+        store.dispatch(SearchRouteAction())
+        store.dispatch(SavedRouteAction())
         window.makeKeyAndVisible()
     }
     
@@ -53,7 +49,7 @@ final class AppRouter: Coordinator {
 extension AppRouter: StoreSubscriber {
     func newState(state: RoutingState) {
         print("new state on coordinator")
-        switch state.navigationState {
+        switch state {
         case .search:
             pokemonSearchCoordinator.start()
         case .saved:
