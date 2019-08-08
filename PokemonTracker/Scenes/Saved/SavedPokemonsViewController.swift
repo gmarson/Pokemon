@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RxSwift
+import ReSwift
 
 protocol SavedPokemonsViewControllerProtocol: class {
     
@@ -20,7 +20,6 @@ class SavedPokemonsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     private var viewModel: SavedPokemonsViewModel!
-    private let disposeBag = DisposeBag()
     
     class func newInstance(viewModel: SavedPokemonsViewModel) -> SavedPokemonsViewController {
         let viewController = SavedPokemonsViewController.instantiate(viewControllerOfType: SavedPokemonsViewController.self)
@@ -31,37 +30,12 @@ class SavedPokemonsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
         setupTitle()
         setupTableView()
     }
     
     private func setupTitle() {
         title = "Saved"
-    }
-    
-    func bind() {
-        
-        viewModel.viewState
-            .subscribeOn(MainScheduler.instance)
-            .subscribe { [weak self] (event) in
-            guard let self = self, let state = event.element else { return }
-            switch state {
-                
-            case .idle:
-                break
-            case .retrieved(_):
-                let decision = self.viewModel.pokemons.count != 0
-                self.stackView.isHidden = decision
-                self.tableView.isHidden = !decision
-                self.tableView.reloadData()
-            case .keychainError(_):
-                //TODO show alert with error
-                break
-            }
-            
-        }.disposed(by: disposeBag)
-        
     }
     
     private func setupTableView() {
@@ -73,7 +47,10 @@ class SavedPokemonsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.retrievePokemons()
+        
+        //TODO need to subscribe first
+        
+        store.dispatch(GetSavedPokemonsAction())
     }
     
 }
@@ -108,5 +85,29 @@ extension SavedPokemonsViewController: UITableViewDelegate, UITableViewDataSourc
             viewModel.removePokemon(index: indexPath.row)
         }
     }
+    
+}
+
+
+extension SavedPokemonsViewController: StoreSubscriber {
+    
+    func newState(state: SavedState) {
+        
+        print("New state on Saved view Controller")
+        switch state {
+            
+        case .idle:
+            break
+        case .retrieved(_):
+            let decision = self.viewModel.pokemons.count != 0
+            self.stackView.isHidden = decision
+            self.tableView.isHidden = !decision
+            self.tableView.reloadData()
+        case .keychainError(_):
+            //TODO show alert with error
+            break
+        }
+    }
+    
     
 }

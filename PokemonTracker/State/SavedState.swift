@@ -16,14 +16,14 @@ enum SavedState: Equatable {
             return true
         case (.retrieved(pokemons: let pokemonsLhs), .retrieved(pokemons: let pokemonsRhs)):
             return checkForUniquePokemonInArrays(lhs: pokemonsLhs, rhs: pokemonsRhs)
-        case (.keychainError(let lhs), .keychainError(let rhs)):
-            return lhs == rhs
+        case (.keychainError(let lhsError), .keychainError(let rhsError)):
+            return lhsError == rhsError
         default:
             return false
         }
     }
     
-    static func checkForUniquePokemonInArrays(lhs: [Pokemon], rhs: [Pokemon]) -> Bool{
+    private static func checkForUniquePokemonInArrays(lhs: [Pokemon], rhs: [Pokemon]) -> Bool{
         let potentialDiferentPokmeon = lhs.first { (lhsPokemon) -> Bool in
             var isUniquePokemon = true
             
@@ -32,11 +32,9 @@ enum SavedState: Equatable {
                     isUniquePokemon = false
                 }
             })
-            
+    
             return isUniquePokemon
         }
-        
-        
         return potentialDiferentPokmeon == nil
     }
     

@@ -66,7 +66,7 @@ class DetailViewModel {
     }
     
     func removeFromDatabase() {
-        PokemonKeychainPersistency().remove(key: pokemon.prettyName, onSuccess: {
+        PokemonKeychainPersistency().remove(key: pokemon.prettyName, onSuccess: { _ in
             self.viewState.onNext(.pokemonRemoved)
         }) { _ in
             self.viewState.onNext(.keychainError(.failToDelete))

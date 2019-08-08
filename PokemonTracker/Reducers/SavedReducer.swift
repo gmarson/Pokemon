@@ -13,16 +13,21 @@ func savedReducer(action: Action, state: SavedState?) -> SavedState {
     print("Saved reducer called")
     let unwrappedState = state ?? SavedState.idle
     
-//    switch action {
-//
-//    case let finishedSearchAction as FinishedSearchAction:
-//        return SearchState.retrieved(pokemon: finishedSearchAction.pokemon!)
-//    case let downloadedImage as DownloadedImageAction:
-//        return SearchState.downloadedImage(data: downloadedImage.pngData)
-//
-//    default: break
-//        
-//    }
+    switch action {
+        
+    case let finishedFetchPokemons as GetSavedPokemonsAction:
+        return SavedState.retrieved(pokemons: finishedFetchPokemons.retrievedPokemons)
+    case let finishedRemovingPokemon as RemovedPokemonAction:
+        if let remaining = finishedRemovingPokemon.pokemons {
+            return SavedState.retrieved(pokemons: remaining)
+            
+        } else if let error = finishedRemovingPokemon.error {
+            return SavedState.keychainError(error: error)
+        }
+    default:
+        return SavedState.keychainError(error: .unknown)
+    }
     
     return unwrappedState
 }
+

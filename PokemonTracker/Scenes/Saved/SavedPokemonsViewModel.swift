@@ -22,20 +22,6 @@ class SavedPokemonsViewModel {
     var coordinatorDelegate: SavedPokemonsCoordinatorDelegate?
     var pokemons = [Pokemon]()
     
-    init() {
-        retrievePokemons()
-    }
-    
-    
-    
-    func removePokemon(index: Int) {
-        PokemonKeychainPersistency().remove(key: pokemons[index].prettyName, onSuccess: {
-            self.retrievePokemons()
-        }) { error in
-            self.viewState.onNext(.keychainError(error: error))
-        }
-    }
-    
 }
 
 extension SavedPokemonsViewModel {

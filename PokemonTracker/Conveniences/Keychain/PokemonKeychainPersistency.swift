@@ -28,7 +28,7 @@ class PokemonKeychainPersistency {
     
     /// Check if a pokemon is stored locally
     ///
-    /// - Parameter key: id of pokemon
+    /// - Parameter key: name of pokemon
     /// - Returns: Boolean indicating wheter pokemons is or not in database
     func isInDatabase(key: String) -> Bool {
         return savedPokemons.first { (name) -> Bool in
@@ -57,7 +57,7 @@ class PokemonKeychainPersistency {
     /// Retrieve one pokemon
     ///
     /// - Parameters:
-    ///   - key: desired pokemon id
+    ///   - key: desired pokemon name
     ///   - onSuccess: onSuccess block returning the pokemon
     ///   - onFailure: onFailure block returning an error
     func retrieve(key: String, onSuccess: ((Pokemon) -> ()), onFailure: ((KeychainErrors) -> ())? = nil) {
@@ -92,10 +92,10 @@ class PokemonKeychainPersistency {
     /// Remove a certain pokemon from keychain
     ///
     /// - Parameters:
-    ///   - key: Desired pokemon ID
-    ///   - onSuccess: onSuccess block
-    ///   - onFailure: onFailure block
-    func remove(key: String, onSuccess: (() -> ()), onFailure: ((KeychainErrors) -> ())? = nil) {
+    ///   - key: Desired pokemon name
+    ///   - onSuccess: onSuccess block returning remaining pokemons
+    ///   - onFailure: onFailure block returning an error
+    func remove(key: String, onSuccess: (([Pokemon]) -> ()), onFailure: ((KeychainErrors) -> ())? = nil) {
         if keychain.delete(key) {
             
             self.savedPokemons.removeAll { (name) -> Bool in
@@ -103,7 +103,7 @@ class PokemonKeychainPersistency {
             }
             
             UserDefaults.standard.set(self.savedPokemons, forKey: self.key)
-            onSuccess()
+            onSuccess(retrieveAll())
         } else {
             onFailure?(KeychainErrors.deletion)
         }

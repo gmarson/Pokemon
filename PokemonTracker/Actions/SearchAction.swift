@@ -36,4 +36,3 @@ struct FinishedSearchAction: Action {
         self.networkResponse = networkResponse
     }
 }
-

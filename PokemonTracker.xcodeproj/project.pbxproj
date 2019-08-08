@@ -85,7 +85,8 @@
 		A0FB2F6A226E878200F90F78 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FB2F67226E878200F90F78 /* DetailViewController.xib */; };
 		C01D035422FC6A3C001FAD9F /* SavedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01D035322FC6A3C001FAD9F /* SavedState.swift */; };
 		C01D035622FC6D9B001FAD9F /* SavedReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01D035522FC6D9B001FAD9F /* SavedReducer.swift */; };
-		C01D035822FC6DDD001FAD9F /* SavedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01D035722FC6DDD001FAD9F /* SavedAction.swift */; };
+		C01D035822FC6DDD001FAD9F /* GetSavedPokemonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01D035722FC6DDD001FAD9F /* GetSavedPokemonAction.swift */; };
+		C01D035A22FC9310001FAD9F /* RemovePokemonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01D035922FC9310001FAD9F /* RemovePokemonAction.swift */; };
 		C0951F3422EF417E00D6FD47 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0951F3322EF417E00D6FD47 /* AppState.swift */; };
 		C0951F3722EF41A600D6FD47 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0951F3622EF41A600D6FD47 /* AppReducer.swift */; };
 		C0951F3C22EF42DA00D6FD47 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0951F3A22EF42B700D6FD47 /* ReSwift.framework */; };
@@ -223,7 +224,8 @@
 		A0FB2F67226E878200F90F78 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailViewController.xib; path = PokemonTracker/Scenes/Detail/DetailViewController.xib; sourceTree = SOURCE_ROOT; };
 		C01D035322FC6A3C001FAD9F /* SavedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedState.swift; sourceTree = "<group>"; };
 		C01D035522FC6D9B001FAD9F /* SavedReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedReducer.swift; sourceTree = "<group>"; };
-		C01D035722FC6DDD001FAD9F /* SavedAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedAction.swift; sourceTree = "<group>"; };
+		C01D035722FC6DDD001FAD9F /* GetSavedPokemonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSavedPokemonAction.swift; sourceTree = "<group>"; };
+		C01D035922FC9310001FAD9F /* RemovePokemonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePokemonAction.swift; sourceTree = "<group>"; };
 		C0951F3322EF417E00D6FD47 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		C0951F3622EF41A600D6FD47 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		C0951F3A22EF42B700D6FD47 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
@@ -294,7 +296,8 @@
 				A0D3C20822EF71DE0015D812 /* RoutingAction.swift */,
 				C09A3A0C22F87899003884B8 /* SearchAction.swift */,
 				C09A3A1222F8A41D003884B8 /* DownloadImageAction.swift */,
-				C01D035722FC6DDD001FAD9F /* SavedAction.swift */,
+				C01D035722FC6DDD001FAD9F /* GetSavedPokemonAction.swift */,
+				C01D035922FC9310001FAD9F /* RemovePokemonAction.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -847,12 +850,13 @@
 				A0FB2F69226E878200F90F78 /* DetailViewController.swift in Sources */,
 				C0951F3F22EF431500D6FD47 /* AppRouter.swift in Sources */,
 				A0FB2F02226E74F200F90F78 /* Pokemon.swift in Sources */,
+				C01D035A22FC9310001FAD9F /* RemovePokemonAction.swift in Sources */,
 				A0FB2EFE226E74F200F90F78 /* VersionLocationDetail.swift in Sources */,
 				A0FB2EC9226E74CF00F90F78 /* UIAlertControllerExtension.swift in Sources */,
 				A0FB2F03226E74F200F90F78 /* VersionItemDetail.swift in Sources */,
 				A0FB2ED8226E74EB00F90F78 /* Coordinator.swift in Sources */,
 				A0FB2F05226E74F200F90F78 /* Ability.swift in Sources */,
-				C01D035822FC6DDD001FAD9F /* SavedAction.swift in Sources */,
+				C01D035822FC6DDD001FAD9F /* GetSavedPokemonAction.swift in Sources */,
 				C09A3A1122F879E6003884B8 /* SavedPokemonsCoordinator.swift in Sources */,
 				A0FB2F09226E74F200F90F78 /* ErrorFactory.swift in Sources */,
 				A0FB2F07226E74F200F90F78 /* NameAndUrl.swift in Sources */,
