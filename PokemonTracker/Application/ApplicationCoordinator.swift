@@ -22,10 +22,6 @@ class ApplicationCoordinator: Coordinator {
         rootViewController = TabBarViewController.instantiate(viewControllerOfType: TabBarViewController.self, storyboardName: "Main")
         rootViewController.viewControllers = []
         
-        //self.appRouter = AppRouter(root: rootViewController as! TabBarViewController)
-        
-        
-        
         pokemonSearchCoordinator = PokemonSearchCoordinator(tabBarController: rootViewController)
         savedPokemonsCoordinator = SavedPokemonsCoordinator(tabBarController: rootViewController)
     }

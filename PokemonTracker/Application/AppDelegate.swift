@@ -24,17 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appRouter = AppRouter(window: window)
         appRouter?.start()
         
-        
-//        let window = UIWindow(frame: UIScreen.main.bounds)
-//        let applicationCoordinator = ApplicationCoordinator(window: window)
-//
-//        self.window = window
-//        self.applicationCoordinator = applicationCoordinator
-        
-        
-        
-        //applicationCoordinator.start()
-        
         return true
     }
     

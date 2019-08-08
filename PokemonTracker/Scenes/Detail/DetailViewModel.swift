@@ -60,7 +60,7 @@ class DetailViewModel {
     func saveToDatabase() {
         PokemonKeychainPersistency().save(pokemon: pokemon, onSuccess: {
              self.viewState.onNext(.pokemonAdded)
-        }) {
+        }) { _ in
             self.viewState.onNext(.keychainError(.failToAdd))
         }
     }

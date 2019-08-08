@@ -16,4 +16,5 @@ var store = Store<AppState>(reducer: appReducer, state: nil, middleware: [thunkM
 struct AppState: StateType {
     let routingState: RoutingState
     let searchState: SearchState
+    let savedState: SavedState
 }

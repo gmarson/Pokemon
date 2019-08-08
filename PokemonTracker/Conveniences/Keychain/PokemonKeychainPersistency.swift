@@ -11,6 +11,9 @@ import KeychainSwift
 
 enum KeychainErrors: String {
     case deletion = "We are having trouble to remove this pokemon, try again later!"
+    case save = "We are having trouble to save this pokemon, try again later!"
+    case fetch = "We are having trouble fetch pokemons, try again later!"
+    case unknown = "Something went wrong. Try again later!"
 }
 
 class PokemonKeychainPersistency {
@@ -23,28 +26,44 @@ class PokemonKeychainPersistency {
         savedPokemons = UserDefaults.standard.stringArray(forKey: key) ?? [String]()
     }
     
+    /// Check if a pokemon is stored locally
+    ///
+    /// - Parameter key: id of pokemon
+    /// - Returns: Boolean indicating wheter pokemons is or not in database
     func isInDatabase(key: String) -> Bool {
         return savedPokemons.first { (name) -> Bool in
             return key == name
         } != nil
     }
     
-    func save(pokemon: Pokemon, onSuccess: (() -> ())? = nil, onFailure: (() -> ())? = nil) {
+    /// Save pokemon locally
+    ///
+    /// - Parameters:
+    ///   - pokemon: Pokemon object to be saved
+    ///   - onSuccess: onSuccess block confirming save
+    ///   - onFailure: onFailure block confirming an error
+    func save(pokemon: Pokemon, onSuccess: (() -> ())? = nil, onFailure: ((KeychainErrors) -> ())? = nil) {
         if let encoded = try? JSONEncoder().encode(pokemon) {
             keychain.set(encoded, forKey: pokemon.prettyName)
             savedPokemons.append(pokemon.prettyName)
             UserDefaults.standard.set(savedPokemons, forKey: key)
             onSuccess?()
         } else {
-            onFailure?()
+            onFailure?(.save)
             print("Encode Failed")
         }
     }
     
-    func retrieve(key: String, onSuccess: ((Pokemon) -> ()), onFailure: (() -> ())? = nil) {
+    /// Retrieve one pokemon
+    ///
+    /// - Parameters:
+    ///   - key: desired pokemon id
+    ///   - onSuccess: onSuccess block returning the pokemon
+    ///   - onFailure: onFailure block returning an error
+    func retrieve(key: String, onSuccess: ((Pokemon) -> ()), onFailure: ((KeychainErrors) -> ())? = nil) {
         
         guard let data = keychain.getData(key) else {
-            onFailure?()
+            onFailure?(.unknown)
             return
         }
     
@@ -52,10 +71,13 @@ class PokemonKeychainPersistency {
             onSuccess(decoded)
         } else {
             print("Decode Failed")
-            onFailure?()
+            onFailure?(.fetch)
         }
     }
     
+    /// Retrieve all pokemons stored in keychain
+    ///
+    /// - Returns: all pokemons stored in keychain
     func retrieveAll() -> [Pokemon] {
         var pokemons = [Pokemon]()
         savedPokemons.forEach { (name) in
@@ -67,6 +89,12 @@ class PokemonKeychainPersistency {
         return pokemons
     }
     
+    /// Remove a certain pokemon from keychain
+    ///
+    /// - Parameters:
+    ///   - key: Desired pokemon ID
+    ///   - onSuccess: onSuccess block
+    ///   - onFailure: onFailure block
     func remove(key: String, onSuccess: (() -> ()), onFailure: ((KeychainErrors) -> ())? = nil) {
         if keychain.delete(key) {
             
@@ -81,6 +109,7 @@ class PokemonKeychainPersistency {
         }
     }
     
+    /// Delete all pokemons stored locally. Use with caution!
     func deleteDatabase() {
         savedPokemons = [String]()
         UserDefaults.standard.set(savedPokemons, forKey: self.key)

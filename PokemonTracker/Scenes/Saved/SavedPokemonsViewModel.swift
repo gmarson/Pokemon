@@ -19,24 +19,14 @@ struct SavedDTO {
 
 class SavedPokemonsViewModel {
     
-    enum ViewState {
-        case idle
-        case retrieved(pokemons: [Pokemon])
-        case keychainError(error: KeychainErrors)
-    }
-    
     var coordinatorDelegate: SavedPokemonsCoordinatorDelegate?
-    var viewState = BehaviorSubject<ViewState>(value: .idle)
     var pokemons = [Pokemon]()
     
     init() {
         retrievePokemons()
     }
     
-    func retrievePokemons() {
-        pokemons = PokemonKeychainPersistency().retrieveAll()
-        viewState.onNext(.retrieved(pokemons: pokemons))
-    }
+    
     
     func removePokemon(index: Int) {
         PokemonKeychainPersistency().remove(key: pokemons[index].prettyName, onSuccess: {

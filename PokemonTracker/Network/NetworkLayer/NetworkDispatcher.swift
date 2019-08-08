@@ -18,6 +18,7 @@ public enum HTTPMethod: String {
 
 public typealias Headers = [String:String]
 
+/// Protocol that specifies the service layer methods
 protocol NetworkDispatcherProtocol {
     var baseUrl: URL { get }
     init(baseUrl: String)
