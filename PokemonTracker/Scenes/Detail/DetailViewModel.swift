@@ -9,73 +9,41 @@
 import Foundation
 import RxSwift
 
-typealias DetailKeychainError = DetailViewModel.KeychainErrors
-typealias DetailViewState = DetailViewModel.ViewState
-
 class DetailViewModel {
     
-    enum ViewState: Equatable {
-        static func == (lhs: DetailViewModel.ViewState, rhs: DetailViewModel.ViewState) -> Bool {
-            switch (lhs, rhs) {
-           
-            case (.pokemonReceived(_) , .pokemonReceived(_)):
-                return true
-            case (.pokemonRemoved, .pokemonRemoved):
-                return true
-            case (.pokemonAdded, pokemonAdded):
-                return true
-            case (let .keychainError(error1), let .keychainError(error2)):
-                return error1 == error2
-            case (.idle, .idle):
-                return true
-            default:
-                return false
-            }
-        }
-        
-        case pokemonReceived(pokemon: Pokemon)
-        case pokemonRemoved
-        case pokemonAdded
-        case keychainError(_ type: KeychainErrors)
-        case idle
-    }
-    
-    enum KeychainErrors: Equatable {
-        case failToDelete
-        case failToAdd
+    struct Constants {
+        let baseExperience = "Base Experience: "
+        let species = "Species: "
+        let ability = "Ability: "
+        let failToAdd = "This pokemon could not be added"
+        let failToRemove = "This pokemon could not be removed"
+        let title = "Details"
     }
     
     init(pokemon: Pokemon) {
         self.pokemon = pokemon
-        self.viewState.onNext(.pokemonReceived(pokemon: pokemon))
+        //self.viewState.onNext(.pokemonReceived(pokemon: pokemon))
+        self.constants = Constants()
     }
     
-    var viewState = BehaviorSubject<ViewState>(value: .idle)
-    private var pokemon: Pokemon!
+    private(set) var constants: Constants
+    private(set) var pokemon: Pokemon!
     
     var isPokemonInDatabase: Bool {
         return PokemonKeychainPersistency().isInDatabase(key: pokemon.prettyName)
     }
     
     func saveToDatabase() {
-        PokemonKeychainPersistency().save(pokemon: pokemon, onSuccess: {
-             self.viewState.onNext(.pokemonAdded)
-        }) { _ in
-            self.viewState.onNext(.keychainError(.failToAdd))
-        }
     }
     
     func removeFromDatabase() {
-        PokemonKeychainPersistency().remove(key: pokemon.prettyName, onSuccess: { _ in
-            self.viewState.onNext(.pokemonRemoved)
-        }) { _ in
-            self.viewState.onNext(.keychainError(.failToDelete))
-        }
+//        PokemonKeychainPersistency().remove(key: pokemon.prettyName, onSuccess: { _ in
+//            self.viewState.onNext(.pokemonRemoved)
+//        }) { _ in
+//            self.viewState.onNext(.keychainError(.failToDelete))
+//        }
     }
     
-    func addOrRemoveFromDatabase() {
-        isPokemonInDatabase ? removeFromDatabase() : saveToDatabase()
-    }
 }
 
 

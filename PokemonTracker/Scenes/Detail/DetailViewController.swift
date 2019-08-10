@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RxSwift
+import ReSwift
 
 protocol DetailViewControllerProtocol: class {
     
@@ -26,18 +26,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var pokemonType2: PokemonTypeView!
     
     private var viewModel: DetailViewModel!
-    private var disposeBag = DisposeBag()
-    
-    private struct Constants {
-        let baseExperience = "Base Experience: "
-        let species = "Species: "
-        let ability = "Ability: "
-        let failToAdd = "This pokemon could not be added"
-        let failToRemove = "This pokemon could not be removed"
-        let title = "Details"
-    }
-    
-    private let constants = Constants()
     
     class func newInstance(viewModel: DetailViewModel) -> DetailViewController {
         let viewController = DetailViewController.instantiate(viewControllerOfType: DetailViewController.self)
@@ -53,46 +41,25 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
         setTitle()
-    }
-    
-    private func bind() {
-        viewModel.viewState
-            .subscribeOn(MainScheduler.instance)
-            .subscribe { [weak self] (event) in
-                guard let self = self, let state = event.element else { return }
-                switch state {
-                    
-                case .pokemonReceived(let pokemon):
-                    self.setupScreen(pokemon: pokemon)
-                case .pokemonAdded:
-                    self.pokemonKeychainButton.turnIntoDeleteButton()
-                case .pokemonRemoved:
-                    self.pokemonKeychainButton.turnIntoAddButton()
-                case .keychainError(let errorType):
-                    self.handleKeychainError(error: errorType)
-                case .idle:
-                    break
-                }
-            
-        }.disposed(by: disposeBag)
-    }
-    
-    private func handleKeychainError(error: DetailKeychainError ) {
-        var message = ""
-        switch error {
-        case .failToDelete:
-            message = constants.failToRemove
-        case .failToAdd:
-            message = constants.failToAdd
-        }
         
-        self.present(UIAlertController.errorAlert(message: message), animated: true, completion: nil)
+        store.subscribe(self) {
+            $0.select({
+                $0.detailState
+            })
+        }
+    }
+    
+    deinit {
+        store.unsubscribe(self)
+    }
+    
+    private func handleKeychainError(error: KeychainErrors ) {
+        self.present(UIAlertController.errorAlert(message: error.rawValue), animated: true, completion: nil)
     }
     
     private func setTitle() {
-        title = constants.title
+        title = viewModel.constants.title
     }
     
     private func setButtonStatus() {
@@ -105,13 +72,13 @@ class DetailViewController: UIViewController {
             pokemonImage.image = UIImage(data: data)
         }
     
-        baseExperienceLabel.text = constants.baseExperience + pokemon.baseExperience
+        baseExperienceLabel.text = viewModel.constants.baseExperience + pokemon.baseExperience
         if let species = pokemon.species {
-            speciesLabel.text = constants.species + species.prettyName
+            speciesLabel.text = viewModel.constants.species + species.prettyName
         }
         
         if let a = pokemon.commomAbility, let abilityName = a.ability?.prettyName {
-            abilityLabel.text = constants.ability + abilityName
+            abilityLabel.text = viewModel.constants.ability + abilityName
         }
         
         pokemonType1.setup(types: pokemon.types, position: 0)
@@ -127,7 +94,24 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func addOrRemove(_ sender: PokemonKeychainButton) {
-        viewModel.addOrRemoveFromDatabase()
+        viewModel.isPokemonInDatabase ? store.dispatch(removePokemonThunk(prettyName: viewModel.pokemon.prettyName)) : store.dispatch(savePokemonThunk(pokemon: viewModel.pokemon))
     }
-    
+}
+
+extension DetailViewController: StoreSubscriber {
+    func newState(state: DetailState) {
+        switch state {
+            
+        case .pokemonReceived(let pokemon):
+            self.setupScreen(pokemon: pokemon)
+        case .pokemonAdded:
+            self.pokemonKeychainButton.turnIntoDeleteButton()
+        case .pokemonRemoved:
+            self.pokemonKeychainButton.turnIntoAddButton()
+        case .keychainError(let errorType):
+            self.handleKeychainError(error: errorType)
+        case .idle:
+            break
+        }
+    }
 }

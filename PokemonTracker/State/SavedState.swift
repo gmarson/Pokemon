@@ -6,8 +6,6 @@
 //  Copyright © 2019 Gabriel M. All rights reserved.
 //
 
-import Foundation
-
 
 enum SavedState: Equatable {
     static func == (lhs: SavedState, rhs: SavedState) -> Bool {

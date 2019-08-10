@@ -48,9 +48,18 @@ class SavedPokemonsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //TODO need to subscribe first
+        store.subscribe(self) {
+            $0.select({
+                $0.savedState
+            })
+        }
         
         store.dispatch(GetSavedPokemonsAction())
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        store.unsubscribe(self)
     }
     
 }
@@ -82,7 +91,7 @@ extension SavedPokemonsViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            viewModel.removePokemon(index: indexPath.row)
+            //viewModel.removePokemon(index: indexPath.row) TODO Dispatch action to remove
         }
     }
     

@@ -6,8 +6,6 @@
 //  Copyright © 2019 Gabriel M. All rights reserved.
 //
 
-import ReSwift
-
 enum RoutingState: Equatable {
     static func == (lhs: RoutingState, rhs: RoutingState) -> Bool {
         switch (lhs, rhs) {

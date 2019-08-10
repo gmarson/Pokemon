@@ -6,7 +6,7 @@
 //  Copyright © 2019 Gabriel M. All rights reserved.
 //
 
-import ReSwift
+import Foundation
 
 enum SearchState: Equatable {
     
@@ -35,6 +35,8 @@ enum SearchState: Equatable {
     case downloadedImage(data: Data?)
     case error(_ error: Errors)
 }
+
+
 
 
 

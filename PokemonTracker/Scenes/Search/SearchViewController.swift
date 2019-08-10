@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 import ReSwift
 
 class SearchViewController: UIViewController {
@@ -71,6 +70,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //tODO time to think how we should call this
+        //store.dispatch(RoutingAction)
         //viewModel.toPokemonDetailed(index: indexPath.row) TODO: dispatch action
     }
     
@@ -95,10 +96,10 @@ extension SearchViewController: UISearchBarDelegate {
 
 extension SearchViewController: StoreSubscriber {
     
-    func newState(state: SearchState) {
+    func newState(state searchState: SearchState) {
         
         print("New state on Search view Controller")
-        switch state {
+        switch searchState {
             
         case .idle:
             break
