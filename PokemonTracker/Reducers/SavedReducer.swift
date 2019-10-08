@@ -23,11 +23,11 @@ func savedReducer(action: Action, state: SavedState?) -> SavedState {
             
         } else if let error = finishedRemovingPokemon.error {
             return SavedState.keychainError(error: error)
+        } else {
+            return SavedState.keychainError(error: .unknown)
         }
     default:
-        return SavedState.keychainError(error: .unknown)
+        return unwrappedState
     }
-    
-    return unwrappedState
 }
 

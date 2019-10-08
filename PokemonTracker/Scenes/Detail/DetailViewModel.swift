@@ -20,17 +20,18 @@ class DetailViewModel {
         let title = "Details"
     }
     
-    init(pokemon: Pokemon) {
+    init(pokemon: Pokemon?) {
         self.pokemon = pokemon
         //self.viewState.onNext(.pokemonReceived(pokemon: pokemon))
         self.constants = Constants()
     }
     
     private(set) var constants: Constants
-    private(set) var pokemon: Pokemon!
+    private(set) var pokemon: Pokemon?
     
     var isPokemonInDatabase: Bool {
-        return PokemonKeychainPersistency().isInDatabase(key: pokemon.prettyName)
+        guard let key = pokemon?.prettyName else { return false }
+        return PokemonKeychainPersistency().isInDatabase(key: key)
     }
     
     func saveToDatabase() {

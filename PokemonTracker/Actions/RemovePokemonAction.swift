@@ -24,15 +24,19 @@ struct RemovedPokemonAction: Action {
     }
 }
 
-func removePokemonThunk(prettyName: String) -> Thunk<AppState> {
+func removePokemonThunk(prettyName: String?) -> Thunk<AppState> {
     return Thunk<AppState> { dispatch, getState in
         
         print("Remove Pokemon Thunk")
         
-        PokemonKeychainPersistency().remove(key: prettyName, onSuccess: { remainingPokemons in
-            dispatch(RemovedPokemonAction(pokemons: remainingPokemons))
-        }) { error in
-            dispatch(RemovedPokemonAction(error: error))
+        if let prettyName = prettyName {
+            PokemonKeychainPersistency().remove(key: prettyName, onSuccess: { remainingPokemons in
+                dispatch(RemovedPokemonAction(pokemons: remainingPokemons))
+            }) { error in
+                dispatch(RemovedPokemonAction(error: error))
+            }
+        } else {
+            dispatch(RemovedPokemonAction.init(error: .deletion))
         }
         
     }

@@ -94,7 +94,7 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func addOrRemove(_ sender: PokemonKeychainButton) {
-        viewModel.isPokemonInDatabase ? store.dispatch(removePokemonThunk(prettyName: viewModel.pokemon.prettyName)) : store.dispatch(savePokemonThunk(pokemon: viewModel.pokemon))
+        viewModel.isPokemonInDatabase ? store.dispatch(removePokemonThunk(prettyName: viewModel.pokemon?.prettyName)) : store.dispatch(savePokemonThunk(pokemon: viewModel.pokemon))
     }
 }
 

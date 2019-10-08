@@ -5,3 +5,4 @@ github "mac-cain13/R.swift.Library"
 github "ReSwift/ReSwift"
 github "ReSwift/ReSwift-Thunk"
 github "kean/Nuke" ~> 7.0
+github "pointfreeco/swift-snapshot-testing" ~> 1.6

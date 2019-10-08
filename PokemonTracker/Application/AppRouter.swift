@@ -55,6 +55,9 @@ extension AppRouter: StoreSubscriber {
         case .saved:
             savedPokemonsCoordinator.start()
         case .detail(let requestingCoordinator):
+            //rootViewController.viewControllers[1]
+           
+            
             break
 //            let viewModel = DetailViewModel(pokemon: searchDTO.pokemon)
 //            let detailViewController = DetailViewController.newInstance(viewModel: viewModel)

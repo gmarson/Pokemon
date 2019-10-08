@@ -107,6 +107,11 @@
 		C09A3A2422FA10F0003884B8 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09A3A2322FA10F0003884B8 /* Nuke.framework */; };
 		C09A3A2522FA10FA003884B8 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09A3A2322FA10F0003884B8 /* Nuke.framework */; };
 		C09A3A2622FA10FA003884B8 /* Nuke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C09A3A2322FA10F0003884B8 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C0DF2DE1234D129800DD92A6 /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0DF2DE0234D129800DD92A6 /* SnapshotTesting.framework */; };
+		C0DF2DE2234D129800DD92A6 /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0DF2DE0234D129800DD92A6 /* SnapshotTesting.framework */; };
+		C0DF2DE4234D130A00DD92A6 /* SnapshotTesting.framework in Snapshot CopyFiles */ = {isa = PBXBuildFile; fileRef = C0DF2DE0234D129800DD92A6 /* SnapshotTesting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C0DF2DE6234D139300DD92A6 /* SnapshotTesting.framework in Snapshot Copy Files */ = {isa = PBXBuildFile; fileRef = C0DF2DE0234D129800DD92A6 /* SnapshotTesting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C0DF2DF2234D1F3100DD92A6 /* SearchSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DF2DED234D194700DD92A6 /* SearchSnapshotTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +149,28 @@
 				A0FB2F48226E792700F90F78 /* RxBlocking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0DF2DE3234D12CC00DD92A6 /* Snapshot CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C0DF2DE4234D130A00DD92A6 /* SnapshotTesting.framework in Snapshot CopyFiles */,
+			);
+			name = "Snapshot CopyFiles";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0DF2DE5234D137D00DD92A6 /* Snapshot Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C0DF2DE6234D139300DD92A6 /* SnapshotTesting.framework in Snapshot Copy Files */,
+			);
+			name = "Snapshot Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -244,6 +271,8 @@
 		C09A3A1222F8A41D003884B8 /* DownloadImageAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageAction.swift; sourceTree = "<group>"; };
 		C09A3A1422F9BA89003884B8 /* ReSwiftThunk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwiftThunk.framework; path = Carthage/Build/iOS/ReSwiftThunk.framework; sourceTree = "<group>"; };
 		C09A3A2322FA10F0003884B8 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
+		C0DF2DE0234D129800DD92A6 /* SnapshotTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapshotTesting.framework; path = Carthage/Build/iOS/SnapshotTesting.framework; sourceTree = "<group>"; };
+		C0DF2DED234D194700DD92A6 /* SearchSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSnapshotTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +301,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0DF2DE1234D129800DD92A6 /* SnapshotTesting.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +309,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0DF2DE2234D129800DD92A6 /* SnapshotTesting.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +628,7 @@
 		A0FB2F1F226E768F00F90F78 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				C0DF2DE7234D162F00DD92A6 /* Tests */,
 				C09A3A0E22F879D4003884B8 /* PokemonSearchCoordinator.swift */,
 				A0FB2F57226E875600F90F78 /* PokemonTableViewCell.swift */,
 				A0FB2F54226E875600F90F78 /* PokemonTableViewCell.xib */,
@@ -611,6 +643,7 @@
 		A0FB2F32226E78E600F90F78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C0DF2DE0234D129800DD92A6 /* SnapshotTesting.framework */,
 				C09A3A2322FA10F0003884B8 /* Nuke.framework */,
 				C09A3A1422F9BA89003884B8 /* ReSwiftThunk.framework */,
 				C0951F3A22EF42B700D6FD47 /* ReSwift.framework */,
@@ -646,6 +679,38 @@
 			path = Store;
 			sourceTree = "<group>";
 		};
+		C0DF2DE7234D162F00DD92A6 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C0DF2DEC234D17BE00DD92A6 /* Mocks */,
+				C0DF2DE9234D163E00DD92A6 /* Snapshot Tests */,
+				C0DF2DE8234D163500DD92A6 /* Unit Tests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		C0DF2DE8234D163500DD92A6 /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Unit Tests";
+			sourceTree = "<group>";
+		};
+		C0DF2DE9234D163E00DD92A6 /* Snapshot Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C0DF2DED234D194700DD92A6 /* SearchSnapshotTests.swift */,
+			);
+			path = "Snapshot Tests";
+			sourceTree = "<group>";
+		};
+		C0DF2DEC234D17BE00DD92A6 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -676,6 +741,7 @@
 				A0FB2E8E226E734E00F90F78 /* Sources */,
 				A0FB2E8F226E734E00F90F78 /* Frameworks */,
 				A0FB2E90226E734E00F90F78 /* Resources */,
+				C0DF2DE3234D12CC00DD92A6 /* Snapshot CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -694,6 +760,7 @@
 				A0FB2E99226E734E00F90F78 /* Sources */,
 				A0FB2E9A226E734E00F90F78 /* Frameworks */,
 				A0FB2E9B226E734E00F90F78 /* Resources */,
+				C0DF2DE5234D137D00DD92A6 /* Snapshot Copy Files */,
 			);
 			buildRules = (
 			);
@@ -908,6 +975,7 @@
 			files = (
 				A0FB2F50226E7B4400F90F78 /* DetailTests.swift in Sources */,
 				A0FB2E97226E734E00F90F78 /* PokemonTrackerTests.swift in Sources */,
+				C0DF2DF2234D1F3100DD92A6 /* SearchSnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1164,6 +1232,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5KVHBZ5S3B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PokemonTrackerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1175,6 +1247,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PokemonTracker;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -1184,6 +1257,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5KVHBZ5S3B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PokemonTrackerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1195,6 +1272,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PokemonTracker;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Release;
 		};

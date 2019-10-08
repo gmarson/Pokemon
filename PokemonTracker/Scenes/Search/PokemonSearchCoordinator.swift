@@ -22,11 +22,9 @@ class PokemonSearchCoordinator: Coordinator {
     }
     
     func start() {
-        
-        
         let viewModel = SearchViewModel()
-        viewModel.coordinatorDelegate = self
         let searchViewController = SearchViewController.newInstance(viewModel: viewModel)
+        searchViewController.coordinatorDelegate = self
         self.searchViewController = searchViewController
         navigationController.viewControllers = [searchViewController]
         setupTabBar()
@@ -42,6 +40,7 @@ class PokemonSearchCoordinator: Coordinator {
 extension PokemonSearchCoordinator: PokemonSearchCoordinatorDelegate {
     //TODO need to create a delegate to appCoordinator
     func toPokemonDetailed(searchDTO: SearchDTO) {
+        store.dispatch(DeatailRouteAction(requestingCoordinator: self))
         let viewModel = DetailViewModel(pokemon: searchDTO.pokemon)
         let detailViewController = DetailViewController.newInstance(viewModel: viewModel)
         navigationController.pushViewController(detailViewController, animated: true)

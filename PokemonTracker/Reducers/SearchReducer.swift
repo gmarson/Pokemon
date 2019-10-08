@@ -16,13 +16,11 @@ func searchReducer(action: Action, state: SearchState?) -> SearchState {
     switch action {
         
     case let finishedSearchAction as FinishedSearchAction:
-        return SearchState.retrieved(pokemon: finishedSearchAction.pokemon!)
+        guard let pokemon = finishedSearchAction.pokemon else { return unwrappedState }
+        return SearchState.retrieved(pokemon: pokemon)
     case let downloadedImage as DownloadedImageAction:
         return SearchState.downloadedImage(data: downloadedImage.pngData)
-        
-    default: break
-    
+    default:
+        return unwrappedState
     }
-    
-    return unwrappedState
 }

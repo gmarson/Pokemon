@@ -9,12 +9,17 @@
 import UIKit
 import ReSwift
 
+protocol PokemonSearchCoordinatorDelegate: class {
+    func toPokemonDetailed(searchDTO: SearchDTO)
+}
+
 class SearchViewController: UIViewController {
 
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var pikachuStackView: UIStackView!
     
+    weak var coordinatorDelegate: PokemonSearchCoordinatorDelegate?
     private var viewModel: SearchViewModel!
     
     class func newInstance(viewModel: SearchViewModel) -> SearchViewController {
@@ -64,15 +69,15 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: PokemonTableViewCell.identifier) as! PokemonTableViewCell
-        cell.setup(pokemon: viewModel.pokemon)
-        
+        if let pokemon = viewModel.pokemon {
+            cell.setup(pokemon: pokemon)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //tODO time to think how we should call this
-        //store.dispatch(RoutingAction)
-        //viewModel.toPokemonDetailed(index: indexPath.row) TODO: dispatch action
+        let dto = SearchDTO(pokemon: viewModel.pokemon)
+        coordinatorDelegate?.toPokemonDetailed(searchDTO: dto)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -115,7 +120,7 @@ extension SearchViewController: StoreSubscriber {
             self.present(UIAlertController.errorAlert(message: error.rawValue), animated: true, completion: nil)
         
         case .downloadedImage(let image):
-            self.viewModel.pokemon.pngImage = image
+            self.viewModel.pokemon?.pngImage = image
             self.tableView.reloadData()
         }
     }

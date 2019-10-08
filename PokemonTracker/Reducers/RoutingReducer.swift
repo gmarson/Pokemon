@@ -11,7 +11,7 @@ import ReSwift
 func routingReducer(action: Action, state: RoutingState?) -> RoutingState {
     print("Routing Reducer called")
     
-    let strongState = state ?? RoutingState.search
+    let unwrappedState = state ?? RoutingState.search
     
     switch action {
     case _ as SearchRouteAction:
@@ -21,7 +21,7 @@ func routingReducer(action: Action, state: RoutingState?) -> RoutingState {
     case let detail as DeatailRouteAction:
         return RoutingState.detail(requestingCoordinator: detail.requestingCoordinator)
     default:
-        return strongState
+        return unwrappedState
     }
     
 }
