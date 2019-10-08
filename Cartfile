@@ -1,8 +1,0 @@
-github "onevcat/Kingfisher" ~> 5.2.0
-github "evgenyneu/keychain-swift" ~> 13.0
-github "ReactiveX/RxSwift" ~> 4.4.2
-github "mac-cain13/R.swift.Library"
-github "ReSwift/ReSwift"
-github "ReSwift/ReSwift-Thunk"
-github "kean/Nuke" ~> 7.0
-github "pointfreeco/swift-snapshot-testing" ~> 1.6

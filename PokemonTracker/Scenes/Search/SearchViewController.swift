@@ -10,7 +10,7 @@ import UIKit
 import ReSwift
 
 protocol PokemonSearchCoordinatorDelegate: class {
-    func toPokemonDetailed(searchDTO: SearchDTO)
+    func toPokemonDetailed(searchDTO: SearchDTO, from viewController: UIViewController)
 }
 
 class SearchViewController: UIViewController {
@@ -77,7 +77,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let dto = SearchDTO(pokemon: viewModel.pokemon)
-        coordinatorDelegate?.toPokemonDetailed(searchDTO: dto)
+        coordinatorDelegate?.toPokemonDetailed(searchDTO: dto, from: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
