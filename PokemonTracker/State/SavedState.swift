@@ -6,7 +6,6 @@
 //  Copyright © 2019 Gabriel M. All rights reserved.
 //
 
-
 enum SavedState: Equatable {
     static func == (lhs: SavedState, rhs: SavedState) -> Bool {
         switch (lhs, rhs) {

@@ -30,4 +30,3 @@ func savedReducer(action: Action, state: SavedState?) -> SavedState {
         return unwrappedState
     }
 }
-

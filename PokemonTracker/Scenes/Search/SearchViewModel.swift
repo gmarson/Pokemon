@@ -14,6 +14,10 @@ struct SearchDTO {
 
 class SearchViewModel {
     
+    init() {
+        
+    }
+    
     var pokemon: Pokemon? = nil
     
     var numberOfRowsInSection: Int {

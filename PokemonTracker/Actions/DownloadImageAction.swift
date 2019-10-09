@@ -35,7 +35,6 @@ let downloadPokemonImageThunk = Thunk<AppState> { dispatch, getState in
     }
 }
 
-
 struct DownloadedImageAction: Action {
     let pngData: Data?
     

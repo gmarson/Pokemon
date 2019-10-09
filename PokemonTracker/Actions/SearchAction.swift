@@ -9,7 +9,6 @@
 import ReSwift
 import ReSwiftThunk
 
-
 func fetchPokemonThunk(pokemonName: String) -> Thunk<AppState> {
     return Thunk<AppState> { dispatch, getState in
         //guard let state = getState() else { return }
@@ -25,7 +24,6 @@ func fetchPokemonThunk(pokemonName: String) -> Thunk<AppState> {
         })
     }
 }
-
 
 struct FinishedSearchAction: Action {
     let pokemon: Pokemon?

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 import ReSwift
 import ReSwiftThunk
 
@@ -37,7 +36,6 @@ func savePokemonThunk(pokemon: Pokemon?) -> Thunk<AppState> {
         } else {
             dispatch(SavedPokemonAction.init(error: .unknown))
         }
-        
         
     }
 }

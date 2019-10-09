@@ -30,6 +30,7 @@ class PokemonTypeView: UIView {
         parentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(parentView)
         typeColor.layer.cornerRadius = 5.0
+        backgroundColor = .systemBackground
     }
     
     func setup(types: [Type]?, position: Int) {

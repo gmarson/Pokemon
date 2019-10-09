@@ -12,8 +12,5 @@ func detailReducer(action: Action, state: DetailState?) -> DetailState {
     
     print("Detail reducer called")
     let unwrappedState = state ?? DetailState.idle
-    
-    
-    
     return unwrappedState
 }

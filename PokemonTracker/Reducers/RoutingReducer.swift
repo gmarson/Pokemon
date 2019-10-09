@@ -25,4 +25,3 @@ func routingReducer(action: Action, state: RoutingState?) -> RoutingState {
     }
     
 }
-

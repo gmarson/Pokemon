@@ -31,9 +31,3 @@ enum DetailState: Equatable {
     case keychainError(_ type: KeychainErrors)
     case idle
 }
-
-
-
-
-
-

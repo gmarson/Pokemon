@@ -1,4 +1,4 @@
-framework module Pods_PokemonTrackerTests {
+module Pods_PokemonTrackerTests {
   umbrella header "Pods-PokemonTrackerTests-umbrella.h"
 
   export *

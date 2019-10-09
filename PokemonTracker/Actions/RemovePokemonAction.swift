@@ -41,6 +41,3 @@ func removePokemonThunk(prettyName: String?) -> Thunk<AppState> {
         
     }
 }
-
-
-

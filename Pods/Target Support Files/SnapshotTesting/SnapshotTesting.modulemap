@@ -1,4 +1,4 @@
-framework module SnapshotTesting {
+module SnapshotTesting {
   umbrella header "SnapshotTesting-umbrella.h"
 
   export *

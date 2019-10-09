@@ -11,18 +11,16 @@ target 'PokemonTracker' do
   pod 'Kingfisher'
   pod 'KeychainSwift', '~> 17.0'
   pod 'Nuke'
-  
-  # Pods for PokemonTracker
+end
 
-  target 'PokemonTrackerTests' do
-    inherit! :search_paths
-    pod 'SnapshotTesting', '~> 1.6'
-    # Pods for testing
-  end
+target 'PokemonTrackerTests' do
+  inherit! :search_paths
+  pod 'SnapshotTesting', '~> 1.6'
+  # Pods for testing
+end
 
-  target 'PokemonTrackerUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
 
+target 'PokemonTrackerUITests' do
+  inherit! :search_paths
+  # Pods for testing
 end

@@ -9,8 +9,6 @@
 import ReSwift
 import UIKit
 
-
-
 final class AppRouter: Coordinator {
     
     let window: UIWindow
