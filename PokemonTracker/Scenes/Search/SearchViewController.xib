@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +25,7 @@
                     <rect key="frame" x="0.0" y="56" width="375" height="611"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bEB-IT-ExI">
-                            <rect key="frame" x="0.0" y="131" width="375" height="349"/>
+                            <rect key="frame" x="0.0" y="210" width="375" height="191"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Type a pokemon name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuL-Ri-MrJ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="33"/>
@@ -36,7 +35,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pikachu" translatesAutoresizingMaskIntoConstraints="NO" id="tBB-jK-2E7">
-                                    <rect key="frame" x="0.0" y="33" width="375" height="316"/>
+                                    <rect key="frame" x="0.0" y="33" width="375" height="158"/>
                                 </imageView>
                             </subviews>
                             <constraints>
@@ -51,6 +50,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </tableView>
                     </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="64e-h0-pmz" secondAttribute="trailing" id="CfB-rc-D5q"/>
                         <constraint firstAttribute="trailing" secondItem="bEB-IT-ExI" secondAttribute="trailing" id="Fcy-9I-4Z0"/>
@@ -67,10 +67,11 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="Yca-hM-NSH"/>
                     </constraints>
-                    <color key="barTintColor" name="steel"/>
+                    <color key="barTintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
             </subviews>
+            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="3CK-mn-Xr7" firstAttribute="top" secondItem="2Qw-9l-6wx" secondAttribute="bottom" id="G5D-oM-NDP"/>
                 <constraint firstItem="3CK-mn-Xr7" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="GLM-H9-FUs"/>
@@ -81,14 +82,12 @@
                 <constraint firstItem="3CK-mn-Xr7" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="oRE-Ff-11y"/>
                 <constraint firstItem="2Qw-9l-6wx" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="u6a-4e-uQ0"/>
             </constraints>
+            <nil key="simulatedTopBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="134" y="154"/>
         </view>
     </objects>
     <resources>
         <image name="pikachu" width="158" height="158"/>
-        <namedColor name="steel">
-            <color red="0.72200000286102295" green="0.72200000286102295" blue="0.81199997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

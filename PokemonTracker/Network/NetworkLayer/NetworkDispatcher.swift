@@ -40,6 +40,7 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
     
     // MARK: - Lifecycle
     required init(baseUrl: String) {
+        //TODO: check if chars in baseUrl are allowed
         self.baseUrl = URL(string: Environment.shared.baseURL + baseUrl)!
     }
     

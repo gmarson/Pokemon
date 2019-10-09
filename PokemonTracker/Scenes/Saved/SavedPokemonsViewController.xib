@@ -37,6 +37,7 @@
                             </constraints>
                         </imageView>
                     </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstItem="zHK-mK-7Hz" firstAttribute="leading" secondItem="9sh-aW-S1K" secondAttribute="leading" id="DQ3-kg-wha"/>
                         <constraint firstAttribute="trailing" secondItem="zHK-mK-7Hz" secondAttribute="trailing" id="TYi-UO-piE"/>
@@ -48,6 +49,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
             </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="nE1-ZV-KYg" secondAttribute="bottom" id="012-Lh-pLd"/>
                 <constraint firstItem="9sh-aW-S1K" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1HY-az-pYl"/>

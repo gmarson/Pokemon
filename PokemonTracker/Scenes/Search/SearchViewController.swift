@@ -36,8 +36,7 @@ class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        
+        navigationController?.setNavigationBarHidden(true, animated: false)
         store.subscribe(self) {
             $0.select({
                 $0.searchState
@@ -105,7 +104,6 @@ extension SearchViewController: StoreSubscriber {
         
         print("New state on Search view Controller")
         switch searchState {
-            
         case .idle:
             break
         case .retrieved(let pokemon):
@@ -113,9 +111,7 @@ extension SearchViewController: StoreSubscriber {
             self.tableView.isHidden = false
             self.tableView.reloadData()
             store.dispatch(downloadPokemonImageThunk)
-            
         case .error(let error):
-            
             self.tableView.isHidden = true
             self.present(UIAlertController.errorAlert(message: error.rawValue), animated: true, completion: nil)
         
