@@ -22,7 +22,9 @@ let downloadPokemonImageThunk = Thunk<AppState> { dispatch, getState in
                 
             case .success(let success):
                 DispatchQueue.main.async {
+                    let data = String(data: success.image.pngData()!, encoding: .utf8 )
                     dispatch(DownloadedImageAction(data: success.image.pngData()))
+                    
                 }
                 
             case .failure(_):

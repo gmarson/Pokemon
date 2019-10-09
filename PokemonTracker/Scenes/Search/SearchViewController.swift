@@ -23,7 +23,6 @@ class SearchViewController: UIViewController {
     private var viewModel: SearchViewModel!
     
     class func newInstance(viewModel: SearchViewModel) -> SearchViewController {
-
         let vc = SearchViewController.instantiate(viewControllerOfType: SearchViewController.self)
         vc.viewModel = viewModel
         return vc

@@ -20,22 +20,15 @@ struct SavedPokemonAction: Action {
 
 func savePokemonThunk(pokemon: Pokemon?) -> Thunk<AppState> {
     return Thunk<AppState> { dispatch, getState in
-        
         print("Save Pokemon Thunk")
-        
         if let pokemon = pokemon {
             PokemonKeychainPersistency().save(pokemon: pokemon, onSuccess: {
                 dispatch(SavedPokemonAction())
-                
-                //self.viewState.onNext(.pokemonAdded)
             }) { error in
-                
                 dispatch(SavedPokemonAction(error: error))
-                //self.viewState.onNext(.keychainError(.failToAdd))
             }
         } else {
             dispatch(SavedPokemonAction.init(error: .unknown))
         }
-        
     }
 }
