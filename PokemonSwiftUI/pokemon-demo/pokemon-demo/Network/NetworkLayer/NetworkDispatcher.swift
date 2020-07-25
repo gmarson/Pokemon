@@ -39,7 +39,7 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
     
     // MARK: - Lifecycle
     required init(baseUrl: String) {
-        self.baseUrl = URL(string: Environment.shared.baseURL + baseUrl)!
+        self.baseUrl = URL(string: Environment.baseURL + baseUrl)!
     }
     
     init(url: URL) {

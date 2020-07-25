@@ -8,11 +8,6 @@
 
 struct Environment {
     
-    // MARK: - Singleton
-    static let shared = Environment()
-    
     // MARK: - Properties
-    var baseURL: String {
-        return "https://pokeapi.co/api/v2/"
-    }
+    static var baseURL: String { "https://pokeapi.co/api/v2/" }
 }

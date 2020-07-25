@@ -16,7 +16,7 @@
 		ECD1A67824CC7C6B00EA2F67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD1A67624CC7C6B00EA2F67 /* LaunchScreen.storyboard */; };
 		ECD1A68324CC7C6B00EA2F67 /* pokemon_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1A68224CC7C6B00EA2F67 /* pokemon_demoTests.swift */; };
 		ECD1A68E24CC7C6C00EA2F67 /* pokemon_demoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1A68D24CC7C6C00EA2F67 /* pokemon_demoUITests.swift */; };
-		ECD1A69E24CC7EF200EA2F67 /* Environmnent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1A69D24CC7EF200EA2F67 /* Environmnent.swift */; };
+		ECD1A69E24CC7EF200EA2F67 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1A69D24CC7EF200EA2F67 /* Environment.swift */; };
 		ECD1A6A124CC7F8500EA2F67 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1A6A024CC7F8500EA2F67 /* StringExtensions.swift */; };
 		ECD1A6A424CC7FC300EA2F67 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1A6A324CC7FC300EA2F67 /* Keychain.swift */; };
 		ECD1A6A824CC80DC00EA2F67 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD1A6A724CC80DC00EA2F67 /* KeychainSwift.framework */; };
@@ -92,7 +92,7 @@
 		ECD1A68924CC7C6C00EA2F67 /* pokemon-demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pokemon-demoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD1A68D24CC7C6C00EA2F67 /* pokemon_demoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokemon_demoUITests.swift; sourceTree = "<group>"; };
 		ECD1A68F24CC7C6C00EA2F67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECD1A69D24CC7EF200EA2F67 /* Environmnent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environmnent.swift; sourceTree = "<group>"; };
+		ECD1A69D24CC7EF200EA2F67 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		ECD1A6A024CC7F8500EA2F67 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		ECD1A6A324CC7FC300EA2F67 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		ECD1A6A724CC80DC00EA2F67 /* KeychainSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainSwift.framework; path = Carthage/Build/iOS/KeychainSwift.framework; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 		ECD1A69C24CC7ECD00EA2F67 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				ECD1A69D24CC7EF200EA2F67 /* Environmnent.swift */,
+				ECD1A69D24CC7EF200EA2F67 /* Environment.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -554,7 +554,7 @@
 				ECD1A66924CC7C6A00EA2F67 /* AppDelegate.swift in Sources */,
 				ECD1A66B24CC7C6A00EA2F67 /* SceneDelegate.swift in Sources */,
 				ECD1A6DE24CC818B00EA2F67 /* NetworkError.swift in Sources */,
-				ECD1A69E24CC7EF200EA2F67 /* Environmnent.swift in Sources */,
+				ECD1A69E24CC7EF200EA2F67 /* Environment.swift in Sources */,
 				ECD1A6DD24CC818B00EA2F67 /* NetworkResponse.swift in Sources */,
 				ECD1A6E324CC818B00EA2F67 /* PokemonServices.swift in Sources */,
 				ECD1A6D824CC818B00EA2F67 /* Ability.swift in Sources */,
