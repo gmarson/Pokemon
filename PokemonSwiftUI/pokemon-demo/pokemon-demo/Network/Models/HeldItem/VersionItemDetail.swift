@@ -6,7 +6,7 @@
 //  Copyright © 2018 Gabriel M. All rights reserved.
 //
 
-struct VersionItemDetail: Codable{
+struct VersionItemDetail: Codable {
     var rarity: Int?
     var version: NameAndUrl?
 }

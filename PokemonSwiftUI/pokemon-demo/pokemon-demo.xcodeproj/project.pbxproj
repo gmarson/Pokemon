@@ -170,18 +170,12 @@
 		ECD1A66724CC7C6A00EA2F67 /* pokemon-demo */ = {
 			isa = PBXGroup;
 			children = (
-				ECD1A6AC24CC818B00EA2F67 /* Network */,
-				ECD1A6A224CC7FB600EA2F67 /* Keychain */,
-				ECD1A69F24CC7F7600EA2F67 /* Extensions */,
+				ECD1A6E724CC866500EA2F67 /* Resources */,
 				ECD1A69C24CC7ECD00EA2F67 /* Application */,
+				ECD1A6E524CC864300EA2F67 /* Common */,
+				ECD1A6AC24CC818B00EA2F67 /* Network */,
 				ECD1A69B24CC7CBC00EA2F67 /* Components */,
-				ECD1A66824CC7C6A00EA2F67 /* AppDelegate.swift */,
-				ECD1A66A24CC7C6A00EA2F67 /* SceneDelegate.swift */,
-				ECD1A66F24CC7C6A00EA2F67 /* ContentView.swift */,
-				ECD1A67124CC7C6B00EA2F67 /* Assets.xcassets */,
-				ECD1A67624CC7C6B00EA2F67 /* LaunchScreen.storyboard */,
-				ECD1A67924CC7C6B00EA2F67 /* Info.plist */,
-				ECD1A66C24CC7C6A00EA2F67 /* pokemon_demo.xcdatamodeld */,
+				ECD1A6E624CC865600EA2F67 /* Scenes */,
 				ECD1A67324CC7C6B00EA2F67 /* Preview Content */,
 			);
 			path = "pokemon-demo";
@@ -223,6 +217,9 @@
 		ECD1A69C24CC7ECD00EA2F67 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				ECD1A66F24CC7C6A00EA2F67 /* ContentView.swift */,
+				ECD1A66824CC7C6A00EA2F67 /* AppDelegate.swift */,
+				ECD1A66A24CC7C6A00EA2F67 /* SceneDelegate.swift */,
 				ECD1A69D24CC7EF200EA2F67 /* Environment.swift */,
 			);
 			path = Application;
@@ -369,6 +366,33 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		ECD1A6E524CC864300EA2F67 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				ECD1A6A224CC7FB600EA2F67 /* Keychain */,
+				ECD1A69F24CC7F7600EA2F67 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		ECD1A6E624CC865600EA2F67 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		ECD1A6E724CC866500EA2F67 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ECD1A67124CC7C6B00EA2F67 /* Assets.xcassets */,
+				ECD1A67624CC7C6B00EA2F67 /* LaunchScreen.storyboard */,
+				ECD1A67924CC7C6B00EA2F67 /* Info.plist */,
+				ECD1A66C24CC7C6A00EA2F67 /* pokemon_demo.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -380,6 +404,7 @@
 				ECD1A66224CC7C6A00EA2F67 /* Frameworks */,
 				ECD1A66324CC7C6A00EA2F67 /* Resources */,
 				ECD1A6A524CC80B400EA2F67 /* Carthage */,
+				ECD1A6E424CC837D00EA2F67 /* SwiftLint */,
 				ECD1A6AA24CC80DC00EA2F67 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -535,6 +560,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+		ECD1A6E424CC837D00EA2F67 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -743,7 +786,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "pokemon-demo/Info.plist";
+				INFOPLIST_FILE = "pokemon-demo/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -767,7 +810,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "pokemon-demo/Info.plist";
+				INFOPLIST_FILE = "pokemon-demo/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

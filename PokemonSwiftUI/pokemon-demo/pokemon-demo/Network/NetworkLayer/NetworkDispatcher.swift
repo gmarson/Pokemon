@@ -16,12 +16,13 @@ public enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
-public typealias Headers = [String:String]
+public typealias Headers = [String: String]
 
 protocol NetworkDispatcherProtocol {
     var baseUrl: URL { get }
-    init(baseUrl: String)
     var errorFactory: ErrorFactory { get set }
+    
+    init(baseUrl: String)
     func request<T: Decodable>(type: T.Type, method: HTTPMethod, headers: Headers?, payload: Data?, onSuccess: @escaping ((NetworkResponse, T?) -> ()), onFailure: @escaping ((NetworkResponse) -> ()), onCompletion: (() -> ())?)
     func requestArray<T: Decodable>(type: T.Type, method: HTTPMethod, headers: Headers?, payload: Data?, onSuccess: @escaping ((NetworkResponse, [T]?) -> ()), onFailure: @escaping ((NetworkResponse) -> ()), onCompletion: (() -> ())?)
     func request(method: HTTPMethod, headers: Headers?, payload: Data?, onSuccess: @escaping ((NetworkResponse) -> ()),  onFailure: @escaping ((NetworkResponse) -> ()), onCompletion: (() -> ())?)
@@ -35,7 +36,7 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
     private var decoder: DecoderProtocol = Decoder()
     private let session = URLSession.shared
     internal var errorFactory = ErrorFactory()
-    private var defaultHeaders = ["Content-Type":"application/json"]
+    private var defaultHeaders = ["Content-Type": "application/json"]
     
     // MARK: - Lifecycle
     required init(baseUrl: String) {
@@ -47,13 +48,14 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
     }
     
     // MARK: - Responses
-    func request<T>(type: T.Type,
-                    method: HTTPMethod,
-                    headers: Headers? = nil,
-                    payload: Data? = nil,
-                    onSuccess: @escaping ((NetworkResponse, T?) -> ()),
-                    onFailure: @escaping ((NetworkResponse) -> ()),
-                    onCompletion: (() -> ())?) where T : Decodable
+    func request<T>(
+        type: T.Type,
+        method: HTTPMethod,
+        headers: Headers? = nil,
+        payload: Data? = nil,
+        onSuccess: @escaping ((NetworkResponse, T?) -> ()),
+        onFailure: @escaping ((NetworkResponse) -> ()),
+        onCompletion: (() -> ())?) where T : Decodable
     {
         
         let networkResponse = NetworkResponse()
@@ -191,13 +193,12 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
             let jsonString = String(data: jsonData, encoding: .utf8)
             
             return jsonString
-        } catch  {
+        } catch {
             debugPrint("Error while trying to pretty print")
         }
         
        return nil
         
     }
-    
     
 }

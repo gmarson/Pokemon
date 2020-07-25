@@ -26,8 +26,6 @@ struct Pokemon: Codable {
     var moves: [Move]?
     var held_itens: [HeldItem]?
     var location_area_encounters: URL?
-    
-    
     var pngImage: Data?
 }
 
@@ -44,17 +42,11 @@ extension Pokemon {
     }
     
     var baseExperience: String {
-        get {
-            guard let be = base_experience else { return "N/A" }
-            return String(be)
-        }
+        guard let be = base_experience else { return "N/A" }
+        return String(be)
     }
     
     var commomAbility: Ability? {
-        get {
-            return abilities?.filter({ (ability) -> Bool in
-                return ability.is_hidden == false
-            }).first
-        }
+        abilities?.first { $0.is_hidden == false }
     }
 }

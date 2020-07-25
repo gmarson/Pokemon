@@ -18,8 +18,7 @@ struct NetworkError {
             self.error = error
             self.code = error._code
             self.message = (message == nil) ? error.localizedDescription : message
-        }
-        else if let message = message {
+        } else if let message = message {
             self.message = message
         }
         

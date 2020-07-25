@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum ErrorType : String {
+public enum ErrorType: String {
     case serializationError = "Serialization Error"
     case invalidURL = "Invalid URL"
     case parametersNil = "Parameters are null"

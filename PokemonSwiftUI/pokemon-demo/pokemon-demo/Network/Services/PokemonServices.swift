@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class PokemonServices {
     
     private let baseUrl = "pokemon/"

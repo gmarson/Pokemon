@@ -6,7 +6,7 @@
 //  Copyright © 2018 Gabriel M. All rights reserved.
 //
 
-struct Ability : Codable {
+struct Ability: Codable {
     var is_hidden: Bool?
     var slot: Int?
     var ability: NameAndUrl?
