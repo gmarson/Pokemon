@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 
-
 class SavedPokemonsViewController: UIViewController {
 
     @IBOutlet private weak var stackView: UIStackView!

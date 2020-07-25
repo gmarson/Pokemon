@@ -474,10 +474,10 @@
 		A0FB2F12226E764400F90F78 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A0FB2E85226E734C00F90F78 /* PokemonTracker.xcdatamodeld */,
 				A0FB2E88226E734E00F90F78 /* Assets.xcassets */,
 				A0FB2E8A226E734E00F90F78 /* LaunchScreen.storyboard */,
 				A0FB2E8D226E734E00F90F78 /* Info.plist */,
-				A0FB2E85226E734C00F90F78 /* PokemonTracker.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
