@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 protocol EncoderProtocol {
     func encode<T: Encodable>(object: T) -> Data?
 }

@@ -24,12 +24,14 @@ class PokemonKeychainPersistency {
     }
     
     func isInDatabase(key: String) -> Bool {
-        return savedPokemons.first { (name) -> Bool in
-            return key == name
-        } != nil
+        return savedPokemons.contains { key == $0 }
     }
     
-    func save(pokemon: Pokemon, onSuccess: (() -> ())? = nil, onFailure: (() -> ())? = nil) {
+    func save(
+        pokemon: Pokemon,
+        onSuccess: (() -> Void)? = nil,
+        onFailure: (() -> Void)? = nil
+    ) {
         if let encoded = try? JSONEncoder().encode(pokemon) {
             keychain.set(encoded, forKey: pokemon.prettyName)
             savedPokemons.append(pokemon.prettyName)
@@ -41,7 +43,11 @@ class PokemonKeychainPersistency {
         }
     }
     
-    func retrieve(key: String, onSuccess: ((Pokemon) -> ()), onFailure: (() -> ())? = nil) {
+    func retrieve(
+        key: String,
+        onSuccess: ((Pokemon) -> Void),
+        onFailure: (() -> Void)? = nil
+    ) {
         
         guard let data = keychain.getData(key) else {
             onFailure?()
@@ -58,8 +64,8 @@ class PokemonKeychainPersistency {
     
     func retrieveAll() -> [Pokemon] {
         var pokemons = [Pokemon]()
-        savedPokemons.forEach { (name) in
-            retrieve(key: name, onSuccess: { (pokemon) in
+        savedPokemons.forEach {
+            retrieve(key: $0, onSuccess: { pokemon in
                 pokemons.append(pokemon)
             })
         }
@@ -67,10 +73,14 @@ class PokemonKeychainPersistency {
         return pokemons
     }
     
-    func remove(key: String, onSuccess: (() -> ()), onFailure: ((KeychainErrors) -> ())? = nil) {
+    func remove(
+        key: String,
+        onSuccess: (() -> Void),
+        onFailure: ((KeychainErrors) -> Void)? = nil
+    ) {
         if keychain.delete(key) {
             
-            self.savedPokemons.removeAll { (name) -> Bool in
+            self.savedPokemons.removeAll { name -> Bool in
                 return name == key
             }
             

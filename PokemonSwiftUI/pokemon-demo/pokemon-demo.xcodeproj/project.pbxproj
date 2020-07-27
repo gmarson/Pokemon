@@ -14,7 +14,6 @@
 		ECD1A67224CC7C6B00EA2F67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD1A67124CC7C6B00EA2F67 /* Assets.xcassets */; };
 		ECD1A67524CC7C6B00EA2F67 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD1A67424CC7C6B00EA2F67 /* Preview Assets.xcassets */; };
 		ECD1A67824CC7C6B00EA2F67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD1A67624CC7C6B00EA2F67 /* LaunchScreen.storyboard */; };
-		ECD1A68324CC7C6B00EA2F67 /* pokemon_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1A68224CC7C6B00EA2F67 /* pokemon_demoTests.swift */; };
 		ECD1A68E24CC7C6C00EA2F67 /* pokemon_demoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1A68D24CC7C6C00EA2F67 /* pokemon_demoUITests.swift */; };
 		ECD1A69E24CC7EF200EA2F67 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1A69D24CC7EF200EA2F67 /* Environment.swift */; };
 		ECD1A6A124CC7F8500EA2F67 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1A6A024CC7F8500EA2F67 /* StringExtensions.swift */; };
@@ -87,7 +86,6 @@
 		ECD1A67724CC7C6B00EA2F67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECD1A67924CC7C6B00EA2F67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECD1A67E24CC7C6B00EA2F67 /* pokemon-demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pokemon-demoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECD1A68224CC7C6B00EA2F67 /* pokemon_demoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokemon_demoTests.swift; sourceTree = "<group>"; };
 		ECD1A68424CC7C6C00EA2F67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECD1A68924CC7C6C00EA2F67 /* pokemon-demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pokemon-demoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD1A68D24CC7C6C00EA2F67 /* pokemon_demoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokemon_demoUITests.swift; sourceTree = "<group>"; };
@@ -192,7 +190,6 @@
 		ECD1A68124CC7C6B00EA2F67 /* pokemon-demoTests */ = {
 			isa = PBXGroup;
 			children = (
-				ECD1A68224CC7C6B00EA2F67 /* pokemon_demoTests.swift */,
 				ECD1A68424CC7C6C00EA2F67 /* Info.plist */,
 			);
 			path = "pokemon-demoTests";
@@ -621,7 +618,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECD1A68324CC7C6B00EA2F67 /* pokemon_demoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,14 +18,20 @@ public enum HTTPMethod: String {
 
 public typealias Headers = [String: String]
 
-protocol NetworkDispatcherProtocol {
+protocol NetworkDispatcherProtocol: AnyObject {
     var baseUrl: URL { get }
     var errorFactory: ErrorFactory { get set }
     
     init(baseUrl: String)
-    func request<T: Decodable>(type: T.Type, method: HTTPMethod, headers: Headers?, payload: Data?, onSuccess: @escaping ((NetworkResponse, T?) -> ()), onFailure: @escaping ((NetworkResponse) -> ()), onCompletion: (() -> ())?)
-    func requestArray<T: Decodable>(type: T.Type, method: HTTPMethod, headers: Headers?, payload: Data?, onSuccess: @escaping ((NetworkResponse, [T]?) -> ()), onFailure: @escaping ((NetworkResponse) -> ()), onCompletion: (() -> ())?)
-    func request(method: HTTPMethod, headers: Headers?, payload: Data?, onSuccess: @escaping ((NetworkResponse) -> ()),  onFailure: @escaping ((NetworkResponse) -> ()), onCompletion: (() -> ())?)
+    func request<T: Decodable>(
+        type: T.Type,
+        method: HTTPMethod,
+        headers: Headers?,
+        payload: Data?,
+        onSuccess: @escaping ((NetworkResponse, T?) -> Void),
+        onFailure: @escaping ((NetworkResponse) -> Void),
+        onCompletion: (() -> Void)?
+    )
 }
 
 class NetworkDispatcher: NetworkDispatcherProtocol {
@@ -40,7 +46,7 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
     
     // MARK: - Lifecycle
     required init(baseUrl: String) {
-        self.baseUrl = URL(string: Environment.baseURL + baseUrl)!
+        self.baseUrl = URL(string: Environment.baseURL + baseUrl) ?? URL(fileURLWithPath: "empty")
     }
     
     init(url: URL) {
@@ -48,16 +54,16 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
     }
     
     // MARK: - Responses
-    func request<T>(
+    func request<T: Decodable>(
         type: T.Type,
         method: HTTPMethod,
         headers: Headers? = nil,
         payload: Data? = nil,
-        onSuccess: @escaping ((NetworkResponse, T?) -> ()),
-        onFailure: @escaping ((NetworkResponse) -> ()),
-        onCompletion: (() -> ())?) where T : Decodable
-    {
-        
+        onSuccess: @escaping ((NetworkResponse, T?) -> Void),
+        onFailure: @escaping ((NetworkResponse) -> Void),
+        onCompletion: (() -> Void)?
+    ) {
+
         let networkResponse = NetworkResponse()
        
         guard let urlRequest = self.buildRequest(url: self.baseUrl, httpMethod: method, httpBody: payload, headers: headers) else {
@@ -66,7 +72,7 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: urlRequest) {(data, response, error) in
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             networkResponse.request = urlRequest
             networkResponse.response = response as? HTTPURLResponse
             
@@ -92,14 +98,14 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
         task.resume()
     }
     
-    func requestArray<T>(type: T.Type,
-                    method: HTTPMethod,
-                    headers: Headers? = nil,
-                    payload: Data? = nil,
-                    onSuccess: @escaping ((NetworkResponse, [T]?) -> ()),
-                    onFailure: @escaping ((NetworkResponse) -> ()),
-                    onCompletion: (() -> ())?) where T : Decodable
-    {
+    func request(
+        method: HTTPMethod,
+        headers: Headers? = nil,
+        payload: Data? = nil,
+        onSuccess: @escaping ((NetworkResponse) -> Void),
+        onFailure: @escaping ((NetworkResponse) -> Void),
+        onCompletion: (() -> Void)?
+    ) {
         let networkResponse = NetworkResponse()
         guard let urlRequest = self.buildRequest(url: self.baseUrl, httpMethod: method, httpBody: payload, headers: headers) else {
             networkResponse.error = self.errorFactory.getError(type: .invalidURL)
@@ -107,48 +113,7 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: urlRequest) {(data, response, error) in
-            networkResponse.request = urlRequest
-            networkResponse.response = response as? HTTPURLResponse
-            
-            if let data = data {
-                networkResponse.rawResponseObject = String(data: data, encoding: .utf8)
-            }
-            
-            if let error = error {
-                networkResponse.error = self.errorFactory.getError(type: .other, error: error)
-                onFailure(networkResponse)
-                return
-            }
-            
-            guard let decodedObject = self.decoder.decodeArray(data: data, type: T.self) else {
-                networkResponse.error = self.errorFactory.getError(type: .serializationError)
-                onFailure(networkResponse)
-                return
-            }
-            
-            
-            onSuccess(networkResponse, decodedObject)
-        }
-        
-        task.resume()
-    }
-    
-    func request(method: HTTPMethod,
-                 headers: Headers? = nil,
-                 payload: Data? = nil,
-                 onSuccess: @escaping ((NetworkResponse) -> ()),
-                 onFailure: @escaping ((NetworkResponse) -> ()),
-                 onCompletion: (() -> ())?)
-    {
-        let networkResponse = NetworkResponse()
-        guard let urlRequest = self.buildRequest(url: self.baseUrl, httpMethod: method, httpBody: payload, headers: headers) else {
-            networkResponse.error = self.errorFactory.getError(type: .invalidURL)
-            onFailure(networkResponse)
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: urlRequest) {(data, response, error) in
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             networkResponse.request = urlRequest
             networkResponse.response = response as? HTTPURLResponse
             
@@ -169,18 +134,24 @@ class NetworkDispatcher: NetworkDispatcherProtocol {
         task.resume()
     }
     
-    private func buildRequest(url: URL, httpMethod: HTTPMethod , httpBody: Data? = nil, headers: Headers? = nil) -> URLRequest? {
+    private func buildRequest(
+        url: URL,
+        httpMethod: HTTPMethod,
+        httpBody: Data? = nil,
+        headers: Headers? = nil
+    ) -> URLRequest? {
+        
         var urlRequest = URLRequest(url: url)
         urlRequest.httpBody = httpBody
-        urlRequest.allHTTPHeaderFields = self.defaultHeaders
+        urlRequest.allHTTPHeaderFields = defaultHeaders
         urlRequest.httpMethod = httpMethod.rawValue
         
-        if let headers = headers {
-            for header in headers {
-                urlRequest.setValue(header.key, forHTTPHeaderField: header.value)
-            }
-        }
+        guard let headers = headers else { return urlRequest }
         
+        headers.forEach {
+            urlRequest.setValue($0.key, forHTTPHeaderField: $0.value)
+        }
+    
         return urlRequest
     }
     

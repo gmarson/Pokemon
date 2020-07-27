@@ -12,24 +12,27 @@ class PokemonServices {
     
     private let baseUrl = "pokemon/"
     
-    func getPokemon(identifier : String,
-                    onSuccess: @escaping ((NetworkResponse, Pokemon?) -> ()),
-                    onFailure: @escaping ((NetworkResponse) -> ()),
-                    onCompletion: (() -> ())? = nil) {
+    func getPokemon(
+        identifier: String,
+        onSuccess: @escaping ((NetworkResponse, Pokemon?) -> Void),
+        onFailure: @escaping ((NetworkResponse) -> Void),
+        onCompletion: (() -> Void)? = nil
+    ) {
         
         let dispatcher = NetworkDispatcher(baseUrl: baseUrl + identifier)
-        dispatcher.request(type: Pokemon.self, method: .get, onSuccess: { (response, pokemon) in
+        dispatcher.request(
+            type: Pokemon.self,
+            method: .get,
+            onSuccess: { response, pokemon in
             onSuccess(response, pokemon)
-        }, onFailure: { (response) in
+            },
+            onFailure: { response in
             onFailure(response)
-        }, onCompletion: {
+            },
+            onCompletion: {
             onCompletion?()
-        })
-    }
-    
-    var mock: Data {
-        let url = Bundle.main.url(forResource: "pokemonMock", withExtension: "json")!
-        return try! Data(contentsOf: url)
+            }
+        )
     }
     
 }
