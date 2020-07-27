@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC28893A24CF91D200A8B982 /* SavedPokemonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28893924CF91D200A8B982 /* SavedPokemonsViewModel.swift */; };
+		EC28894024CF94CA00A8B982 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28893F24CF94CA00A8B982 /* SearchViewModel.swift */; };
+		EC28894324CF95D300A8B982 /* DetailOfPokemons.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28894224CF95D300A8B982 /* DetailOfPokemons.swift */; };
 		ECD1A66924CC7C6A00EA2F67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1A66824CC7C6A00EA2F67 /* AppDelegate.swift */; };
 		ECD1A66B24CC7C6A00EA2F67 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1A66A24CC7C6A00EA2F67 /* SceneDelegate.swift */; };
 		ECD1A66E24CC7C6A00EA2F67 /* pokemon_demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ECD1A66C24CC7C6A00EA2F67 /* pokemon_demo.xcdatamodeld */; };
@@ -76,6 +79,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EC28893924CF91D200A8B982 /* SavedPokemonsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPokemonsViewModel.swift; sourceTree = "<group>"; };
+		EC28893F24CF94CA00A8B982 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		EC28894224CF95D300A8B982 /* DetailOfPokemons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOfPokemons.swift; sourceTree = "<group>"; };
 		ECD1A66524CC7C6A00EA2F67 /* pokemon-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pokemon-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD1A66824CC7C6A00EA2F67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECD1A66A24CC7C6A00EA2F67 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +150,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC28893824CF91BC00A8B982 /* SavedPokemons */ = {
+			isa = PBXGroup;
+			children = (
+				EC28893924CF91D200A8B982 /* SavedPokemonsViewModel.swift */,
+			);
+			path = SavedPokemons;
+			sourceTree = "<group>";
+		};
+		EC28893E24CF94B900A8B982 /* SearchPokemons */ = {
+			isa = PBXGroup;
+			children = (
+				EC28893F24CF94CA00A8B982 /* SearchViewModel.swift */,
+			);
+			path = SearchPokemons;
+			sourceTree = "<group>";
+		};
+		EC28894124CF95A000A8B982 /* DetailOfPokemon */ = {
+			isa = PBXGroup;
+			children = (
+				EC28894224CF95D300A8B982 /* DetailOfPokemons.swift */,
+			);
+			path = DetailOfPokemon;
+			sourceTree = "<group>";
+		};
 		ECD1A65C24CC7C6A00EA2F67 = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +405,9 @@
 		ECD1A6E624CC865600EA2F67 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				EC28894124CF95A000A8B982 /* DetailOfPokemon */,
+				EC28893E24CF94B900A8B982 /* SearchPokemons */,
+				EC28893824CF91BC00A8B982 /* SavedPokemons */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -589,6 +622,7 @@
 				ECD1A6D424CC818B00EA2F67 /* Sprites.swift in Sources */,
 				ECD1A6E024CC818B00EA2F67 /* Encoder.swift in Sources */,
 				ECD1A6D324CC818B00EA2F67 /* EncounterDetail.swift in Sources */,
+				EC28894024CF94CA00A8B982 /* SearchViewModel.swift in Sources */,
 				ECD1A6CE24CC818B00EA2F67 /* VersionGroupDetail.swift in Sources */,
 				ECD1A6D524CC818B00EA2F67 /* Pokemon.swift in Sources */,
 				ECD1A66924CC7C6A00EA2F67 /* AppDelegate.swift in Sources */,
@@ -599,8 +633,10 @@
 				ECD1A6E324CC818B00EA2F67 /* PokemonServices.swift in Sources */,
 				ECD1A6D824CC818B00EA2F67 /* Ability.swift in Sources */,
 				ECD1A67024CC7C6A00EA2F67 /* ContentView.swift in Sources */,
+				EC28893A24CF91D200A8B982 /* SavedPokemonsViewModel.swift in Sources */,
 				ECD1A6E124CC818B00EA2F67 /* NetworkDispatcher.swift in Sources */,
 				ECD1A6D924CC818B00EA2F67 /* Type.swift in Sources */,
+				EC28894324CF95D300A8B982 /* DetailOfPokemons.swift in Sources */,
 				ECD1A6D624CC818B00EA2F67 /* VersionItemDetail.swift in Sources */,
 				ECD1A6DA24CC818B00EA2F67 /* NameAndUrl.swift in Sources */,
 				ECD1A6D224CC818B00EA2F67 /* LocationAreaEncounter.swift in Sources */,
